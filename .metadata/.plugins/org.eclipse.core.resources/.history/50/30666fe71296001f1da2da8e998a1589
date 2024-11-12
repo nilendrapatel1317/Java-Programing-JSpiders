@@ -1,0 +1,21 @@
+package com.string;
+
+public class Reverse_String {
+
+	public static void main(String[] args) {
+		String s = "Java is easy";
+		System.out.println("Input : " + s);
+		System.out.println("Output : " + reverseString(s));
+
+	}
+
+	public static String reverseString(String s) {
+		int i = 0;
+		int j = 0;
+		
+		while(i < s.length() && s.charAt(i) != ' ')
+		
+		return s;
+		
+	}
+}

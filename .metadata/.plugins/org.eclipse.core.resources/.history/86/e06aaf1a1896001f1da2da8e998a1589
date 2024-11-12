@@ -1,0 +1,14 @@
+package com.string;
+
+public class CamelCase {
+
+	public static void main(String[] args) {
+		System.out.println("Input:  " + "my name is nilendra patel.");
+		System.out.println("Output: " + camelCase("my name is nilendra patel."));
+
+	}
+	
+	public static String camString(String s) {
+		s.toCharArray();	}
+
+}

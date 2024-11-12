@@ -1,0 +1,17 @@
+1731045792821	Delete element
+1731046294308	Rename type 'Test4'
+1731082593709	Copy compilation unit
+1731084266454	Rename type 'First_Smallest_Num'
+1731084274136	Rename type 'Second_Smallest_Num'
+1731084334952	Rename method 'firstSmallestNum'
+1731084353487	Rename method 'secondSmallestNum'
+1731084502161	Rename local variable 'firstSmall'
+1731084517452	Rename local variable 'secondSmall'
+1731084532844	Rename local variable 'firstSmall'
+1731084891587	Copy compilation unit
+1731090768955	Rename type 'Bubble_Sort_recursion'
+1731091540057	Rename type 'Recursive_Bubble_Sort'
+1731091552690	Rename type 'Recursive_Selection_Sort'
+1731091614052	Rename compilation unit 'Section_Sort.java'
+1731140115517	Rename local variable 'i'
+1731154954391	Rename method 'splitAndSort'

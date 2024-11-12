@@ -1,0 +1,12 @@
+class H 
+{
+	public static void main(String[] args) 
+	{
+		int a = 0;
+		// int b = ++a + 2;
+		int c = a++ + 2;
+		System.out.println(a);
+		//System.out.println(b);
+		System.out.println(c);
+	}
+}

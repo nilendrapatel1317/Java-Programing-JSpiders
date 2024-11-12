@@ -1,0 +1,19 @@
+import java.util.*;
+import java.io.*;
+
+public class Test {
+   public static void main(String[] args) {
+
+	
+	 
+	 Date time = new Date();
+
+     System.out.printf("Current Time: %tT\n", time);
+
+     System.out.printf("Hours: %tH Seconds: %tS\n", time, time);
+
+  
+
+    
+   }
+}

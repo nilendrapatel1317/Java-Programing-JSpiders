@@ -1,0 +1,19 @@
+package com.array;
+
+public class First_Min {
+	public static void main(String[] args) {
+		int[] a = {4,3,5,6,8,7,9,2,12};
+		System.out.println(firstMaxNum(a));
+		
+	}
+	
+	public static int firstMaxNum(int[] a) {
+		int firstSmall = a[0];
+		for (int i = 0; i < a.length; i++) {
+			if(a[i] < firstSmall) {
+				firstSmall = a[i];
+			}
+		}
+		return firstSmall;
+	}
+}

@@ -1,0 +1,12 @@
+class F 
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("Find the area of Triangle");
+		int b = 5;
+		int h = 8;
+		System.out.println(1/2*b*h);		// 0
+		System.out.println(1.0/2.0*b*h);	// 20.0
+		System.out.println((b*h)/2);		// 20
+	}
+}

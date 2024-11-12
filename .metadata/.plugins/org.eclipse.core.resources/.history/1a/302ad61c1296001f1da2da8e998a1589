@@ -1,0 +1,11 @@
+package com.string;
+
+public class Reverse_String {
+
+	public static void main(String[] args) {
+		String s = "Java is easy";
+		System.out.println();
+
+	}
+
+}

@@ -1,0 +1,26 @@
+package com.array;
+
+public class Second_Min {
+	public static void main(String[] args) {
+		int[] a = {6, 3, 1, 8, 1, 4, 7, 1, 10};
+		System.out.println(secondMinNum(a));
+		
+	}
+	
+	public static int secondMinNum(int[] a) {
+		int firstSmall = a[0];
+		int secondSmall = a[0];
+		
+		for (int i = 0; i < a.length; i++) {
+			if(a[i]==firstSmall) continue;
+			if(a[i] < firstSmall) {
+				secondSmall = firstSmall;
+				firstSmall = a[i];
+			}
+			else if (a[i] < secondSmall || secondSmall == firstSmall ) {
+				secondSmall = a[i];
+			}
+		}
+		return secondSmall;
+	}
+}

@@ -1,0 +1,142 @@
+String Questions in Java
+
+Basic String Manipulation
+Q1: Write a Java program to count the number of vowels and consonants in a given string.
+Q2: Write a Java program to check if two strings are anagrams of each other.
+Q3: Write a Java program to reverse a string without using in-built functions.
+Q4: Write a Java program to find the frequency of each character in a string.
+Q5: Write a Java program to count the occurrence of a specific character in a string.
+Q6: Write a Java program to convert a string to uppercase and lowercase without using in-built functions.
+Q7: Write a Java program to remove all white spaces from a string.
+Q8: Write a Java program to check if a string is a palindrome.
+Q9: Write a Java program to capitalize the first letter of each word in a string.
+Q10: Write a Java program to find and print the longest word in a sentence.
+
+
+Advanced String Manipulation
+Q11: Write a Java program to remove duplicate characters from a string.
+Q12: Write a Java program to find all permutations of a given string.
+Q13: Write a Java program to remove a specific substring from a string.
+Q14: Write a Java program to check if a string contains only digits.
+Q15: Write a Java program to count the number of words in a string.
+Q16: Write a Java program to check if a string contains only alphabet characters.
+Q17: Write a Java program to find the first non-repeating character in a string.
+Q18: Write a Java program to reverse each word in a string without changing the order of words.
+Q19: Write a Java program to replace all occurrences of a given character in a string with another character.
+Q20: Write a Java program to check if a given string is a rotation of another string.
+
+
+String Matching and Searching
+Q21: Write a Java program to find and print all substrings of a given string.
+Q22: Write a Java program to find the index of the first occurrence of a substring in a string.
+Q23: Write a Java program to check if a string starts and ends with a specified substring.
+Q24: Write a Java program to count the number of occurrences of each word in a sentence.
+Q25: Write a Java program to find the longest palindromic substring in a given string.
+Q26: Write a Java program to remove all numeric characters from a string.
+Q27: Write a Java program to split a string based on a delimiter and store it in an array.
+Q28: Write a Java program to check if a string contains a specific sequence of characters.
+
+
+Regular Expressions and Pattern Matching
+Q29: Write a Java program to validate an email address using regular expressions.
+Q30: Write a Java program to validate if a string is a valid IP address.
+Q31: Write a Java program to replace multiple spaces with a single space in a string.
+Q32: Write a Java program to find all occurrences of a substring in a string using regular expressions.
+Q33: Write a Java program to check if a string has all unique characters using regular expressions.
+
+
+Miscellaneous String Problems
+Q34: Write a Java program to sort the characters in a string alphabetically.
+Q35: Write a Java program to check if two strings are rotations of each other using a single concatenation operation.
+Q36: Write a Java program to find the longest common prefix in an array of strings.
+Q37: Write a Java program to check if a given string is a valid palindrome after removing non-alphanumeric characters.
+Q38: Write a Java program to find the lexicographically smallest and largest substrings of length k.
+Q39: Write a Java program to find the most frequent character in a string.
+Q40: Write a Java program to convert a binary string to a decimal number.
+
+
+String and Data Structure Combination
+Q41: Write a Java program to find duplicate characters in a string and store them in a HashMap.
+Q42: Write a Java program to check if a given string is a subsequence of another string.
+Q43: Write a Java program to implement a basic version of string compression (e.g., "aabcccccaaa" becomes "a2b1c5a3").
+Q44: Write a Java program to remove characters from the first string that are present in the second string.
+Q45: Write a Java program to find the longest substring without repeating characters.
+Q46: Write a Java program to compare two strings lexicographically without using the compareTo method.
+
+
+String Parsing and Transformation
+Q47: Write a Java program to remove all occurrences of a specified character from a string without using in-built functions.
+Q48: Write a Java program to count the number of numeric digits in a string.
+Q49: Write a Java program to convert a Roman numeral string (e.g., "XIV") to its integer equivalent.
+Q50: Write a Java program to convert an integer to its Roman numeral representation.
+Q51: Write a Java program to expand shorthand notations in a string (e.g., "a-z" becomes "abcdefghijklmnopqrstuvwxyz").
+Q52: Write a Java program to extract all numbers from a string and add them together.
+Q53: Write a Java program to convert a string to Title Case (capitalize the first letter of each word).
+Q54: Write a Java program to remove all punctuations from a string.
+Q55: Write a Java program to find the position of the last occurrence of a character in a string.
+Q56: Write a Java program to insert a substring into a string at a specified index.
+
+
+String Encoding and Decoding
+Q57: Write a Java program to perform Run-Length Encoding (RLE) on a string.
+Q58: Write a Java program to decode a string encoded with Run-Length Encoding.
+Q59: Write a Java program to encode a string using Caesar Cipher and decode it back.
+Q60: Write a Java program to encrypt a string by reversing every word with even length.
+Q61: Write a Java program to encode a string to Base64 format.
+Q62: Write a Java program to decode a string from Base64 format.
+Q63: Write a Java program to check if a string can be rearranged to form a palindrome.
+Q64: Write a Java program to implement a simple ROT13 cipher for a string.
+Q65: Write a Java program to check if a given string is a scrambled version of another string.
+
+
+Palindrome and Mirror Operations
+Q66: Write a Java program to find all palindromic substrings in a given string.
+Q67: Write a Java program to check if two strings are mirror images of each other.
+Q68: Write a Java program to create a mirrored version of a string (e.g., "abc" becomes "abccba").
+Q69: Write a Java program to check if a string is a mirrored palindrome.
+
+
+Complex Substring and Subsequence Operations
+Q70: Write a Java program to find the longest common substring between two strings.
+Q71: Write a Java program to find the longest common subsequence between two strings.
+Q72: Write a Java program to check if a string can be split into two equal halves with the same character set.
+Q73: Write a Java program to generate all possible substrings of a string with a given length.
+Q74: Write a Java program to generate all possible subsequences of a string.
+Q75: Write a Java program to check if one string is a subsequence of another.
+
+
+Advanced String Manipulation
+Q76: Write a Java program to implement String.indexOf without using in-built functions.
+Q77: Write a Java program to implement String.contains without using in-built functions.
+Q78: Write a Java program to rotate a string to the right by n positions.
+Q79: Write a Java program to rotate a string to the left by n positions.
+Q80: Write a Java program to implement the KMP (Knuth-Morris-Pratt) algorithm for pattern matching.
+
+
+String Comparisons and Swapping
+Q81: Write a Java program to swap two strings without using a third variable.
+Q82: Write a Java program to check if two strings are equal without using equals() or compareTo().
+Q83: Write a Java program to find the lexicographical order of strings in a list.
+Q84: Write a Java program to compare two strings ignoring case without using equalsIgnoreCase().
+
+
+String Manipulation with Data Structures
+Q85: Write a Java program to check if a string can be rearranged as a balanced parenthesis string (e.g., "(())").
+Q86: Write a Java program to find the minimum number of characters required to make a string palindrome.
+Q87: Write a Java program to merge two strings alternatively (e.g., "abc" and "xyz" becomes "axbycz").
+Q88: Write a Java program to generate all possible unique strings from a set of characters.
+
+
+Miscellaneous String Operations
+Q89: Write a Java program to convert a string of hexadecimal numbers to a decimal integer.
+Q90: Write a Java program to remove adjacent duplicate characters in a string (e.g., "aaabbc" becomes "abc").
+Q91: Write a Java program to print all possible character combinations from a string.
+Q92: Write a Java program to find and print all repeated substrings of a given length in a string.
+Q93: Write a Java program to find the shortest distance between two characters in a string.
+Q94: Write a Java program to convert a string with spaces into camelCase.
+Q95: Write a Java program to find the maximum number of characters between any two identical characters in a string.
+Q96: Write a Java program to find the longest substring with at least k repeating characters.
+Q97: Write a Java program to calculate the similarity percentage between two strings.
+Q98: Write a Java program to remove all special characters from a string except alphabets and numbers.
+Q99: Write a Java program to parse and evaluate a simple arithmetic expression (e.g., "3+5*2-8").
+Q100: Write a Java program to check if a given string is a valid number (integer, floating-point, etc.).

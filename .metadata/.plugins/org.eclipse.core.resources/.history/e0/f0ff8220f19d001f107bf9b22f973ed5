@@ -1,0 +1,12 @@
+package com.array;
+
+public class First_Max {
+	public static void main(String[] args) {
+		int[] a = {2,3,5,3,6,8,2,9};
+		System.out.println(firstMaxNum(a));
+	}
+	
+	public static int name() {
+		
+	}
+}

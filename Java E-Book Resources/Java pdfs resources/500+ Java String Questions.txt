@@ -1,0 +1,1288 @@
+
+ `charAt(int index)` METHOD QUESTIONS
+
+1. EASY:  Write a program to get the character at index 2 from the string "Java Programming".
+  
+2. EASY:  Find the first character of a string entered by the user.
+
+3. MEDIUM: : Write a program to check if the character at index 3 is a vowel in the string "Hello World".
+
+4. MEDIUM: : Count how many times the character at index 1 appears in the string "Data Structures".
+
+5. HARD:  Write a program that takes a string and an index, and returns the character at that index, but throws an exception if the index is out of bounds.
+
+6. HARD:  Create a program that retrieves the last character of a string without using `length()`.
+
+7. MEDIUM: : Write a program to find and print all characters in a string that are at even indices.
+
+8. EASY:  Check if the first character of a string is uppercase using `charAt()`.
+
+9. HARD:  Write a program that creates a new string consisting of all characters at odd indices from the original string.
+
+10. MEDIUM: : Compare the character at index 0 and index 1 of two strings and print which one is greater (lexicographically).
+
+11. EASY:  Print the character at the first index of the string "OpenAI".
+
+12. MEDIUM: : Write a program that takes a string and checks if the character at index 4 is 't'.
+
+13. HARD:  Create a function that takes a string and returns a string of all characters in reverse order using only `charAt()`.
+
+14. EASY:  Retrieve the character at index 5 from "Welcome".
+
+15. MEDIUM: : Write a program that takes a string and returns the character at the middle index.
+
+16. HARD:  Create a method that counts the number of consonants in a string using `charAt()`.
+
+17. EASY:  Write a program that checks if the character at index 2 in "Learning" is 'a'.
+
+18. MEDIUM: : Write a program to find the first occurrence of the character 'e' and print its index using `charAt()`.
+
+19. HARD:  Create a program that swaps the characters at indices 1 and 3 in a given string and prints the new string.
+
+20. MEDIUM: : Write a program to create a new string that contains every third character from the original string.
+
+---
+Sure! Yahan pe main baaki methods ke liye bhi 20 questions dunga, jaise ki `compareTo()`, `compareToIgnoreCase()`, `concat()`, `contains()`, `endsWith()`, `equals()`, aur `equalsIgnoreCase()`. Har ek method ke liye kuch easy, MEDIUM: , aur hard level questions honge. Chaliye shuru karte hain:
+
+==================================================================================================
+==================================================================================================
+
+ `compareTo(String anotherString)` METHOD QUESTIONS
+
+1. EASY:  Write a program to compare two strings and print whether the first string is lexicographically smaller, equal, or greater than the second string.
+
+2. EASY:  Take two strings from the user and check if they are equal using `compareTo()`.
+
+3. MEDIUM: : Write a program that compares the first string with the second string ignoring case and prints the result.
+
+4. MEDIUM: : Create a program that takes two strings and prints the difference in length if they are not equal.
+
+5. HARD:  Write a function that compares two strings and returns the index of the first different character or -1 if they are equal.
+
+6. HARD:  Write a program that sorts an array of strings using `compareTo()`.
+
+7. MEDIUM: : Take two strings from the user and print the comparison result with detailed messages.
+
+8. EASY:  Check if the string "Apple" is greater than "apple" using `compareTo()`.
+
+9. MEDIUM: : Write a program that compares a string with a substring and checks if it is less than, equal to, or greater than the substring.
+
+10. HARD:  Write a program that counts how many strings from a list are greater than a given string using `compareTo()`.
+
+11. EASY:  Compare the strings "Java" and "Java" and print the result.
+
+12. MEDIUM: : Write a program that takes two strings and returns how many characters are different using `compareTo()`.
+
+13. HARD:  Create a method that checks if a string is a palindrome using `compareTo()` by comparing characters.
+
+14. MEDIUM: : Take input for two strings and print the comparison result using a switch statement based on the output of `compareTo()`.
+
+15. EASY:  Compare "Dog" and "Cat" using `compareTo()` and print the result.
+
+16. MEDIUM: : Write a program that checks if the string "hello" is greater than the string "Hello".
+
+17. HARD:  Create a program that checks if one string is a suffix of another by comparing them with `compareTo()`.
+
+18. EASY:  Compare the string "String" with "string" and print whether they are equal or not.
+
+19. MEDIUM: : Write a program that finds the lexicographically smallest string from an array of strings.
+
+20. HARD:  Create a method that sorts strings based on their lengths and then compares them using `compareTo()`.
+
+---
+
+==================================================================================================
+==================================================================================================
+
+ `compareToIgnoreCase(String str)` METHOD QUESTIONS
+
+1. EASY:  Write a program to compare two strings ignoring case and print the result.
+
+2. EASY:  Check if "hello" and "HELLO" are equal using `compareToIgnoreCase()`.
+
+3. MEDIUM: : Write a program to sort an array of strings ignoring case.
+
+4. MEDIUM: : Create a program that compares two strings and prints whether the first is smaller, equal, or greater ignoring case.
+
+5. HARD:  Write a function that checks if a list of strings contains duplicates ignoring case.
+
+6. HARD:  Create a program that checks if two strings are anagrams ignoring case using `compareToIgnoreCase()`.
+
+7. MEDIUM: : Take two strings from the user and print detailed comparison results ignoring case.
+
+8. EASY:  Compare "apple" and "Apple" using `compareToIgnoreCase()` and print the result.
+
+9. MEDIUM: : Write a program that finds the lexicographically smallest string from an array ignoring case.
+
+10. HARD:  Write a program that counts how many strings in a list are greater than a given string ignoring case.
+
+11. EASY:  Compare the strings "OpenAI" and "openai" and print the result.
+
+12. MEDIUM: : Write a program that checks if a string ends with another string ignoring case.
+
+13. HARD:  Create a method that checks if one string is a substring of another ignoring case.
+
+14. EASY:  Compare "java" and "Java" and print whether they are equal or not.
+
+15. MEDIUM: : Write a program that takes two strings and returns a boolean indicating if they are equal ignoring case.
+
+16. HARD:  Write a method to find the longest common prefix of two strings ignoring case.
+
+17. MEDIUM: : Compare "Data Science" and "data science" using `compareToIgnoreCase()`.
+
+18. EASY:  Check if "Summer" is greater than "summer" ignoring case.
+
+19. MEDIUM: : Write a program that finds all strings in a list that match a given string ignoring case.
+
+20. HARD:  Create a program that sorts a list of strings in descending order ignoring case using `compareToIgnoreCase()`.
+
+---
+
+==================================================================================================
+==================================================================================================
+
+ `concat(String str)` METHOD QUESTIONS
+
+1. EASY:  Write a program to concatenate two strings and print the result.
+
+2. EASY:  Take two strings from the user and print their concatenation.
+
+3. MEDIUM: : Write a program that concatenates three strings entered by the user.
+
+4. MEDIUM: : Create a program that appends a specific suffix to a string using `concat()`.
+
+5. HARD:  Write a method that concatenates two strings only if the second string is not empty.
+
+6. HARD:  Create a program that repeatedly concatenates a string until it reaches a specific length.
+
+7. MEDIUM: : Write a program that combines multiple strings in an array into a single string using `concat()`.
+
+8. EASY:  Concatenate "Hello" and "World" and print the result.
+
+9. MEDIUM: : Write a program that concatenates two strings with a space in between.
+
+10. HARD:  Create a method that takes an array of strings and returns a single concatenated string with commas.
+
+11. EASY:  Concatenate "Java" with "Programming".
+
+12. MEDIUM: : Write a program that takes a string and a character and appends the character to the string using `concat()`.
+
+13. HARD:  Create a program that concatenates strings from a list and removes duplicates in the result.
+
+14. EASY:  Concatenate "Data" with "Science".
+
+15. MEDIUM: : Write a program that checks if concatenating two strings gives a specific target string.
+
+16. HARD:  Create a program that concatenates strings and counts the total length of the result.
+
+17. MEDIUM: : Concatenate "OpenAI" with "is awesome".
+
+18. EASY:  Write a program that concatenates two empty strings and prints the result.
+
+19. MEDIUM: : Write a program that takes a string and a prefix and concatenates them.
+
+20. HARD:  Write a method that concatenates strings from two different lists into one string, separating them with a semicolon.
+
+---
+
+==================================================================================================
+==================================================================================================
+
+ `contains(CharSequence sequence)` METHOD QUESTIONS
+
+1. EASY:  Write a program to check if a string contains the substring "Java".
+
+2. EASY:  Take a string input from the user and check if it contains the character 'a'.
+
+3. MEDIUM: : Write a program that checks if a string contains a specific word entered by the user.
+
+4. MEDIUM: : Create a program that counts how many times a specific character appears in a string.
+
+5. HARD:  Write a method that returns the index of the first occurrence of a substring if it exists, using `contains()`.
+
+6. HARD:  Create a program that checks if two strings share any common characters using `contains()`.
+
+7. MEDIUM: : Write a program that checks if a string contains any digits.
+
+8. EASY:  Check if the string "Hello World" contains the substring "World".
+
+9. MEDIUM: : Write a program that asks for user input and checks if it contains a vowel.
+
+10. HARD:  Create a method that checks if one string contains all characters of another string.
+
+11. EASY:  Check if "Data" contains "at".
+
+12. MEDIUM: : Write a program that checks if a sentence contains any punctuation marks.
+
+13. HARD:  Create a program that checks if a given string is a pangram using `contains()`.
+
+14. EASY:  Check if the string "Programming" contains the substring "ming".
+
+15. MEDIUM: : Write a program that checks if a string contains a given prefix.
+
+16. HARD:  Create a method that checks if the string contains a specific substring in a case-insensitive manner.
+
+17. MEDIUM: : Write a program that checks if the string "OpenAI" contains 'A'.
+
+18. EASY:  Check if "Hello, World!" contains ','.
+
+19. MEDIUM: : Write a program that checks if the input string contains spaces.
+
+20. HARD:  Create a method that checks if two strings are anagrams by checking for common characters.
+
+---
+
+==================================================================================================
+==================================================================================================
+
+ `endsWith(String suffix)` METHOD QUESTIONS
+
+1. EASY:  Write a program to check if a string ends with the suffix "ing".
+
+2. EASY:  Take a string input from the user and check if it ends with the suffix "ed".
+
+3. MEDIUM: : Write a program that checks if a string ends with a specific character entered by the user.
+
+4. MEDIUM: : Create a program that counts how many strings in an array end with a specified suffix.
+
+5. HARD:  Write a method that checks if a list of strings ends with the same suffix.
+
+6. HARD:  Create a program that checks if the last word of a string matches a specified suffix.
+
+7. MEDIUM: : Write a program that checks if a file name
+
+ ends with ".txt".
+
+8. EASY:  Check if the string "Programming" ends with "ming".
+
+9. MEDIUM: : Write a program that checks if a given URL ends with ".com".
+
+10. HARD:  Create a method that verifies if a string ends with a specific suffix in a case-insensitive manner.
+
+11. EASY:  Check if "Hello World" ends with "World".
+
+12. MEDIUM: : Write a program that checks if a given email address ends with "@example.com".
+
+13. HARD:  Create a program that checks if a string ends with multiple suffixes provided in an array.
+
+14. EASY:  Check if "OpenAI" ends with "AI".
+
+15. MEDIUM: : Write a program that checks if a string ends with "ing" or "ed".
+
+16. HARD:  Create a method that checks if two strings have the same ending characters.
+
+17. MEDIUM: : Write a program that checks if the last three characters of a string match a given string.
+
+18. EASY:  Check if "Data Science" ends with "Science".
+
+19. MEDIUM: : Write a program that checks if the string ends with "!" (punctuation mark).
+
+20. HARD:  Create a method that checks if a string ends with a specified suffix ignoring case.
+
+---
+
+==================================================================================================
+==================================================================================================
+
+ `equals(Object obj)` METHOD QUESTIONS
+
+1. EASY:  Write a program to check if two strings are equal using `equals()`.
+
+2. EASY:  Take two strings from the user and check if they are the same.
+
+3. MEDIUM: : Write a program that compares a string with an integer (converted to string) and checks for equality.
+
+4. MEDIUM: : Create a program that checks if two strings are equal ignoring case by first converting them to lower case.
+
+5. HARD:  Write a method that checks if a string equals another string based on certain conditions (like length).
+
+6. HARD:  Create a program that verifies if two objects of different classes contain the same string value.
+
+7. MEDIUM: : Write a program that compares the first string with the second string and prints detailed comparison results.
+
+8. EASY:  Check if "Java" equals "Java".
+
+9. MEDIUM: : Write a program that checks if a string is equal to null.
+
+10. HARD:  Create a method that checks if a string is equal to its reversed version.
+
+11. EASY:  Check if "OpenAI" equals "OpenAI".
+
+12. MEDIUM: : Write a program that checks if two strings are equal by ignoring white spaces.
+
+13. HARD:  Create a program that checks if two strings are equal while ignoring punctuation marks.
+
+14. EASY:  Compare "hello" with "hello" and print the result.
+
+15. MEDIUM: : Write a program that checks if two strings are equal by converting both to upper case.
+
+16. HARD:  Write a method that checks if two strings are equal using a custom implementation of `equals()`.
+
+17. MEDIUM: : Compare the strings "Data" and "data" using `equals()` and print whether they are equal.
+
+18. EASY:  Check if "String" equals "String".
+
+19. MEDIUM: : Write a program that checks if a user-provided string is equal to "Java Developer".
+
+20. HARD:  Create a method that checks if two strings are equal based on the first N characters.
+
+---
+
+==================================================================================================
+==================================================================================================
+
+ `equalsIgnoreCase(String anotherString)` METHOD QUESTIONS
+
+1. EASY:  Write a program to check if two strings are equal ignoring case.
+
+2. EASY:  Compare "hello" with "HELLO" using `equalsIgnoreCase()` and print the result.
+
+3. MEDIUM: : Write a program that checks if two strings entered by the user are equal ignoring case.
+
+4. MEDIUM: : Create a program that compares a string with a character and checks for equality ignoring case.
+
+5. HARD:  Write a method that checks if two strings are equal ignoring case, and also checks their lengths.
+
+6. HARD:  Create a program that verifies if a string equals another string ignoring case and whitespace.
+
+7. MEDIUM: : Write a program that takes two strings and checks for equality ignoring case, then prints a custom message.
+
+8. EASY:  Check if "OpenAI" equals "openai" ignoring case.
+
+9. MEDIUM: : Write a program that checks if two strings are equal ignoring case and returns true or false.
+
+10. HARD:  Create a method that checks if a string equals its reversed version ignoring case.
+
+11. EASY:  Compare "Java" with "JAVA" and print whether they are equal.
+
+12. MEDIUM: : Write a program that checks if two email addresses are the same ignoring case.
+
+13. HARD:  Write a program that checks if two strings are equal ignoring case and punctuation.
+
+14. EASY:  Check if "Data Science" equals "data science" ignoring case.
+
+15. MEDIUM: : Write a program that compares two strings ignoring case and counts how many characters are the same.
+
+16. HARD:  Create a method that checks if a string contains another string, ignoring case.
+
+17. MEDIUM: : Compare the strings "Learning" and "learning" using `equalsIgnoreCase()`.
+
+18. EASY:  Check if "Python" equals "PYTHON".
+
+19. MEDIUM: : Write a program that checks if a user-provided string equals "software engineer" ignoring case.
+
+20. HARD:  Create a method that compares two strings character by character ignoring case and returns a boolean.
+
+---
+
+==================================================================================================
+==================================================================================================
+
+ `indexOf(int ch)` METHOD QUESTIONS
+
+1. EASY:  Write a program to find the index of the character 'a' in the string "Java Programming".
+
+2. EASY:  Check if the character 'e' exists in the string "Hello World" and print its index.
+
+3. MEDIUM: : Write a program that finds the first occurrence of the character 'o' in the string "OpenAI is amazing".
+
+4. MEDIUM: : Create a method that checks if a character is present in a string and returns its index.
+
+5. HARD:  Write a method that takes a string and a character, and returns the index of that character or -1 if it doesn't exist.
+
+==================================================================================================
+==================================================================================================
+
+ `indexOf(int ch, int fromIndex)` METHOD QUESTIONS
+
+6. EASY:  Find the index of 'g' in the string "Programming" starting from index 5.
+
+7. MEDIUM: : Write a program that finds the index of 'o' in "Hello World" starting from index 5.
+
+8. HARD:  Create a method that takes a string, a character, and a starting index, and returns the index of the character after the given index.
+
+==================================================================================================
+==================================================================================================
+
+ `indexOf(String str)` METHOD QUESTIONS
+
+9. EASY:  Write a program to find the index of the substring "Pro" in the string "Java Programming".
+
+10. MEDIUM: : Check if the substring "World" exists in "Hello World" and print its index.
+
+11. HARD:  Create a method that checks for the presence of a substring in a string and returns its index, or -1 if not found.
+
+==================================================================================================
+==================================================================================================
+
+ `indexOf(String str, int fromIndex)` METHOD QUESTIONS
+
+12. EASY:  Find the index of the substring "am" in the string "Programming is amazing", starting from index 5.
+
+13. MEDIUM: : Write a program that searches for the substring "Java" in "I love Java programming", starting from index 3.
+
+14. HARD:  Create a method that takes a string, a substring, and a starting index, and returns the index of the substring or -1 if it doesn’t exist.
+
+==================================================================================================
+==================================================================================================
+
+ `isEmpty()` METHOD QUESTIONS
+
+15. EASY:  Write a program that checks if the string "Hello" is empty using `isEmpty()`.
+
+16. MEDIUM: : Create a method that takes a string and returns true if it is empty, false otherwise.
+
+17. HARD:  Write a program that checks if a user-provided string is empty and prints an appropriate message.
+
+==================================================================================================
+==================================================================================================
+
+ `lastIndexOf(int ch)` METHOD QUESTIONS
+
+18. EASY:  Find the last index of the character 'o' in the string "Hello World".
+
+19. MEDIUM: : Write a program that finds the last occurrence of the character 'a' in "Java Programming".
+
+20. HARD:  Create a method that returns the last index of a character in a string or -1 if not found.
+
+==================================================================================================
+==================================================================================================
+
+ `lastIndexOf(int ch, int fromIndex)` METHOD QUESTIONS
+
+21. EASY:  Find the last index of 'g' in "Programming" starting from index 7.
+
+22. MEDIUM: : Write a program that finds the last occurrence of 'l' in "Hello World" starting from index 8.
+
+23. HARD:  Create a method that takes a string, a character, and a starting index, and returns the last index of that character before the given index.
+
+==================================================================================================
+==================================================================================================
+
+ `lastIndexOf(String str)` METHOD QUESTIONS
+
+24. EASY:  Write a program to find the last index of the substring "am" in the string "Programming is amazing".
+
+25. MEDIUM: : Check if the substring "Java" exists in "I love Java programming" and print its last index.
+
+26. HARD:  Create a method that checks for the last occurrence of a substring in a string and returns its last index, or -1 if not found.
+
+==================================================================================================
+==================================================================================================
+
+ `lastIndexOf(String str, int fromIndex)` METHOD QUESTIONS
+
+27. EASY:  Find the last index of the substring "am" in "Programming is amazing", starting from index 15.
+
+28. MEDIUM: : Write a program that searches for the substring "Java" in "I love Java programming", starting from index 20.
+
+29. HARD:  Create a method that takes a string, a substring, and a starting index, and returns the last index of the substring or -1 if it doesn’t exist.
+
+---
+
+==================================================================================================
+==================================================================================================
+
+ `length()` METHOD QUESTIONS
+
+1. EASY:  Write a program to find the length of the string "Java Programming".
+
+2. EASY:  Create a method that takes a string as input and returns its length.
+
+3. MEDIUM: : Write a program that checks if the length of the string "OpenAI" is greater than 5.
+
+4. MEDIUM: : Create a method that takes a user-provided string and prints its length.
+
+5. HARD:  Write a program that compares the lengths of two strings and prints which one is longer.
+
+6. HARD:  Create a method that checks if a given string is empty based on its length.
+
+7. MEDIUM: : Write a program that calculates the total length of two strings combined.
+
+8. EASY:  Find the length of the string "Hello World".
+
+9. MEDIUM: : Create a method that returns the length of the longest word in a sentence.
+
+10. HARD:  Write a program that finds the lengths of all words in a string and returns the maximum length.
+
+==================================================================================================
+==================================================================================================
+
+ `replace(char oldChar, char newChar)` METHOD QUESTIONS
+
+11. EASY:  Write a program to replace all occurrences of 'a' with 'o' in the string "Java".
+
+12. EASY:  Create a method that replaces 'i' with 'e' in the string "Hello World".
+
+13. MEDIUM: : Write a program that replaces all occurrences of a character in a string and prints the modified string.
+
+14. MEDIUM: : Create a method that replaces 'e' with 'u' in the string "Programming is fun".
+
+15. HARD:  Write a program that takes a string and replaces all occurrences of a specified character with another character provided by the user.
+
+16. HARD:  Create a method that counts the number of replacements made in a string when replacing a character.
+
+17. MEDIUM: : Write a program that replaces all occurrences of 'o' with '0' in "Hello World".
+
+18. EASY:  Replace 'H' with 'h' in "Hello".
+
+19. MEDIUM: : Create a method that replaces all vowels in a string with '*'.
+
+20. HARD:  Write a program that replaces a character in a string with its uppercase version if it's lowercase.
+
+==================================================================================================
+==================================================================================================
+
+ `replace(CharSequence target, CharSequence replacement)` METHOD QUESTIONS
+
+21. EASY:  Write a program to replace the substring "Java" with "Python" in "I love Java".
+
+22. EASY:  Create a method that replaces "Hello" with "Hi" in "Hello World".
+
+23. MEDIUM: : Write a program that replaces "fun" with "awesome" in the string "Programming is fun".
+
+24. MEDIUM: : Create a method that replaces all occurrences of a substring in a given string.
+
+25. HARD:  Write a program that takes a string and replaces a user-provided substring with another substring.
+
+26. HARD:  Create a method that counts how many times a specific substring occurs in a string.
+
+27. MEDIUM: : Write a program that replaces "good" with "great" in the string "This is a good day".
+
+28. EASY:  Replace "world" with "everyone" in "Hello world!".
+
+29. MEDIUM: : Create a method that replaces "Java" with "JavaScript" in a sentence.
+
+30. HARD:  Write a program that replaces all instances of multiple substrings in a string.
+
+==================================================================================================
+==================================================================================================
+
+ `replaceAll(String regex, String replacement)` METHOD QUESTIONS
+
+31. EASY:  Write a program to replace all digits in a string with '#' using regex.
+
+32. EASY:  Create a method that replaces all whitespace characters with a single space in a string.
+
+33. MEDIUM: : Write a program that replaces all occurrences of vowels in a string with '*' using regex.
+
+34. MEDIUM: : Create a method that removes all punctuation from a given string using regex.
+
+35. HARD:  Write a program that replaces all occurrences of a specific word in a string with another word using regex.
+
+36. HARD:  Create a method that replaces all HTML tags in a string with an empty string.
+
+37. MEDIUM: : Write a program that replaces multiple spaces in a string with a single space using regex.
+
+38. EASY:  Replace all occurrences of 'a' with 'x' in "banana" using regex.
+
+39. MEDIUM: : Create a method that removes all non-alphabetic characters from a string using regex.
+
+40. HARD:  Write a program that replaces all occurrences of a substring (ignoring case) in a string using regex.
+
+==================================================================================================
+==================================================================================================
+
+ `replaceFirst(String regex, String replacement)` METHOD QUESTIONS
+
+41. EASY:  Write a program that replaces the first occurrence of 'a' with 'o' in "Java".
+
+42. EASY:  Create a method that replaces the first occurrence of "is" with "was" in "This is a test".
+
+43. MEDIUM: : Write a program that replaces the first number found in a string with '#' using regex.
+
+44. MEDIUM: : Create a method that replaces the first occurrence of a specified word in a string.
+
+45. HARD:  Write a program that replaces the first HTML tag in a string with an empty string.
+
+46. HARD:  Create a method that replaces the first occurrence of a substring (ignoring case) in a string using regex.
+
+47. MEDIUM: : Write a program that replaces the first occurrence of a specified character in a string.
+
+48. EASY:  Replace the first 'l' in "Hello" with 'x'.
+
+49. MEDIUM: : Create a method that replaces the first occurrence of a vowel in a string with '*' using regex.
+
+50. HARD:  Write a program that replaces the first occurrence of a pattern in a string using regex.
+
+---
+
+==================================================================================================
+==================================================================================================
+
+ `split(String regex)` METHOD QUESTIONS
+
+1. EASY:  Write a program to split the string "Java,Python,C++" using a comma as a delimiter.
+
+2. EASY:  Create a method that splits the string "Hello World" into words.
+
+3. MEDIUM: : Write a program that splits a sentence into an array of words based on spaces.
+
+4. MEDIUM: : Create a method that splits the string "apple|banana|orange" using the '|' character as a delimiter.
+
+5. HARD:  Write a program that splits a string containing multiple delimiters (like commas and spaces) into individual words.
+
+6. HARD:  Create a method that splits a string containing numbers and returns only the numeric parts.
+
+7. MEDIUM: : Write a program that splits a string of email addresses and prints each address on a new line.
+
+8. EASY:  Split the string "one,two,three" and print each part.
+
+9. MEDIUM: : Create a method that splits a URL by the '/' character and prints the parts.
+
+10. HARD:  Write a program that splits a string containing sentences and counts how many sentences there are.
+
+11. MEDIUM: : Create a method that splits a string by multiple delimiters (e.g., space, comma) and returns an array of unique words.
+
+12. EASY:  Split the string "2024-11-01" using the '-' character.
+
+13. MEDIUM: : Write a program that splits a string with repeated spaces into words, ignoring the extra spaces.
+
+14. MEDIUM: : Create a method that splits a paragraph into sentences using '.' as a delimiter.
+
+15. HARD:  Write a program that takes a user-inputted string and splits it into words, then counts the frequency of each word.
+
+16. EASY:  Split the string "Java:Python:C++:JavaScript" using ':' as the delimiter.
+
+17. MEDIUM: : Create a method that splits a string of phone numbers into an array using space as a delimiter.
+
+18. HARD:  Write a program that splits a string and trims each resulting substring of whitespace.
+
+19. MEDIUM: : Split the string "cat,dog,fish" and print only those that contain 'o'.
+
+20. HARD:  Write a program that splits a CSV string and handles quoted values correctly.
+
+==================================================================================================
+==================================================================================================
+
+ `split(String regex, int limit)` METHOD QUESTIONS
+
+21. EASY:  Write a program that splits the string "a,b,c,d,e" into an array of maximum 3 elements.
+
+22. EASY:  Create a method that splits the string "Java|Python|C++" using '|' as a delimiter with a limit of 2.
+
+23. MEDIUM: : Write a program that splits a sentence into words, limiting the result to the first 3 words.
+
+24. MEDIUM: : Create a method that splits a URL into its components, limiting to 3 parts.
+
+25. HARD:  Write a program that splits a string of space-separated values into a maximum of 5 elements.
+
+26. HARD:  Create a method that splits a string of dates into an array, limiting the output to the first 2 dates.
+
+27. MEDIUM: : Write a program that splits a string and ignores extra delimiters, limiting the output.
+
+28. EASY:  Split the string "apple,banana,cherry" with a limit of 2.
+
+29. MEDIUM: : Create a method that splits a paragraph into sentences, limiting the result to 4 sentences.
+
+30. HARD:  Write a program that splits a string and returns only the first n words, where n is specified by the user.
+
+==================================================================================================
+==================================================================================================
+
+ `startsWith(String prefix)` METHOD QUESTIONS
+
+31. EASY:  Write a program that checks if the string "Hello World" starts with "Hello".
+
+32. EASY:  Create a method that checks if the string "Java Programming" starts with "Java".
+
+33. MEDIUM: : Write a program that checks if a string starts with a given prefix provided by the user.
+
+34. MEDIUM: : Create a method that returns true if the input string starts with a vowel.
+
+35. HARD:  Write a program that checks if any word in a sentence starts with a specified prefix.
+
+36. HARD:  Create a method that counts how many strings in an array start with a specific prefix.
+
+37. MEDIUM: : Write a program that checks if the string "OpenAI" starts with "O" and "Open".
+
+38. EASY:  Check if the string "Java" starts with "Ja".
+
+39. MEDIUM: : Create a method that verifies if a file path starts with "C:\".
+
+40. HARD:  Write a program that compares the starting prefix of two strings and returns a result.
+
+==================================================================================================
+==================================================================================================
+
+ `startsWith(String prefix, int toffset)` METHOD QUESTIONS
+
+41. EASY:  Write a program that checks if the string "JavaProgramming" starts with "Programming" from index 4.
+
+42. EASY:  Create a method that checks if "HelloWorld" starts with "World" from index 5.
+
+43. MEDIUM: : Write a program that checks if a substring of the input string starts with a given prefix starting from a specific index.
+
+44. MEDIUM: : Create a method that checks if any part of a string starting from a certain index matches a specified prefix.
+
+45. HARD:  Write a program that checks if the string "abcdefg" starts with "ef" starting from index 4.
+
+46. HARD:  Create a method that counts how many substrings in a given string start with a specific prefix from a specified index.
+
+47. MEDIUM: : Write a program that takes a user input string and checks if it starts with a certain prefix from a specified position.
+
+48. EASY:  Check if "Programming" starts with "ming" starting from index 4.
+
+49. MEDIUM: : Create a method that checks if the second half of the string starts with a specified prefix.
+
+50. HARD:  Write a program that checks if any word in a sentence starts with a specified prefix from a certain index.
+
+==================================================================================================
+==================================================================================================
+
+ `substring(int beginIndex)` METHOD QUESTIONS
+
+51. EASY:  Write a program that extracts the substring from index 5 of the string "Hello World".
+
+52. EASY:  Create a method that returns the substring from index 3 of the string "Programming".
+
+53. MEDIUM: : Write a program that extracts the substring from a user-provided index in a string.
+
+54. MEDIUM: : Create a method that returns the substring starting from a given index until the end of the string.
+
+55. HARD:  Write a program that takes a string and returns all substrings starting from a specified index.
+
+56. HARD:  Create a method that extracts and prints substrings of length n starting from a given index.
+
+57. MEDIUM: : Write a program that extracts the last 3 characters of a string using substring.
+
+58. EASY:  Extract the substring from index 2 of "Java Programming".
+
+59. MEDIUM: : Create a method that returns the substring from a string after a specific character.
+
+60. HARD:  Write a program that checks if the substring from a specific index matches another substring.
+
+==================================================================================================
+==================================================================================================
+
+ `substring(int beginIndex, int endIndex)` METHOD QUESTIONS
+
+61. EASY:  Write a program to extract the substring from "Hello World" between index 0 and 5.
+
+62. EASY:  Create a method that returns the substring from "Programming" between index 1 and 4.
+
+63. MEDIUM: : Write a program that extracts a substring from a user-defined range.
+
+64. MEDIUM: : Create a method that returns the substring between two user-defined indices in a string.
+
+65. HARD:  Write a program that extracts all substrings of a specific length from a string.
+
+66. HARD:  Create a method that returns the substring before the last occurrence of a specified character.
+
+67. MEDIUM: : Write a program that extracts the first word from a sentence using substring.
+
+68. EASY:  Extract the substring from index 0 to 4 of "Java".
+
+69. MEDIUM: : Create a method that returns the substring from index 2 to the end of a string.
+
+70. HARD:  Write a program that checks if the extracted substring matches a specified pattern.
+
+---
+
+==================================================================================================
+==================================================================================================
+
+ `toCharArray()` METHOD QUESTIONS
+
+1. EASY:  Write a program to convert the string "Hello" to a character array and print each character.
+
+2. EASY:  Create a method that takes a string input and returns its character array.
+
+3. MEDIUM: : Write a program that converts the string "Java Programming" into a character array and counts the number of characters.
+
+4. MEDIUM: : Create a method that converts a user-input string to a character array and prints the characters in reverse order.
+
+5. HARD:  Write a program that takes a sentence, converts it to a character array, and counts the number of vowels.
+
+6. HARD:  Create a method that checks if two strings are anagrams by comparing their character arrays.
+
+7. MEDIUM: : Write a program that converts a string to a character array and replaces all spaces with underscores.
+
+8. EASY:  Convert the string "Programming" to a character array and print it.
+
+9. MEDIUM: : Create a method that takes a string and returns a character array of its unique characters.
+
+10. HARD:  Write a program that converts a string to a character array and finds the first repeated character.
+
+11. MEDIUM: : Create a method that converts the string "Java" to a character array and prints only the consonants.
+
+12. EASY:  Convert the string "Hello World" to a character array and print its length.
+
+13. MEDIUM: : Write a program that converts a string of digits into a character array and sums the digits.
+
+14. HARD:  Create a method that takes a string, converts it to a character array, and sorts the characters in ascending order.
+
+15. EASY:  Write a program that converts the string "String" to a character array and prints the second character.
+
+16. MEDIUM: : Create a method that converts a string into a character array and finds the index of a specific character.
+
+17. HARD:  Write a program that checks if a string is a palindrome using a character array.
+
+18. MEDIUM: : Convert the string "OpenAI" to a character array and print the characters at even indices.
+
+19. EASY:  Create a method that converts a string of names into a character array and prints the first name.
+
+20. HARD:  Write a program that takes a string, converts it to a character array, and generates all possible permutations of the characters.
+
+==================================================================================================
+==================================================================================================
+
+ `toLowerCase()` METHOD QUESTIONS
+
+21. EASY:  Write a program to convert the string "HELLO WORLD" to lowercase.
+
+22. EASY:  Create a method that takes a string and returns it in lowercase.
+
+23. MEDIUM: : Write a program that converts a user-input string to lowercase and checks if it's equal to another string.
+
+24. MEDIUM: : Create a method that converts a string to lowercase and counts the number of lowercase letters.
+
+25. HARD:  Write a program that takes a sentence and converts only the first character of each word to lowercase.
+
+26. HARD:  Create a method that converts a string to lowercase and checks if it is a palindrome (ignoring case).
+
+27. MEDIUM: : Write a program that takes a mixed-case string and prints the number of uppercase and lowercase letters.
+
+28. EASY:  Convert the string "Java Programming" to lowercase and print it.
+
+29. MEDIUM: : Create a method that converts the string "OpenAI" to lowercase and checks if it contains "open".
+
+30. HARD:  Write a program that reads multiple lines of text and converts each line to lowercase before printing.
+
+==================================================================================================
+==================================================================================================
+
+ `toLowerCase(Locale locale)` METHOD QUESTIONS
+
+31. EASY:  Write a program that converts the string "HELLO" to lowercase using a specific locale.
+
+32. EASY:  Create a method that takes a string and a locale as input and returns the lowercase version of the string.
+
+33. MEDIUM: : Write a program that converts the string "Java Is Fun" to lowercase using the French locale.
+
+34. MEDIUM: : Create a method that converts a user-input string to lowercase based on a specified locale.
+
+35. HARD:  Write a program that takes a string and checks if its lowercase version in a specific locale matches another string.
+
+36. HARD:  Create a method that converts a string to lowercase in a specified locale and counts the number of vowels.
+
+37. MEDIUM: : Write a program that converts a string to lowercase using the Italian locale and prints the result.
+
+38. EASY:  Convert the string "JAVA" to lowercase using the US locale.
+
+39. MEDIUM: : Create a method that takes a string and converts it to lowercase using the Japanese locale.
+
+40. HARD:  Write a program that takes a sentence and converts each word to lowercase in a specified locale.
+
+==================================================================================================
+==================================================================================================
+
+ `toUpperCase()` METHOD QUESTIONS
+
+41. EASY:  Write a program to convert the string "hello world" to uppercase.
+
+42. EASY:  Create a method that takes a string input and returns it in uppercase.
+
+43. MEDIUM: : Write a program that converts a user-input string to uppercase and checks if it's equal to another string.
+
+44. MEDIUM: : Create a method that converts a string to uppercase and counts the number of uppercase letters.
+
+45. HARD:  Write a program that takes a sentence and converts only the first character of each word to uppercase.
+
+46. HARD:  Create a method that converts a string to uppercase and checks if it is a palindrome (ignoring case).
+
+47. MEDIUM: : Write a program that takes a mixed-case string and prints the number of uppercase and lowercase letters.
+
+48. EASY:  Convert the string "Java Programming" to uppercase and print it.
+
+49. MEDIUM: : Create a method that converts the string "OpenAI" to uppercase and checks if it contains "OPEN".
+
+50. HARD:  Write a program that reads multiple lines of text and converts each line to uppercase before printing.
+
+==================================================================================================
+==================================================================================================
+
+ `toUpperCase(Locale locale)` METHOD QUESTIONS
+
+51. EASY:  Write a program that converts the string "hello" to uppercase using a specific locale.
+
+52. EASY:  Create a method that takes a string and a locale as input and returns the uppercase version of the string.
+
+53. MEDIUM: : Write a program that converts the string "java is fun" to uppercase using the French locale.
+
+54. MEDIUM: : Create a method that converts a user-input string to uppercase based on a specified locale.
+
+55. HARD:  Write a program that takes a string and checks if its uppercase version in a specific locale matches another string.
+
+56. HARD:  Create a method that converts a string to uppercase in a specified locale and counts the number of consonants.
+
+57. MEDIUM: : Write a program that converts a string to uppercase using the Italian locale and prints the result.
+
+58. EASY:  Convert the string "java" to uppercase using the US locale.
+
+59. MEDIUM: : Create a method that takes a string and converts it to uppercase using the Japanese locale.
+
+60. HARD:  Write a program that takes a sentence and converts each word to uppercase in a specified locale.
+
+---
+Yahan par aapke diye gaye `valueOf` methods ke liye practice questions hain jo aapko in methods ko behtar samajhne aur unka abhyas karne mein madad karenge:
+
+==================================================================================================
+==================================================================================================
+
+ `valueOf(boolean b)` METHOD QUESTIONS
+
+1. EASY:  Write a program to convert the boolean value `true` to a String using `valueOf`.
+
+2. EASY:  Create a method that takes a boolean input and returns its String representation using `valueOf`.
+
+3. MEDIUM: : Write a program that converts user-input boolean values to Strings and prints them.
+
+4. MEDIUM: : Create a method that checks if a boolean input is true or false and returns the corresponding string "Yes" or "No".
+
+5. HARD:  Write a program that takes an array of boolean values, converts each to a String, and prints the resulting Strings.
+
+6. HARD:  Create a method that combines a boolean input and a message into a single String using `valueOf`.
+
+7. MEDIUM: : Write a program that takes a boolean value and prints "Positive" if true, otherwise "Negative" using `valueOf`.
+
+8. EASY:  Convert the boolean value `false` to a String and print it.
+
+9. MEDIUM: : Create a method that takes two boolean inputs and returns their logical AND as a String.
+
+10. HARD:  Write a program that checks if an array of booleans contains at least one true value, converting the result to a String.
+
+==================================================================================================
+==================================================================================================
+
+ `valueOf(char c)` METHOD QUESTIONS
+
+11. EASY:  Write a program to convert the character `'A'` to a String using `valueOf`.
+
+12. EASY:  Create a method that takes a character input and returns its String representation.
+
+13. MEDIUM: : Write a program that converts user-input characters to Strings and prints them.
+
+14. MEDIUM: : Create a method that checks if a character is a vowel and returns "Vowel" or "Consonant" as a String.
+
+15. HARD:  Write a program that takes an array of characters, converts each to a String, and prints them.
+
+16. HARD:  Create a method that combines a character input and a message into a single String.
+
+17. MEDIUM: : Write a program that converts a character to its ASCII value and returns it as a String.
+
+18. EASY:  Convert the character `'Z'` to a String and print it.
+
+19. MEDIUM: : Create a method that takes two characters and returns a String combining them.
+
+20. HARD:  Write a program that checks if a character is a letter or a digit and returns the result as a String.
+
+==================================================================================================
+==================================================================================================
+
+ `valueOf(char[] data)` METHOD QUESTIONS
+
+21. EASY:  Write a program to convert the character array `{'H', 'e', 'l', 'l', 'o'}` to a String using `valueOf`.
+
+22. EASY:  Create a method that takes a character array and returns its String representation.
+
+23. MEDIUM: : Write a program that takes a user-input character array and prints it as a String.
+
+24. MEDIUM: : Create a method that checks if a character array contains any spaces and returns the result as a String.
+
+25. HARD:  Write a program that takes an array of character arrays, converts each to a String, and prints them.
+
+26. HARD:  Create a method that takes a character array and returns the String formed by reversing the array.
+
+27. MEDIUM: : Write a program that takes a character array of digits and returns the corresponding numeric String.
+
+28. EASY:  Convert the character array `{'J', 'a', 'v', 'a'}` to a String and print it.
+
+29. MEDIUM: : Create a method that takes a character array and returns a String with all vowels removed.
+
+30. HARD:  Write a program that checks if a character array represents a palindrome when converted to a String.
+
+==================================================================================================
+==================================================================================================
+
+ `valueOf(char[] data, int offset, int count)` METHOD QUESTIONS
+
+31. EASY:  Write a program to convert a portion of the character array `{'H', 'e', 'l', 'l', 'o'}` (from index 1 to 3) to a String.
+
+32. EASY:  Create a method that takes a character array and returns a String representation of a specified range.
+
+33. MEDIUM: : Write a program that takes a user-input character array and returns a substring based on offset and count.
+
+34. MEDIUM: : Create a method that takes a character array of digits and converts only a specified range to a numeric String.
+
+35. HARD:  Write a program that reverses a specified range of characters in an array and returns it as a String.
+
+36. HARD:  Create a method that takes a character array and prints a String representation of the last `count` characters.
+
+37. MEDIUM: : Write a program that extracts and converts a specified range from a character array to a String.
+
+38. EASY:  Convert a specified range from the character array `{'J', 'a', 'v', 'a'}` to a String.
+
+39. MEDIUM: : Create a method that takes a character array and returns a String of characters from a given offset to the end.
+
+40. HARD:  Write a program that takes a character array and checks if a specified substring is present within a range.
+
+==================================================================================================
+==================================================================================================
+
+ `valueOf(double d)` METHOD QUESTIONS
+
+41. EASY:  Write a program to convert the double value `123.45` to a String using `valueOf`.
+
+42. EASY:  Create a method that takes a double input and returns its String representation.
+
+43. MEDIUM: : Write a program that takes user-input double values and prints them as Strings.
+
+44. MEDIUM: : Create a method that checks if a double value is positive or negative and returns the result as a String.
+
+45. HARD:  Write a program that formats a double value to two decimal places and returns it as a String.
+
+46. HARD:  Create a method that takes an array of double values, converts each to a String, and prints them.
+
+47. MEDIUM: : Write a program that converts a double value to a String and appends a unit (e.g., "m", "kg").
+
+48. EASY:  Convert the double value `0.0` to a String and print it.
+
+49. MEDIUM: : Create a method that checks if a double value is an integer and returns the result as a String.
+
+50. HARD:  Write a program that compares two double values and returns "Equal" or "Not Equal" as a String.
+
+==================================================================================================
+==================================================================================================
+
+ `valueOf(float f)` METHOD QUESTIONS
+
+51. EASY:  Write a program to convert the float value `45.67f` to a String using `valueOf`.
+
+52. EASY:  Create a method that takes a float input and returns its String representation.
+
+53. MEDIUM: : Write a program that takes user-input float values and prints them as Strings.
+
+54. MEDIUM: : Create a method that checks if a float value is positive or negative and returns the result as a String.
+
+55. HARD:  Write a program that formats a float value to two decimal places and returns it as a String.
+
+56. HARD:  Create a method that takes an array of float values, converts each to a String, and prints them.
+
+57. MEDIUM: : Write a program that converts a float value to a String and appends a unit (e.g., "kg", "l").
+
+58. EASY:  Convert the float value `0.0f` to a String and print it.
+
+59. MEDIUM: : Create a method that checks if a float value is an integer and returns the result as a String.
+
+60. HARD:  Write a program that compares two float values and returns "Equal" or "Not Equal" as a String.
+
+==================================================================================================
+==================================================================================================
+
+ `valueOf(int i)` METHOD QUESTIONS
+
+61. EASY:  Write a program to convert the integer value `123` to a String using `valueOf`.
+
+62. EASY:  Create a method that takes an integer input and returns its String representation.
+
+63. MEDIUM: : Write a program that takes user-input integer values and prints them as Strings.
+
+64. MEDIUM: : Create a method that checks if an integer is even or odd and returns the result as a String.
+
+65. HARD:  Write a program that takes an array of integers, converts each to a String, and prints them.
+
+66. HARD:  Create a method that takes an integer and checks if it is prime, returning "Prime" or "Not Prime" as a String.
+
+67. MEDIUM: : Write a program that converts an integer to a String and appends a currency symbol (e.g., "$").
+
+68. EASY:  Convert the integer value `0` to a String and print it.
+
+69. MEDIUM: : Create a method that takes two integers and returns their sum as a String.
+
+70. HARD:  Write a program that compares two integers and returns "Equal" or "Not Equal" as a String.
+
+==================================================================================================
+==================================================================================================
+
+ `valueOf(long l)` METHOD QUESTIONS
+
+71. EASY:  Write a program to convert the long value `123456789` to a String using `valueOf`.
+
+72. EASY:  Create a method that takes a long input and returns its String representation.
+
+73. MEDIUM: : Write a program that takes user-input long values and prints them as Strings.
+
+74. MEDIUM: : Create a method that checks if a long value is positive or negative and returns the result as a String.
+
+75. HARD:  Write a program that takes an array of long values, converts each to a String, and prints them.
+
+76. HARD:  Create a method that takes a long value and returns the number of digits in its String representation.
+
+77. MEDIUM: : Write a program that converts a long value to a String and appends a unit (e.g., "m").
+
+78. EASY:  Convert the
+
+ long value `0` to a String and print it.
+
+79. MEDIUM: : Create a method that checks if a long value is even or odd and returns the result as a String.
+
+80. HARD:  Write a program that compares two long values and returns "Equal" or "Not Equal" as a String.
+
+==================================================================================================
+==================================================================================================
+
+ `valueOf(Object obj)` METHOD QUESTIONS
+
+81. EASY:  Write a program to convert an Object `new Integer(123)` to a String using `valueOf`.
+
+82. EASY:  Create a method that takes an Object input and returns its String representation using `valueOf`.
+
+83. MEDIUM: : Write a program that takes user-input objects and prints their String representations.
+
+84. MEDIUM: : Create a method that checks if an Object is null and returns "Null" or its String representation.
+
+85. HARD:  Write a program that takes an array of Objects, converts each to a String, and prints them.
+
+86. HARD:  Create a method that takes a list of objects and returns a concatenated String of their representations.
+
+87. MEDIUM: : Write a program that converts an Object (like a custom class) to a String and prints it.
+
+88. EASY:  Convert a string object `"Hello"` to a String and print it.
+
+89. MEDIUM: : Create a method that takes multiple Objects and returns their String representations as a single concatenated String.
+
+90. HARD:  Write a program that handles an array of mixed Object types and returns their String representations.
+
+==================================================================================================
+==================================================================================================
+
+ `trim()` METHOD QUESTIONS
+
+1. EASY:  Write a program that uses `trim()` to remove leading and trailing spaces from the string `"   Hello World!   "`.
+
+2. EASY:  Create a method that takes a string input with extra spaces and returns it after trimming.
+
+3. MEDIUM: : Write a program that prompts the user for a string and displays the trimmed version.
+
+4. MEDIUM: : Create a method that checks if a given string is empty after trimming and returns a boolean result.
+
+5. HARD:  Write a program that takes an array of strings, trims each string, and prints the trimmed results.
+
+6. HARD:  Create a method that counts the number of spaces in a string before and after using `trim()`.
+
+7. MEDIUM: : Write a program that compares two strings after trimming and checks if they are equal.
+
+8. EASY:  Use `trim()` on the string `"   Java Programming   "` and print the result.
+
+9. MEDIUM: : Create a method that takes a string and returns true if it contains only spaces before and after trimming.
+
+10. HARD:  Write a program that takes a list of user-input strings, trims them, and prints the non-empty results.
+
+11. MEDIUM: : Create a method that uses `trim()` and returns the length of the trimmed string.
+
+12. EASY:  Use `trim()` on the string `"   OpenAI   "` and print whether it starts with "OpenAI" after trimming.
+
+13. MEDIUM: : Write a program that checks if a string is empty before and after trimming.
+
+14. HARD:  Create a method that takes a multi-line string and trims each line, returning the result as a single string.
+
+15. MEDIUM: : Write a program that uses `trim()` on user input and validates that the input is not just spaces.
+
+16. EASY:  Use `trim()` on the string `"  Data Science  "` and print the trimmed result.
+
+17. MEDIUM: : Create a method that takes a string of comma-separated values, trims each value, and returns them as a list.
+
+18. HARD:  Write a program that takes a string with various whitespace characters and trims them all.
+
+19. MEDIUM: : Create a method that takes a string, trims it, and checks if the original and trimmed versions are different.
+
+20. EASY:  Use `trim()` on the string `"   Trim Me!   "` and print the output length before and after trimming.
+
+21. MEDIUM: : Write a program that takes a user-input string and returns "Valid" if it's not empty after trimming, otherwise "Invalid".
+
+22. HARD:  Create a method that trims a string and capitalizes the first letter of the trimmed string.
+
+23. MEDIUM: : Write a program that demonstrates how `trim()` behaves with special characters before and after trimming.
+
+24. EASY:  Use `trim()` on the string `"  Hello!  "` and check if the length changes.
+
+25. MEDIUM: : Create a method that takes a string with leading and trailing asterisks (`*`) and trims them.
+
+26. HARD:  Write a program that takes a string of mixed whitespace and punctuation, trims it, and prints the cleaned result.
+
+27. MEDIUM: : Create a method that trims a string and replaces all spaces with underscores in the trimmed result.
+
+28. EASY:  Use `trim()` on the string `"  Welcome to Java  "` and print the final result.
+
+29. MEDIUM: : Write a program that takes a string with multiple spaces and checks if it is the same after trimming.
+
+30. HARD:  Create a method that trims a string and reverses the trimmed string, returning the final result.
+
+==================================================================================================
+==================================================================================================
+
+ `Stack` Class Questions
+
+1. EASY:  Write a program to create a Stack of integers and push the numbers `1`, `2`, and `3` onto it.
+
+2. EASY:  Create a Stack of characters and push the characters `'A'`, `'B'`, and `'C'`.
+
+3. MEDIUM: : Write a program that pops elements from a Stack of integers until it is empty and prints each element.
+
+4. MEDIUM: : Create a method that checks if a Stack of characters is empty and returns a boolean result.
+
+5. HARD:  Write a program that reverses a string using a Stack of characters.
+
+6. HARD:  Create a method that takes a Stack of integers and returns the maximum value in the Stack.
+
+7. MEDIUM: : Write a program that implements a basic calculator using a Stack to evaluate postfix expressions.
+
+8. EASY:  Push five floating-point numbers onto a Stack and then pop them all, printing each value.
+
+9. MEDIUM: : Create a method that takes a Stack of strings and prints each string in reverse order.
+
+10. HARD:  Write a program that checks if a given expression (like `[{()}]`) is balanced using a Stack.
+
+11. MEDIUM: : Create a method that converts an infix expression to postfix using a Stack.
+
+12. EASY:  Push the characters of the string `"Java"` onto a Stack and pop them to print.
+
+13. MEDIUM: : Write a program that takes user input to push multiple integers onto a Stack and displays the contents.
+
+14. HARD:  Create a method that uses a Stack to implement a function that returns the nth Fibonacci number.
+
+15. MEDIUM: : Write a program that implements a Stack using an array and demonstrates basic operations.
+
+16. EASY:  Create a Stack of strings and push `"Hello"` and `"World"` onto it.
+
+17. MEDIUM: : Write a program that counts the number of elements in a Stack without using any built-in method.
+
+18. HARD:  Create a method that takes a Stack of characters and checks if it forms a palindrome.
+
+19. MEDIUM: : Write a program that uses a Stack to find the factorial of a number.
+
+20. EASY:  Push the numbers `10`, `20`, and `30` onto a Stack and print the size of the Stack.
+
+21. MEDIUM: : Create a method that merges two Stacks and returns the merged Stack.
+
+22. HARD:  Write a program that uses two Stacks to sort a third Stack.
+
+23. MEDIUM: : Create a method that takes a Stack and returns the sum of all elements in it.
+
+24. EASY:  Pop elements from a Stack of integers until it is empty and print a message when it's empty.
+
+25. MEDIUM: : Write a program that implements a Stack using linked nodes.
+
+26. HARD:  Create a method that evaluates a mathematical expression in infix notation using a Stack.
+
+27. MEDIUM: : Write a program that takes a Stack of strings and checks if any of the strings are empty.
+
+28. EASY:  Push three boolean values onto a Stack and print each value by popping them.
+
+29. MEDIUM: : Create a method that takes a Stack of integers and returns the average of the values.
+
+30. HARD:  Write a program that uses a Stack to implement a simple undo feature for user input.
+
+==================================================================================================
+==================================================================================================

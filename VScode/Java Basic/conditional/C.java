@@ -1,0 +1,35 @@
+import java.util.Scanner;
+class C{
+    public static void main(String[] args){
+        Scanner s=new Scanner(System.in);
+        System.out.println("Enter unit");
+        int unit = s.nextInt();
+        //System.out.println("write YES if you want to pay before 30 you get 5% discoutn  and if you pay after 30 then you have give 15% extra");
+        String check = s.nextLine();
+		int sum = 0;
+        if(unit <= 20 ){
+            sum = 0;
+        }
+
+        if(unit <= 70){
+            sum = (unit-20) * 2; 
+        }
+        if(unit<=100){
+            sum = (unit - 20) * 2 + (unit - 70) * 4;
+        }
+        if(unit <= 130){
+            sum = (unit - 100) * 7 + 50*2 +30*4;
+        }
+        if(unit > 130){
+            sum = (unit -130) * 15 + 30 * 7 + 30*4 + 50*2;
+        }
+
+        if(check =="YES"){
+            sum = sum - sum * 5 /100;
+        }else{
+            sum = sum + sum * 15 /100 ;
+        }
+        
+        System.out.println("Bill is "+ sum);
+    }
+}
