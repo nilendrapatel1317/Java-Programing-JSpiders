@@ -1,0 +1,78 @@
+Register
+
+Login
+	Open Bank Account
+	Log Out
+	
+	-----------------
+	
+	Profile
+		View User Details
+		View Account Details
+		Update
+			Update User Details
+			Update Account Details
+			Log Out
+		Security
+			Change Login Password
+			Change Security Pin
+			Delete User And Account
+			Delete Account
+			Account Locking
+			Log Out
+		Log Out
+	Banking
+		Check Balance
+		Debit Money
+		Credit Money
+		Transfer Money
+		Transaction History
+		Log Out
+	Log Out
+
+Exit
+
+
+
+
+
+===================================================================
+                          DATABASES
+===================================================================
+      
+	Users
+		id [int]				-> PK
+		name [varchar]
+		age [int]
+		gender [varchar]
+		city [varchar]
+		phone [long]
+		email [varchar]			-> unique
+		password [varchar]
+	
+	Accounts
+		account_number [long]	-> PK 
+		balance [double]
+		security_pin [int]
+		user_id [int] 			-> FK (Users Table : id) 
+		lock [boolean]
+             
+             
+             
+
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             

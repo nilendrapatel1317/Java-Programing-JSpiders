@@ -6,6 +6,9 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="D:\Programing\Java Programing\Project\banking"/>
+			<item value="D:\Programing\Java Programing\Eclipse\Java"/>
+			<item value="D:\Programing\Java Programing\Eclipse\Data_Structure"/>
 			<item value="D:\Programing\Java Programing\Eclipse"/>
 			<item value="D:\Programing\Java Programing\Eclipse\String"/>
 			<item value="D:\Programing\Java Programing\Eclipse\OOPS"/>
@@ -46,5 +49,13 @@
 			<item key="DIALOG_Y_ORIGIN" value="186"/>
 			<item key="DIALOG_FONT_NAME" value="1|Segoe UI|10.2|0|WINDOWS|1|-17|0|0|0|400|0|0|0|0|3|2|1|34|Segoe UI"/>
 		</section>
+	</section>
+	<section name="ChooseWorkspaceDialogSettings">
+		<item key="DIALOG_X_ORIGIN" value="565"/>
+		<item key="DIALOG_Y_ORIGIN" value="232"/>
+	</section>
+	<section name="WORKBENCH_SETTINGS">
+		<list key="ENABLED_TRANSFERS">
+		</list>
 	</section>
 </section>
