@@ -1,7 +1,0 @@
-package com.string;
-
-public class Remove_Spaces {
-	public static void main(String[] args) {
-		stirng s = " My  name  is nilendra    patel    ."
- 	}
-}
