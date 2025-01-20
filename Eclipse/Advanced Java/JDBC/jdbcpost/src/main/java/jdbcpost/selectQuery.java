@@ -11,11 +11,11 @@ import java.util.Scanner;
 public class selectQuery {
 	private static String url = "jdbc:postgresql://localhost:5432/demodb?user=postgres&password=123";
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ClassNotFoundException {
 
 		try {
 			// Load and Register Driver
-//			Class.forName("org.postgresql.Driver");
+			Class.forName("org.postgresql.Driver");
 
 			// Establish Connection
 			Connection con = DriverManager.getConnection(url);

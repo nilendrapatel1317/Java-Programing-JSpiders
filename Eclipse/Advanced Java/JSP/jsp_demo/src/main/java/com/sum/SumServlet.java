@@ -24,5 +24,4 @@ public class SumServlet extends HttpServlet {
 		out.println("sum: "+k);
 
 	}
-
 }

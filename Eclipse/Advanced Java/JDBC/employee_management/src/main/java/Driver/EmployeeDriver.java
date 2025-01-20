@@ -323,5 +323,38 @@ public class EmployeeDriver {
 			e.printStackTrace();
 		}
 	}
+	
+	public void allEmployees() {
+		try {
+			String empQuery = "SELECT * FROM employee";
+			PreparedStatement preparedStatement = connection.prepareStatement(empQuery);
+			ResultSet resultSet = preparedStatement.executeQuery();
+			System.out.println("\nEmployee Profile: ");
+			System.out.println(
+					"+----------+----------------+-----+----------+----------------------+--------------------+");
+			System.out.println(
+					"| EmpID    | Name           | Age | Gender   | Role                 | Email              |");
+			System.out.println(
+					"+----------+----------------+-----+----------+----------------------+--------------------+");
+			while (resultSet.next()) {
+
+				long id = resultSet.getLong("id");
+				String name = resultSet.getString("name");
+				int age = resultSet.getInt("age");
+				String gender = resultSet.getString("gender");
+				String role = resultSet.getString("role");
+				String email = resultSet.getString("email");
+
+				System.out.printf("| %-8s | %-14s | %-3s | %-8s | %-20s | %-18s |\n", id, name, age, gender, role,
+						email);
+				System.out.println(
+						"+----------+----------------+-----+----------+----------------------+--------------------+");
+
+			} 
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 
 }

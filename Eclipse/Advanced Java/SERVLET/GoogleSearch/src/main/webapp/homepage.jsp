@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Google Search</title>
+<style type="text/css">
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Arial, sans-serif;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	background-color: #f8f9fa;
+}
+
+.container {
+	text-align: center;
+}
+
+.logo img {
+	width: 270px;
+	margin-bottom: 20px;
+}
+
+.search-bar {
+	margin: 20px 0;
+}
+
+.search-input {
+	width: 500px;
+	padding: 15px 20px;
+	font-size: 16px;
+	border: 1px solid #dfe1e5;
+	border-radius: 24px;
+	outline: none;
+	transition: box-shadow 0.2s ease-in-out;
+	background-color: #f1f3f4;
+}
+
+.search-input:focus {
+	box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+	border-color: #dfe1e5;
+}
+
+.buttons {
+	margin-top: 20px;
+}
+
+.search-btn, .lucky-btn {
+	font-size: 14px;
+	padding: 10px 20px;
+	margin: 5px;
+	color: #3c4043;
+	background-color: #f8f9fa;
+	border: 1px solid #dfe1e5;
+	border-radius: 4px;
+	cursor: pointer;
+	outline: none;
+	transition: background-color 0.3s ease;
+}
+
+.search-btn:hover, .lucky-btn:hover {
+	background-color: #f1f3f4;
+}
+</style>
+</head>
+<body>
+	<div class="container">
+		<div class="logo">
+			<img
+				src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"
+				alt="Google Logo">
+		</div>
+		<form action="MySearcher" method="post">
+			<div class="search-bar">
+				<input type="text" class="search-input" name="name"
+					placeholder="Search Google or type a URL">
+			</div>
+			<div class="buttons">
+				<input type="submit" value="Google Search" class="search-btn">
+				<button class="lucky-btn">I'm Feeling Lucky</button>
+			</div>
+		</form>
+	</div>
+
+</body>
+</html>

@@ -22,7 +22,8 @@ public class EmployeeService {
 				System.out.println();
 				System.out.println("1. Register Employee");
 				System.out.println("2. Login Employee");
-				System.out.println("3. Exit Application");
+				System.out.println("3. Display All Employees");
+				System.out.println("4. Exit Application");
 				System.out.print("\nEnter your choice: ");
 				int choice1 = scanner.nextInt();
 				switch (choice1) {
@@ -102,6 +103,9 @@ public class EmployeeService {
 					}
 					break;
 				case 3:
+					empDriver.allEmployees();
+					break;
+				case 4:
 					System.out.println("\n===================================================================================================================");
 					System.out.println("THANK YOU FOR USING EMPLOYEE MANAGEMENT SYSTEM !!!");
 					System.out.println("Exiting System !!");

@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 
-@WebServlet("/SumServlet/add")
+//@WebServlet("/SumServlet/add")
 public class SumServlet extends HttpServlet {
 
 
