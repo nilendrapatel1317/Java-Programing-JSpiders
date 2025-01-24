@@ -39,7 +39,7 @@ footer {
 
 	<!-- Header -->
 	<header class="bg-primary text-white text-center py-3">
-		<h1 class="">!! Student Management !!</h1>
+		<h1 class="">!! Student Management System !!</h1>
 	</header>
 
 	<!-- Main Content Section -->
@@ -116,7 +116,7 @@ footer {
 				<div class="col-md-4">
 					<div class="card shadow">
 						<div class="card-body text-center">
-							<i class="bi bi-shield-x text-danger" style="font-size: 2rem;"></i>
+							<i class="bi bi-trash-fill text-danger" style="font-size: 2rem;"></i>
 							<h5 class="card-title mt-3">Delete All Students</h5>
 							<p class="card-text">Remove all student record.</p>
 							<a href="/StudentManagement/deleteAllStudent.jsp"
