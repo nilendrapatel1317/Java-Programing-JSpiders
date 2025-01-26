@@ -22,6 +22,43 @@ public class BankingServices {
 			System.err.println("Error initializing database connection: " + e.getMessage());
 		}
 	}
+	
+	public static boolean changeSecurityPin(Account account , int securityPin) {
+		String query = "UPDATE Accounts SET security_pin = ? WHERE account_number = ?";
+		try {
+			PreparedStatement preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setInt(1, securityPin);
+			preparedStatement.setLong(2, account.getAccountNumber());
+			int i = preparedStatement.executeUpdate();
+			if (i > 0) {
+				account.setSecurity_pin(securityPin);
+				return true;
+			} else {
+				return false;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false ;
+	}
+	public static void secureAccount(Account account , boolean flag) {
+		String query = "UPDATE Accounts SET acc_lock = ? WHERE account_number = ?";
+		try {
+			PreparedStatement preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setBoolean(1, flag);
+			preparedStatement.setLong(2, account.getAccountNumber());
+			int i = preparedStatement.executeUpdate();
+			if (i > 0) {
+				account.setAcc_lock(flag);
+				return;
+			} else {
+				return ;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return ;
+	}
 
 	public static int register(User user) {
 		if (userExist(user.getEmail())) {
@@ -90,6 +127,7 @@ public class BankingServices {
 				user.setEmail(rs.getString("email"));
 				user.setPassword(rs.getString("password"));
 				user.setAccountNumber(rs.getLong("account_number"));
+				user.setGender(rs.getString("gender"));
 				return true;
 			}
 		} catch (SQLException e) {
@@ -156,6 +194,8 @@ public class BankingServices {
 				if (rowsAffected > 0) {
 					user.setAccountNumber(account_number);
 					account.setAccountNumber(account_number);
+					account.setBalance(balance);
+					account.setSecurity_pin(security_pin);
 
 					return account_number;
 
@@ -224,14 +264,15 @@ public class BankingServices {
 		}
 		return false;
 	}
-	public static boolean changePassword(String newPassword, String email) {
+	public static boolean changePassword(User user, String newPassword) {
 		String query = "UPDATE users SET password = ? WHERE email = ?";
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setString(1, newPassword);
-			preparedStatement.setString(2, email);
+			preparedStatement.setString(2, user.getEmail());
 			int i = preparedStatement.executeUpdate();
 			if (i > 0) {
+				user.setPassword(newPassword);
 				return true;
 			} else {
 				return false;
@@ -241,5 +282,62 @@ public class BankingServices {
 		}
 		return false;
 	}
+	
+	public static boolean verifySecurityPin(long accountNumber , int securityPin) {
+		String verifyQuery = "SELECT * FROM Accounts WHERE account_number = ? AND security_pin = ?";
+		try {
+			PreparedStatement preparedStatement = connection.prepareStatement(verifyQuery);
+			preparedStatement.setLong(1, accountNumber);
+			preparedStatement.setInt(2, securityPin);
+			ResultSet resultSet = preparedStatement.executeQuery();
+			if (resultSet.next()) {
+				return true;
+			} else {
+				return false;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+	
+	public static boolean userAccountDetails(Account account, long accountNumber) {
+		String query = "SELECT * FROM Accounts WHERE account_number = ?";
+		try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+			preparedStatement.setLong(1, accountNumber);
+			try (ResultSet resultSet = preparedStatement.executeQuery()) {
+				if(resultSet.next()) {
+					account.setAccountNumber(resultSet.getLong("account_number"));
+					account.setBalance(resultSet.getDouble("balance"));
+					account.setSecurity_pin(resultSet.getInt("security_pin"));
+					account.setAcc_lock(resultSet.getBoolean("acc_lock"));
+					account.setUser_id(resultSet.getInt("user_id"));
+				}
+				return true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+	
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

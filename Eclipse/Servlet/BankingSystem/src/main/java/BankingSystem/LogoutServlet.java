@@ -11,9 +11,8 @@ import jakarta.servlet.http.HttpSession;
 
 @WebServlet("/LogoutServlet")
 public class LogoutServlet extends HttpServlet {
-    private static final long serialVersionUID = 1L;
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) 
+    public void doGet(HttpServletRequest request, HttpServletResponse response) 
             throws ServletException, IOException {
         // Get the current session
         HttpSession session = request.getSession(false); // false means don't create a new session
@@ -21,6 +20,7 @@ public class LogoutServlet extends HttpServlet {
         if (session != null) {
             // Remove the user object
             session.removeAttribute("loggedInUser");
+            session.removeAttribute("loggedInUserAccount");
 
             // Invalidate the session
             session.invalidate();

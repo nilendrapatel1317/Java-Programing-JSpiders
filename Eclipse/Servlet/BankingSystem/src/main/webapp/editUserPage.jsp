@@ -23,7 +23,8 @@
 	%>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="#">Banking System</a>
+			<a class="navbar-brand" href="/BankingSystem/index.jsp">Banking
+				System</a>
 			<button class="navbar-toggler" type="button"
 				data-bs-toggle="collapse" data-bs-target="#navbarNav"
 				aria-controls="navbarNav" aria-expanded="false"
@@ -35,7 +36,7 @@
 					<li class="nav-item"><a class="nav-link"
 						href="/BankingSystem/profilePage.jsp">Profile</a></li>
 					<li class="nav-item"><a class="nav-link"
-						href="/BankingSystem/logout.jsp">Logout</a></li>
+						href="/BankingSystem/logoutPage.jsp">Logout</a></li>
 				</ul>
 			</div>
 		</div>
@@ -80,9 +81,11 @@
 							type="tel" class="form-control" id="phone" name="phone"
 							value="<%=user.getPhone()%>" required>
 					</div>
-					<div class="d-grid">
-						<button type="submit" class="btn btn-primary">Save
+					<div class="d-flex gap-3">
+						<button type="submit" class="btn btn-primary w-50">Save
 							Changes</button>
+						<a href="/BankingSystem/profilePage.jsp" class="btn btn-danger w-50">Cancel
+						</a>
 					</div>
 				</form>
 			</div>

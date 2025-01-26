@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="BankingSystem.User"%>
+<%@ page import="BankingSystem.*"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,6 +16,7 @@
 	<%
 	// Retrieve user object from session
 	User user = (User) session.getAttribute("loggedInUser");
+	Account account = (Account) session.getAttribute("loggedInUserAccount");
 	if (user == null) {
 		// Redirect to login page if session expired
 		response.sendRedirect("/BankingSystem/loginPage.jsp");
@@ -23,7 +24,7 @@
 	%>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="/BankingSystem/index.jsp">Banking System</a>
+			<a class="navbar-brand" href="#">Banking System</a>
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav ms-auto">
 					<li class="nav-item"><a class="nav-link"
@@ -38,56 +39,37 @@
 				<div class="d-flex justify-content-center gap-4 flex-wrap">
 					<div class="row justify-content-center">
 						<div class="col-md-12 mb-5">
-							<a href="/BankingSystem/profilePage.jsp">return to profile page</a>
+							<a href="/BankingSystem/bankingPage.jsp">return to banking
+								page</a>
 						</div>
 					</div>
 				</div>
 				<div class="card shadow">
 					<div class="card-header bg-primary text-white text-center">
-						<h3>User Details</h3>
+						<h3>User Account Details</h3>
 					</div>
 					<div class="card-body">
 						<table class="table">
 							<tbody>
-								<!-- Row 1 -->
 								<tr>
-									<th style="width: 50%;">ID</th>
+									<th style="width: 50%;">User ID</th>
 									<td style="width: 50%;"><%=user.getId()%></td>
 								</tr>
-								<!-- Row 2 -->
 								<tr>
-									<th style="width: 50%;">Full Name</th>
+									<th style="width: 50%;">User Name</th>
 									<td style="width: 50%;"><%=user.getName()%></td>
 								</tr>
-								<!-- Row 3 -->
-								<tr>
-									<th style="width: 50%;">Age</th>
-									<td style="width: 50%;"><%=user.getAge()%></td>
-								</tr>
-								<!-- Row 4 -->
-								<tr>
-									<th style="width: 50%;">Gender</th>
-									<td style="width: 50%;"><%=user.getGender()%></td>
-								</tr>
-								<!-- Row 5 -->
-								<tr>
-									<th style="width: 50%;">City</th>
-									<td style="width: 50%;"><%=user.getCity()%></td>
-								</tr>
-								<!-- Row 6 -->
-								<tr>
-									<th style="width: 50%;">Phone</th>
-									<td style="width: 50%;"><%=user.getPhone()%></td>
-								</tr>
-								<!-- Row 7 -->
-								<tr>
-									<th style="width: 50%;">Email</th>
-									<td style="width: 50%;"><%=user.getEmail()%></td>
-								</tr>
-								<!-- Row 8 -->
 								<tr>
 									<th style="width: 50%;">Account Number</th>
-									<td style="width: 50%;"><%=user.getAccountNumber()%></td>
+									<td style="width: 50%;"><%=account.getAccountNumber()%></td>
+								</tr>
+								<tr>
+									<th style="width: 50%;">Account Balance</th>
+									<td style="width: 50%;">Rs <%=account.getBalance()%></td>
+								</tr>
+								<tr>
+									<th style="width: 50%;">Account Lock Status</th>
+									<td style="width: 50%;"><%=account.isAcc_lock()%></td>
 								</tr>
 							</tbody>
 						</table>

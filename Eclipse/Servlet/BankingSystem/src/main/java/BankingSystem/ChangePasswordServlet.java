@@ -36,26 +36,24 @@ public class ChangePasswordServlet extends HttpServlet {
 		String storedPassword = loggedInUser.getPassword(); // Retrieve user's current password from the session or DB
 
 		if (!storedPassword.equals(currentPassword)) {
-			out.println("<div class='alert alert-danger text-center mt-3'>Current password is incorrect!</div>");
+			out.println("<p class='w-100 text-center text-danger mt-3'>Current password is incorrect!</p>");
 			RequestDispatcher rd = req.getRequestDispatcher("changePasswordPage.jsp");
 			rd.include(req, resp);
 		} else if (!newPassword.equals(confirmPassword)) {
-			out.println("<div class='alert alert-danger text-center mt-3'>New passwords do not match!</div>");
+			out.println("<p class='w-100 text-center text-danger mt-3'>New passwords do not match!</p>");
 			RequestDispatcher rd = req.getRequestDispatcher("changePasswordPage.jsp");
 			rd.include(req, resp);
 		} else {
 
-			boolean changedStaus = BankingServices.changePassword(newPassword, loggedInUser.getEmail());
+			boolean changedStaus = BankingServices.changePassword(loggedInUser, newPassword);
+			
+			System.out.println(loggedInUser);
 
 			if (changedStaus) {
-				out.println("<div class='alert alert-success text-center mt-3'>Password changed successfully!</div>");
-				// Update password in session
-				loggedInUser.setPassword(newPassword);
-				session.setAttribute("loggedInUser", loggedInUser);
 				resp.sendRedirect("homePage.jsp");
 			} else {
 				out.println(
-						"<div class='alert alert-danger text-center mt-3'>Failed to update password. Try again later!</div>");
+						"<p class='w-100 text-center text-danger mt-3'>Failed to update password. Try again later!</p>");
 				RequestDispatcher rd = req.getRequestDispatcher("changePasswordPage.jsp");
 				rd.include(req, resp);
 			}

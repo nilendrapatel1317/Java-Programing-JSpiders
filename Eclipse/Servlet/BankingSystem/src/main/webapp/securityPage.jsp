@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="BankingSystem.User"%>
+<%@ page import="BankingSystem.*"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,6 +25,7 @@
 	<%
 	// Retrieve user object from session
 	User user = (User) session.getAttribute("loggedInUser");
+	Account account = (Account) session.getAttribute("loggedInUserAccount");
 	if (user == null) {
 		// Redirect to login page if session expired
 		response.sendRedirect("/BankingSystem/loginPage.jsp");
@@ -32,7 +33,8 @@
 	%>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="#">Banking System</a>
+			<a class="navbar-brand" href="/BankingSystem/index.jsp">Banking
+				System</a>
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav ms-auto">
 					<li class="nav-item"><a class="nav-link"
@@ -49,11 +51,31 @@
 					<a href="/BankingSystem/changePasswordPage.jsp"
 						class="btn btn-warning btn-lg text-white">Change Login
 						Password</a> <a href="/BankingSystem/changePinPage.jsp"
-						class="btn btn-success btn-lg">Change Security Pin</a> <a
-						href="/BankingSystem/accountBlockingPage.jsp"
-						class="btn btn-danger btn-lg">Account Locking</a> <a
-						href="/BankingSystem/accountUnblockingPage.jsp"
+						class="btn btn-success btn-lg">Change Security Pin</a>
+
+					<%
+					if (account.isAcc_lock()) {
+					%>
+					<a
+						href="/BankingSystem/verifySecurityPin.jsp?operation=unLockAccount"
 						class="btn btn-info btn-lg text-white">Account Unlocking</a>
+
+					<%
+					} else {
+					%>
+					<a
+						href="/BankingSystem/verifySecurityPin.jsp?operation=lockAccount"
+						class="btn btn-danger btn-lg">Account Locking</a>
+					<%
+					}
+					%>
+				</div>
+				<div class="d-flex justify-content-center gap-4 flex-wrap">
+					<div class="row justify-content-center">
+						<div class="col-md-12 mt-5">
+							<a href="/BankingSystem/homePage.jsp">return to homepage</a>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

@@ -24,7 +24,7 @@
 	%>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="#">Banking System</a>
+			<a class="navbar-brand" href="/BankingSystem/homePage.jsp">Banking System</a>
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav ms-auto">
 					<li class="nav-item"><a class="nav-link"
@@ -36,7 +36,7 @@
 	<div class="container mt-5">
 		<h1 class="text-center mb-4 text-capitalize">
 			Welcome,
-			<%=user.getEmail()%>
+			<%=user.getName()%>
 			!
 		</h1>
 		<div class="row justify-content-center">

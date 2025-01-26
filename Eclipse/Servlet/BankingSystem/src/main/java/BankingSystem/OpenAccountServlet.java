@@ -37,6 +37,8 @@ public class OpenAccountServlet extends HttpServlet {
 		Account account = new Account(0, balance, security_pin, false, loggedInUser.getId());
 		long flag = BankingServices.openAccount(loggedInUser, account);
 
+		System.out.println(account);
+		
 		if (flag != 0) {
 			BankingServices.updatAccountNumber(loggedInUser, account);
             resp.sendRedirect("homePage.jsp");

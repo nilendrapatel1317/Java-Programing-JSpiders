@@ -24,21 +24,25 @@ public class LoginServlet extends HttpServlet {
 
         // Create a User object
         User user = new User(email, password);
+        Account account = new Account();
 
         // Call the login method in BankingServices
         Boolean loginSuccess = BankingServices.login(user);
-
-        if (loginSuccess) {
+        Boolean accountStatus = BankingServices.userAccountDetails(account,user.getAccountNumber());
+        
+        System.out.println(user);
+        System.out.println(account);
+        if (loginSuccess && accountStatus) {
             // Save user in session for persistence
             HttpSession session = req.getSession();
             session.setAttribute("loggedInUser", user);
+            session.setAttribute("loggedInUserAccount", account);
 
             // Redirect to home page
-            resp.sendRedirect("homePage.jsp");
-//            rd.forward(req, resp);
+        	resp.sendRedirect("loginPage.jsp");
         } else {
             // Show error and redirect to login page
-            out.println("<p>Invalid email or password. Please try again!</p>");
+            out.println("<p class='w-100 text-center text-danger mt-3'>Invalid email or password. Please try again!</p>");
             RequestDispatcher rd = req.getRequestDispatcher("loginPage.jsp");
             rd.include(req, resp);
         }

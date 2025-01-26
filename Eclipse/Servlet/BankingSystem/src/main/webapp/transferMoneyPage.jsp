@@ -12,7 +12,9 @@
 	integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
 	crossorigin="anonymous">
 </head>
-<body>
+<body
+	class="bg-light d-flex justify-content-center align-items-center flex-column-reverse gap-3 vh-100">
+
 	<%
 	// Retrieve user object from session
 	User user = (User) session.getAttribute("loggedInUser");
@@ -21,7 +23,10 @@
 		response.sendRedirect("/BankingSystem/loginPage.jsp");
 	} else {
 	%>
-	<h1>Account Locking</h1>
+	<div class="bg-white p-4 rounded shadow"
+		style="width: 100%; max-width: 400px;">
+		<h4 class="text-center text-success">Transfer Money</h4>
+	</div>
 	<%
 	}
 	%>

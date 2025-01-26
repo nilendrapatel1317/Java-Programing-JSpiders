@@ -26,9 +26,9 @@ public class RegisterServlet extends HttpServlet {
         int result = BankingServices.register(user);
 
         if (result > 0) {
-            resp.sendRedirect("loginPage.jsp");
+        	resp.sendRedirect("loginPage.jsp");
         } else {
-            out.println("<p style='color:red;'>Email already exists! Please try another email.</p>");
+            out.println("<p class='w-100 text-center text-danger mt-3'>Email already exists! Please try another email.</p>");
             RequestDispatcher rd = req.getRequestDispatcher("registerPage.jsp");
             rd.include(req, resp);
         }
