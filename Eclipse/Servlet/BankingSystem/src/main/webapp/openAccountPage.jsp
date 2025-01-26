@@ -28,7 +28,7 @@
 	</nav>
 	<div class="container mt-5">
 		<h1 class="text-center mb-4">Open Account</h1>
-		<form action="openAccount" method="post" class="w-50 mx-auto">
+		<form action="/BankingSystem/openAccount" method="post" class="w-50 mx-auto">
 			<div class="mb-3">
 				<label for="initialAmount" class="form-label">Enter Initial
 					Amount:</label> <input type="number" class="form-control border-2"

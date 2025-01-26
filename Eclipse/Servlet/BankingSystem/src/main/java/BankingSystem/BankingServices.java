@@ -22,8 +22,77 @@ public class BankingServices {
 			System.err.println("Error initializing database connection: " + e.getMessage());
 		}
 	}
+
+	public static int debitMoney(Account account, double amount) {
+		try {
+			// Retrieve the current balance
+			double current_balance = account.getBalance();
+
+			// Check if the debit amount is valid
+			if (amount <= 0) {
+				return -2; // Invalid debit amount
+			}
+
+			// Ensure sufficient balance
+			if (amount > current_balance) {
+				return -1; // Insufficient balance
+			}
+
+			// Prepare the SQL query to update the balance
+			String debit_query = "UPDATE Accounts SET balance = balance - ? WHERE account_number = ?";
+			PreparedStatement preparedStatement = connection.prepareStatement(debit_query);
+			preparedStatement.setDouble(1, amount);
+			preparedStatement.setLong(2, account.getAccountNumber());
+
+			// Execute the query
+			int rowsAffected = preparedStatement.executeUpdate();
+			if (rowsAffected > 0) {
+				// Update was successful
+				account.setBalance(current_balance - amount); // Update the account object
+				return 1; // Success
+			} else {
+				// No rows were updated (possibly invalid account number)
+				return 0;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return -3; // SQL error
+		}
+	}
 	
-	public static boolean changeSecurityPin(Account account , int securityPin) {
+	public static int creditMoney(Account account, double amount) {
+		try {
+			// Retrieve the current balance
+			double current_balance = account.getBalance();
+			
+			// Check if the debit amount is valid
+			if (amount <= 0) {
+				return -1; // Invalid debit amount
+			}
+			
+			// Prepare the SQL query to update the balance
+			String debit_query = "UPDATE Accounts SET balance = balance + ? WHERE account_number = ?";
+			PreparedStatement preparedStatement = connection.prepareStatement(debit_query);
+			preparedStatement.setDouble(1, amount);
+			preparedStatement.setLong(2, account.getAccountNumber());
+			
+			// Execute the query
+			int rowsAffected = preparedStatement.executeUpdate();
+			if (rowsAffected > 0) {
+				// Update was successful
+				account.setBalance(current_balance + amount); // Update the account object
+				return 1; // Success
+			} else {
+				// No rows were updated (possibly invalid account number)
+				return 0;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return -2; // SQL error
+		}
+	}
+
+	public static boolean changeSecurityPin(Account account, int securityPin) {
 		String query = "UPDATE Accounts SET security_pin = ? WHERE account_number = ?";
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(query);
@@ -39,9 +108,10 @@ public class BankingServices {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return false ;
+		return false;
 	}
-	public static void secureAccount(Account account , boolean flag) {
+
+	public static void secureAccount(Account account, boolean flag) {
 		String query = "UPDATE Accounts SET acc_lock = ? WHERE account_number = ?";
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(query);
@@ -52,12 +122,12 @@ public class BankingServices {
 				account.setAcc_lock(flag);
 				return;
 			} else {
-				return ;
+				return;
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return ;
+		return;
 	}
 
 	public static int register(User user) {
@@ -196,7 +266,6 @@ public class BankingServices {
 					account.setAccountNumber(account_number);
 					account.setBalance(balance);
 					account.setSecurity_pin(security_pin);
-
 					return account_number;
 
 				} else {
@@ -264,6 +333,7 @@ public class BankingServices {
 		}
 		return false;
 	}
+
 	public static boolean changePassword(User user, String newPassword) {
 		String query = "UPDATE users SET password = ? WHERE email = ?";
 		try {
@@ -282,8 +352,8 @@ public class BankingServices {
 		}
 		return false;
 	}
-	
-	public static boolean verifySecurityPin(long accountNumber , int securityPin) {
+
+	public static boolean verifySecurityPin(long accountNumber, int securityPin) {
 		String verifyQuery = "SELECT * FROM Accounts WHERE account_number = ? AND security_pin = ?";
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(verifyQuery);
@@ -300,14 +370,13 @@ public class BankingServices {
 		}
 		return false;
 	}
-	
-	
+
 	public static boolean userAccountDetails(Account account, long accountNumber) {
 		String query = "SELECT * FROM Accounts WHERE account_number = ?";
 		try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
 			preparedStatement.setLong(1, accountNumber);
 			try (ResultSet resultSet = preparedStatement.executeQuery()) {
-				if(resultSet.next()) {
+				if (resultSet.next()) {
 					account.setAccountNumber(resultSet.getLong("account_number"));
 					account.setBalance(resultSet.getDouble("balance"));
 					account.setSecurity_pin(resultSet.getInt("security_pin"));
@@ -321,23 +390,5 @@ public class BankingServices {
 		}
 		return false;
 	}
-	
-	
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

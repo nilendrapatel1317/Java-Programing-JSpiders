@@ -30,8 +30,6 @@ public class LoginServlet extends HttpServlet {
         Boolean loginSuccess = BankingServices.login(user);
         Boolean accountStatus = BankingServices.userAccountDetails(account,user.getAccountNumber());
         
-        System.out.println(user);
-        System.out.println(account);
         if (loginSuccess && accountStatus) {
             // Save user in session for persistence
             HttpSession session = req.getSession();
