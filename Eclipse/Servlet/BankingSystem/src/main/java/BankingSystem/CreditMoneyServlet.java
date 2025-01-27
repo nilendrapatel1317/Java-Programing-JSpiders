@@ -39,7 +39,7 @@ public class CreditMoneyServlet extends HttpServlet {
 		switch (creditResult) {
 			case 1:
 				// Success
-				resp.sendRedirect("homePage.jsp");
+				resp.sendRedirect("bankingPage.jsp");
 				break;
 
 			case -1:

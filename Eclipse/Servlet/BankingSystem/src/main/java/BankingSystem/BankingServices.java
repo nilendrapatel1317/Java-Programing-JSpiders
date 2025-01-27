@@ -23,6 +23,63 @@ public class BankingServices {
 		}
 	}
 
+	public static int transferMoney(Account account, long receiver_account_number, double amount) {
+		try {
+
+			if (amount <= 0) {
+				return -1; 
+			}
+
+			if (amount > account.getBalance()) {
+				return -2; 
+			}
+
+			if (receiver_account_number <= 0) {
+				return -3;
+			}
+			
+			if(receiver_account_number == account.getAccountNumber()) {
+				return -6;
+			}
+			String fetch_recevier_account = "SELECT * FROM Accounts WHERE account_number = ? ";
+			PreparedStatement fetchRecevierAccountPreparedStatement = connection.prepareStatement(fetch_recevier_account);
+			fetchRecevierAccountPreparedStatement.setLong(1, receiver_account_number);
+			ResultSet rs = fetchRecevierAccountPreparedStatement.executeQuery();
+			if(rs.next()) {
+				String debit_query = "UPDATE Accounts SET balance = balance - ? WHERE account_number = ?";
+				String credit_query = "UPDATE Accounts SET balance = balance + ? WHERE account_number = ?";
+
+				// Debit and Credit prepared Statements
+				PreparedStatement creditPreparedStatement = connection.prepareStatement(credit_query);
+				PreparedStatement debitPreparedStatement = connection.prepareStatement(debit_query);
+
+				// Set Values for debit and credit prepared statements
+				debitPreparedStatement.setDouble(1, amount);
+				debitPreparedStatement.setLong(2, account.getAccountNumber());
+				creditPreparedStatement.setDouble(1, amount);
+				creditPreparedStatement.setLong(2, receiver_account_number);
+
+				int rowsAffected1 = debitPreparedStatement.executeUpdate();
+				int rowsAffected2 = creditPreparedStatement.executeUpdate();
+
+				if (rowsAffected1 > 0 && rowsAffected2 > 0) {
+					account.setBalance(account.getBalance()-amount);
+					return 1;
+				} else {
+					return 0;
+				}
+			}else {
+				return -4;
+			}
+
+			
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return -5; // SQL error
+		}
+	}
+
 	public static int debitMoney(Account account, double amount) {
 		try {
 			// Retrieve the current balance
@@ -59,23 +116,23 @@ public class BankingServices {
 			return -3; // SQL error
 		}
 	}
-	
+
 	public static int creditMoney(Account account, double amount) {
 		try {
 			// Retrieve the current balance
 			double current_balance = account.getBalance();
-			
+
 			// Check if the debit amount is valid
 			if (amount <= 0) {
 				return -1; // Invalid debit amount
 			}
-			
+
 			// Prepare the SQL query to update the balance
 			String debit_query = "UPDATE Accounts SET balance = balance + ? WHERE account_number = ?";
 			PreparedStatement preparedStatement = connection.prepareStatement(debit_query);
 			preparedStatement.setDouble(1, amount);
 			preparedStatement.setLong(2, account.getAccountNumber());
-			
+
 			// Execute the query
 			int rowsAffected = preparedStatement.executeUpdate();
 			if (rowsAffected > 0) {
