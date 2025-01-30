@@ -28,7 +28,7 @@
 	<div class="bg-white p-4 rounded shadow d-flex justify-content-center align-items-center flex-column gap-3"
 		style="width: 100%; max-width: 400px;">
 		<i class="bi bi-lock-fill " style="font-size: 3rem;"></i>
-		<h4 class="text-center text-success">Your Account Locked !! 👎</h4>
+		<h4 class="text-center text-success">Your Account is Locked !! 👎</h4>
 	</div>
 	<a href="/BankingSystem/securityPage.jsp">Click for Security Page</a>
 	<%

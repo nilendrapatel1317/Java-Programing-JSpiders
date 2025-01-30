@@ -51,7 +51,9 @@
 					<a href="/BankingSystem/changePasswordPage.jsp"
 						class="btn btn-warning btn-lg text-white">Change Login
 						Password</a> <a href="/BankingSystem/changePinPage.jsp"
-						class="btn btn-success btn-lg">Change Security Pin</a>
+						class="btn btn-success btn-lg">Change Security Pin</a><a
+						href="/BankingSystem/verifyProfilePassword.jsp"
+						class="btn btn-danger btn-lg">Delete Your Profile ⚠️</a>
 
 					<%
 					if (account.isAcc_lock()) {
@@ -65,7 +67,7 @@
 					%>
 					<a
 						href="/BankingSystem/verifySecurityPin.jsp?operation=lockAccount"
-						class="btn btn-danger btn-lg">Account Locking</a>
+						class="btn btn-danger btn-lg">Account Locking ⚠️</a>
 					<%
 					}
 					%>

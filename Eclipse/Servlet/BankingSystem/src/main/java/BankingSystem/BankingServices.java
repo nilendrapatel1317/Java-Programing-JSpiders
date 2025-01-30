@@ -22,6 +22,26 @@ public class BankingServices {
 			System.err.println("Error initializing database connection: " + e.getMessage());
 		}
 	}
+	
+	public static boolean deleteUserProfile(long userId) {
+		
+		String deleteQuery = "DELETE FROM users WHERE id = ?";
+		try {
+			PreparedStatement preparedStatement = connection.prepareStatement(deleteQuery);
+			preparedStatement.setLong(1, userId);
+			int i = preparedStatement.executeUpdate();
+			if (i > 0) {
+				return true;
+			} else {
+				return false;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+	
 
 	public static int transferMoney(Account account, long receiver_account_number, double amount) {
 		try {
@@ -189,7 +209,6 @@ public class BankingServices {
 
 	public static int register(User user) {
 		if (userExist(user.getEmail())) {
-			System.out.println("User already exists for this email address.");
 			return 0;
 		}
 
@@ -379,10 +398,8 @@ public class BankingServices {
 			preparedStatement.setLong(2, user.getId());
 			int i = preparedStatement.executeUpdate();
 			if (i > 0) {
-				System.out.println("i=" + i);
 				return true;
 			} else {
-				System.out.println("i=" + i);
 				return false;
 			}
 		} catch (SQLException e) {
@@ -416,6 +433,24 @@ public class BankingServices {
 			PreparedStatement preparedStatement = connection.prepareStatement(verifyQuery);
 			preparedStatement.setLong(1, accountNumber);
 			preparedStatement.setInt(2, securityPin);
+			ResultSet resultSet = preparedStatement.executeQuery();
+			if (resultSet.next()) {
+				return true;
+			} else {
+				return false;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+	public static boolean verifyProfilePassword(long userId, String profilePassword) {
+		String verifyQuery = "SELECT * FROM users WHERE id = ? AND password = ?";
+		try {
+			PreparedStatement preparedStatement = connection.prepareStatement(verifyQuery);
+			preparedStatement.setLong(1, userId);
+			preparedStatement.setString(2, profilePassword);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			if (resultSet.next()) {
 				return true;

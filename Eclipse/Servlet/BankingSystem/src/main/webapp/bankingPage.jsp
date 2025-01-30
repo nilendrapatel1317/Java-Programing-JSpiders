@@ -69,7 +69,7 @@
 	%>
 	<div
 		class="d-flex justify-content-center align-items-center flex-column gap-4 vh-100">
-		<h1 style="font-size: 5vw;margin-bottom: 50px">Account is Locked</h1>
+		<h1 style="font-size: 5vw;margin-bottom: 50px">Your Account is Locked</h1>
 		<a href="/BankingSystem/verifySecurityPin.jsp?operation=unLockAccount"
 			class="btn btn-info text-white">Click to unlock your
 			account</a>

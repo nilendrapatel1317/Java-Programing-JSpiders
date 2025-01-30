@@ -37,16 +37,14 @@
 		<div
 			class="bg-light d-flex justify-content-center align-items-center flex-column-reverse gap-3 mt-5">
 			<div class="bg-white p-4 rounded shadow mt-5"
-				style="width: 100%; max-width: 400px;">
-				<h2 class="text-center text-primary mb-4">Verify Your Security
-					Pin</h2>
-				<form action="checkSecurityPin" method="post">
-					<input type="hidden" name="operation"
-						value="<%=request.getParameter("operation")%>">
+				style="width: 100%; max-width: 500px;">
+				<h2 class="text-center text-primary mb-4">Verify Your Profile Password
+					</h2>
+				<form action="checkProfilePassword" method="post">
 					<div class="mb-3">
-						<label for="id" class="form-label">Security Pin</label> <input
-							type="number" class="form-control" id="id" name="securityPin"
-							placeholder="Enter Your Security Pin" required>
+						<label for="id" class="form-label">Profile Password</label> <input
+							type="text" class="form-control" id="id" name="profilePassword"
+							placeholder="Enter Your Profile Password" required>
 					</div>
 					<div class="d-grid">
 						<button type="submit" class="btn btn-primary text-white">Verify</button>
@@ -54,7 +52,7 @@
 					<div class="d-flex justify-content-center gap-4 flex-wrap">
 						<div class="row justify-content-center">
 							<div class="col-md-12 mt-4">
-								<a href="/BankingSystem/bankingPage.jsp">return to banking page</a>
+								<a href="/BankingSystem/securityPage.jsp">return to security page</a>
 							</div>
 						</div>
 					</div>

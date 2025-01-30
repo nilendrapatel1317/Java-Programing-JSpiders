@@ -14,7 +14,7 @@ import jakarta.servlet.http.HttpSession;
 @WebServlet("/checkSecurityPin")
 public class CheckSecurityPinServlet extends HttpServlet {
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         User loggedInUser = (User) session.getAttribute("loggedInUser");
         Account account = (Account) session.getAttribute("loggedInUserAccount");

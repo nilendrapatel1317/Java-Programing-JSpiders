@@ -57,12 +57,11 @@
 			<a href="/BankingSystem/exit.jsp" class="btn btn-danger btn-lg">Exit</a>
 		</div>
 	</div>
+
+
 	<%
 	}
 	%>
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-IQsoLXlQ2vG8ht9FyQt1wYG2KE3eTMyWxPtIb8UUepoe8XBzJCOUxBalPdHWXl4u"
-		crossorigin="anonymous"></script>
+	<script src="/BankingSystem/script.js"></script>
 </body>
 </html>
