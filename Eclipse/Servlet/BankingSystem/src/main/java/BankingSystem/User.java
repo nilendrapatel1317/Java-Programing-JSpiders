@@ -11,27 +11,42 @@ public class User {
 	private String password;
 	private long accountNumber;
 
-	public User() {}
+	public User() {
+	}
 
+	// For Login
 	public User(String email, String password) {
 		this.email = email;
 		this.password = password;
 	}
 
+	// For Register
 	public User(String name, String email, String password) {
 		this.name = name;
 		this.email = email;
 		this.password = password;
 	}
-	
-	
 
+	// For Update User details
 	public User(String name, int age, String gender, String city, long phone) {
 		this.name = name;
 		this.age = age;
 		this.gender = gender;
 		this.city = city;
 		this.phone = phone;
+	}
+
+	public void deleteUserObject(long id, String name, int age, String gender, String city, long phone, String email, String password,
+			long accountNumber) {
+		this.id = id;
+		this.name = name;
+		this.age = age;
+		this.gender = gender;
+		this.city = city;
+		this.phone = phone;
+		this.email = email;
+		this.password = password;
+		this.accountNumber = accountNumber;
 	}
 
 	public long getId() {

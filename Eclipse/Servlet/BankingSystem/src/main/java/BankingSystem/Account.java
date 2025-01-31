@@ -16,6 +16,16 @@ public class Account {
 		this.acc_lock = acc_lock;
 		this.user_id = user_id;
 	}
+	
+	
+
+	public void deleteAccountDetails(long accountNumber, double balance, int security_pin, boolean acc_lock, long user_id) {
+		this.accountNumber = accountNumber;
+		this.balance = balance;
+		this.security_pin = security_pin;
+		this.acc_lock = acc_lock;
+		this.user_id = user_id;
+	}
 
 	public long getAccountNumber() {
 		return accountNumber;
