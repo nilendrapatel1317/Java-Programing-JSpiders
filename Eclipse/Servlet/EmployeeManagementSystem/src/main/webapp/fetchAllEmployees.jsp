@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,12 +11,29 @@
 	rel="stylesheet"
 	integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
 	crossorigin="anonymous">
+	<style type="text/css">
+		/* custom scroll bar */
+		::-webkit-scrollbar {
+			width: 5px;
+		}
+		
+		::-webkit-scrollbar-track {
+			background: #f1f1f1;
+		}
+		
+		::-webkit-scrollbar-thumb {
+			background: #CFE2FF;
+			border-radius: 50px;
+		}
+		
+		::-webkit-scrollbar-thumb:hover {
+			background: #2E81E7;
+		}
+	</style>
 </head>
 
 <body class="bg-light d-flex flex-column min-vh-100">
-	<header class="bg-primary text-white text-center py-3">
-		<h1 class="">!! Employee Management System !!</h1>
-	</header>
+	<%@ include file="header.jsp" %>
 	<main class="container my-4 flex-grow-1">
 		<a href="/EmployeeManagementSystem/index.jsp">Return to Homepage</a>
 		<div class="my-3 d-flex justify-content-between align-items-center">

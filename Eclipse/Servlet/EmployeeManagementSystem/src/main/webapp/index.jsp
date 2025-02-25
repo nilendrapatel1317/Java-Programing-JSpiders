@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,9 +39,7 @@ footer {
 <body class="">
 
 	<!-- Header -->
-	<header class="bg-primary text-white text-center py-3">
-		<h1 class="">!! Employee Management System !!</h1>
-	</header>
+	<%@ include file="header.jsp" %>
 
 	<!-- Main Content Section -->
 	<main>

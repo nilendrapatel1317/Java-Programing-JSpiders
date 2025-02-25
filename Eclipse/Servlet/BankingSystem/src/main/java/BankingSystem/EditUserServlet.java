@@ -49,7 +49,7 @@ public class EditUserServlet extends HttpServlet {
             // Update the session with the refreshed user data
             session.setAttribute("loggedInUser", loggedInUser);
             req.setAttribute("successMessage", "Details updated successfully!");
-            resp.sendRedirect("homePage.jsp");
+            resp.sendRedirect("profilePage.jsp");
         } else {
             req.setAttribute("errorMessage", "Failed to update details. Please try again.");
             RequestDispatcher rd = req.getRequestDispatcher("editUserPage.jsp");
