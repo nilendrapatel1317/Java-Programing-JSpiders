@@ -1,9 +1,13 @@
+package com.Tester;
 import java.util.List;
 import java.util.Scanner;
 
+import com.Entity.CRUD_Operation.Student;
+import com.Service.Service;
+
 public class StudentDriver {
 	public static void main(String[] args) {
-		StudentService service = new StudentService();
+		Service service = new Service();
 		Scanner scn = new Scanner(System.in);
 
 		int option = 1000;
@@ -44,7 +48,7 @@ public class StudentDriver {
 
 	}
 
-	private static void insertRecord(StudentService service, Scanner scn) {
+	private static void insertRecord(Service service, Scanner scn) {
 		scn.nextLine();
 		Student student = new Student();
 		System.out.print("Enter Student Name : ");
@@ -61,7 +65,7 @@ public class StudentDriver {
 		System.out.println();
 	}
 
-	private static void fetchRecordById(StudentService service, Scanner scn) {
+	private static void fetchRecordById(Service service, Scanner scn) {
 		scn.nextLine();
 		System.out.print("Enter Student ID : ");
 		int id = scn.nextInt();
@@ -75,7 +79,7 @@ public class StudentDriver {
 		System.out.println();
 	}
 
-	private static void updateRecord(StudentService service, Scanner scn) {
+	private static void updateRecord(Service service, Scanner scn) {
 		scn.nextLine();
 		System.out.print("Enter Student ID : ");
 		int id = scn.nextInt();
@@ -88,7 +92,7 @@ public class StudentDriver {
 		System.out.println();
 	}
 
-	private static void deleteRecord(StudentService service, Scanner scn) {
+	private static void deleteRecord(Service service, Scanner scn) {
 		scn.nextLine();
 		System.out.print("Enter Student ID : ");
 		int id = scn.nextInt();
@@ -102,7 +106,7 @@ public class StudentDriver {
 		System.out.println();
 	}
 
-	private static void fetchRecordByCondition(StudentService service, Scanner scn) {
+	private static void fetchRecordByCondition(Service service, Scanner scn) {
 		scn.nextLine();
 		System.out.print("Enter Student Name : ");
 		String name = scn.nextLine();
@@ -121,7 +125,7 @@ public class StudentDriver {
 		System.out.println();
 	}
 
-	private static void fetchAllRecord(StudentService service) {
+	private static void fetchAllRecord(Service service) {
 		System.out.println("======== All Students: ========");
 		for (Student s : service.getAllStudents()) {
 			System.out.println(s);
