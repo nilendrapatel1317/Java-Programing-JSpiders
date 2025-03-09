@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Char_Occurrence {
 	public static void main(String[] args) {
-		String s = "aabcbbaaddcb";
+		String s = "Sudhakarua";
 		String s1 = "";
 
 		for (char pointerChar : s.toCharArray()) {
@@ -15,7 +15,7 @@ public class Char_Occurrence {
 				for (char currentChar : s.toCharArray()) {
 					if (currentChar == pointerChar) count++;
 				}
-				System.out.println(pointerChar + "=" + count);
+				if(count > 1) System.out.println(pointerChar + "=" + count);
 				s1 += pointerChar;
 			}
 		}

@@ -10,19 +10,17 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Bank {
+public class Product {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String name;
-	private String location;
-	
-	@OneToMany(cascade = CascadeType.ALL)
-	private List<Account> account;
+	private int price;
 
 	public int getId() {
 		return id;
 	}
+
 
 	public String getName() {
 		return name;
@@ -32,26 +30,20 @@ public class Bank {
 		this.name = name;
 	}
 
-	public String getLocation() {
-		return location;
+	public int getPrice() {
+		return price;
 	}
 
-	public void setLocation(String location) {
-		this.location = location;
-	}
-
-	public List<Account> getAccount() {
-		return account;
-	}
-
-	public void setAccount(List<Account> account) {
-		this.account = account;
+	public void setPrice(int price) {
+		this.price = price;
 	}
 
 	@Override
 	public String toString() {
-		return "Bank [id=" + id + ", name=" + name + ", location=" + location + ", account=" + account + "]";
+		return "Product [id=" + id + ", name=" + name + ", price=" + price + "]";
 	}
+
+	
 
 	
 	

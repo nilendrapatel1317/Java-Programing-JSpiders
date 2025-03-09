@@ -1,5 +1,6 @@
 package com.Entity.ManyToOne_Mapping;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -7,48 +8,46 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Account {
+public class Reviews {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	private long accountNumber;
-	private String holderName;
-	@ManyToOne
-	private Bank bank;
-
+	private String tag;
+	private String message;
+	@ManyToOne(cascade = CascadeType.ALL)
+	private Product product;
+	
+	
 	public int getId() {
 		return id;
 	}
-
-	public long getAccountNumber() {
-		return accountNumber;
+	public void setId(int id) {
+		this.id = id;
 	}
-
-	public void setAccountNumber(long accountNumber) {
-		this.accountNumber = accountNumber;
+	public String getTag() {
+		return tag;
 	}
-
-	public String getHolderName() {
-		return holderName;
+	public void setTag(String tag) {
+		this.tag = tag;
 	}
-
-	public void setHolderName(String holderName) {
-		this.holderName = holderName;
+	public String getMessage() {
+		return message;
 	}
-
-	public Bank getBank() {
-		return bank;
+	public void setMessage(String message) {
+		this.message = message;
 	}
-
-	public void setBank(Bank bank) {
-		this.bank = bank;
+	public Product getProduct() {
+		return product;
 	}
-
+	public void setProduct(Product product) {
+		this.product = product;
+	}
 	@Override
 	public String toString() {
-		return "Account [id=" + id + ", accountNumber=" + accountNumber + ", holderName=" + holderName + ", bank="
-				+ bank + "]";
+		return "Reviews [id=" + id + ", tag=" + tag + ", message=" + message + ", product=" + product + "]";
 	}
+
+	
 	
 	
 	

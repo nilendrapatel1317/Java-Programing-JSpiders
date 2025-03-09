@@ -6,7 +6,8 @@ import javax.persistence.Persistence;
 import javax.persistence.Query;
 
 import com.Entity.CRUD_Operation.Student;
-import com.Entity.ManyToOne_Mapping.Bank;
+import com.Entity.ManyToOne_Mapping.Product;
+import com.Entity.ManyToOne_Mapping.Reviews;
 import com.Entity.OneToMany_Mapping.Book;
 import com.Entity.OneToMany_Mapping.Library;
 import com.Entity.OneToOne_Mapping.Passport;
@@ -148,20 +149,22 @@ public class Service {
 		return passport;
 	}
 
-	public void insertMTO(Bank bank) {
+	public void insertMTO(Product p1, Reviews r1, Reviews r2) {
 		EntityManager em = emf.createEntityManager();
 		em.getTransaction().begin();
-		em.persist(bank);
+		em.persist(p1);
+		em.persist(r1);
+		em.persist(r2);
 		em.getTransaction().commit();
 
 	}
 
-	public Bank fetchMTO(int id) {
+	public Product fetchMTO(int id) {
 		EntityManager em = emf.createEntityManager();
-		return em.find(Bank.class, id);
+		return em.find(Product.class, id);
 	}
 
-	public boolean deleteMTO(Bank bank) {
+	public boolean deleteMTO(Product bank) {
 		EntityManager em = emf.createEntityManager();
 		if (bank != null) {
 			em.getTransaction().begin();
