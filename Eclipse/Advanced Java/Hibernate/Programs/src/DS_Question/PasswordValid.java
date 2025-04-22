@@ -30,15 +30,12 @@ public class PasswordValid {
 					sc++;
 			}
 		} catch (Exception e) {
-//			System.out.println(e.getMessage());
+			System.out.println(e.getMessage());
 		}
 
 		return (length == 8 && uc >= 1 && lc >= 1 && dc == 3 && sc >= 1);
 	}
 
-// Atleast 1 Capital Letter
-// Atleast 1 Small Letter
-// Atleast 1 Special Character
-// total 3 digits
+
 
 }

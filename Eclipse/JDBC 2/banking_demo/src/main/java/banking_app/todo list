@@ -1,0 +1,77 @@
+=========================================================================
+                          DATABASES
+=========================================================================
+      
+	Users
+		id [int]				-> PRIMARY kEY
+		name [varchar]
+		age [int]
+		gender [varchar]
+		city [varchar]
+		phone [long]
+		email [varchar]			-> unique
+		password [varchar]
+	
+	Accounts
+		account_number [long]	-> PK 
+		balance [double]
+		security_pin [int]
+		user_id [int] 			-> FOREIGN KEY (Users Table : id) 
+		lock [boolean]
+             
+             
+             
+
+             
+    
+=========================================================================
+                 FEATURES OF BANKING SYSTEM PROJECT
+=========================================================================         
+             
+          
+1. Register
+2. Login
+		case 1: If User Have Account 
+		----------------------------
+			1. Open a new Bank Account
+			2. Log Out
+		
+		case 2: If User does not have Account
+		-------------------------------------
+			1. Profile Feature
+				1. View User Details
+				2. Update User Details
+					1. Edit User Name
+					2. Edit User Age
+					3. Edit User City
+					4. Edit Phone Number
+					5. Return Back
+				3. Return Back
+			2. Banking Feature
+				1. Check Balance
+				2. View Account Details
+				3. Debit Money (Withdraw)
+				4. Credit Money (Deposit)
+				5. Transfer Money
+				6. Transaction History
+				7. Return Back
+			3. Security
+				1. Change Login Password
+				2. Change Security Pin
+				3. Account Locking
+				4. Account Unlocking
+				5. Return Back
+			4. Log Out
+3. Exit  
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             

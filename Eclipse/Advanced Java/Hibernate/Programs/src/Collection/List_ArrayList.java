@@ -5,32 +5,61 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Vector;
 
-public class List_Practice {
+public class List_ArrayList {
 	public static void main(String[] args) {
-		List<Integer> l1 = new Vector<Integer>();
+		List<String> list = new ArrayList<String>();
 		// add(E element): List me last me element add karta hai
-		l1.add(10);
-		l1.add(20);
-		l1.add(30);   
-		l1.add(30);   
-		System.out.println(l1);
+		list.add("Apple");
+        list.add("Banana");
+        list.add("Orange");
+		System.out.println("\n=> add() Method");
+		System.out.println(list);
 		
 		// add(int index, E element): Kisi specific index pe element insert karta hai
-		l1.add(1,40); 	
-		System.out.println(l1);
+		list.add(1, "Mango");  
+		System.out.println(list);
 		
 		// get(int index) : List ke kisi index ka element return karta hai
-		System.out.println(l1.get(2));  
-		System.out.println(l1.getFirst());
-		System.out.println(l1.getLast());
+		System.out.println("\n=> get() Method");
+		System.out.println(list.get(2));  
+		System.out.println(list.getFirst());
+		System.out.println(list.getLast());
 		
 		// set(int index, E element) : List ke kisi index ka element replace karta ha
-		l1.set(3, 50);
-		System.out.println(l1);
+		System.out.println("\n=> set() Method");
+		list.set(1, "Grapes"); 
+		System.out.println(list);
 		
 		// remove(int index) : Kisi specific index ya element ko remove karta hai
-		l1.remove(3);
-		System.out.println(l1);
+		list.remove(1); // Index 1 ka element remove hoga
+		list.remove("Banana"); // "Banana" remove hoga
+		System.out.println("\n=> remove() Method");
+		System.out.println(list);
 		
+		//contains(Object obj) : List me koi element hai ya nahi, yeh check karta hai (true/false return hota hai)
+		System.out.println("\n=> contains() Method");
+		System.out.println(list.contains("Apple")); // Output: true
+		System.out.println(list.contains("Mango")); // Output: false
+		
+		//indexOf(Object obj) : List me kisi element ka index return karta hai
+		System.out.println("\n=> indexOf() Method");
+		System.out.println(list.indexOf("Apple")); // Output: 0
+		System.out.println(list.indexOf("Mango")); // Output: -1 
+		
+		//isEmpty() : List empty hai ya nahi check karta hai (true/false)
+		System.out.println("\n=> isEmpty() Method");
+		System.out.println(list.isEmpty()); // Output: false
+
+		//size() : List ke total elements ka count return karta hai
+		System.out.println("\n=> size() Method");
+		System.out.println(list.size()); // Output: size of element
+
+		
+		//clear() : List ke sare elements hata deta hai
+		list.clear();
+		System.out.println("\n=> clear() Method");
+		System.out.println(list.isEmpty()); // Output: true
+		System.out.println(list);
+
 	}
 }

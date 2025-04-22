@@ -1,6 +1,5 @@
 package com.string;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Shift_Zero_End {
@@ -11,40 +10,15 @@ public class Shift_Zero_End {
 	}
 
 	private static void shift(int[] arr) {
-		ArrayList<Integer> arrList = findZerosAndAssign(arr);
-
-		int[] result = new int[arr.length];
-		int pointer = 0;
-
-		for (int i = 0; i < result.length - 1; i++) {
-			if (arr[i] != 0) {
-				result[pointer] = arr[i];
-				pointer++;
+		for (int i = 0,j=0; i < arr.length; i++) {
+			if(arr[i] != 0) {
+				int t = arr[i];
+				arr[i] = arr[j];
+				arr[j] = t;
+				j++;
 			}
 		}
-		for (int i = pointer + 1; i < result.length - 1; i++) {
-			if (arr[i] == 0) {
-				result[i] = arrList.get(i);
-			}
-		}
-
-		System.out.println(Arrays.toString(result));
-
+		System.out.println(Arrays.toString(arr));
 	}
 
-	private static ArrayList<Integer> findZerosAndAssign(int[] arr) {
-		ArrayList<Integer> arrList = new ArrayList<Integer>();
-		for (int i : arr) {
-			if (i == 0) {
-				arrList.add(i);
-			}
-		}
-
-		int[] zeroArr = new int[arrList.size()];
-
-		for (int i = 0; i < zeroArr.length; i++) {
-			zeroArr[i] = arrList.get(i);
-		}
-		return arrList;
-	}
 }
