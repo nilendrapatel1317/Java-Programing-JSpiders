@@ -1,0 +1,56 @@
+package com.spring.DTO;
+
+import java.time.LocalDate;
+
+//AppointmentDTO.java
+public class AppointmentDTO {
+	private Long id;
+	private LocalDate appointmentDate;
+	private DoctorDTO doctor;
+	private PatientDTO patient;
+	
+	
+
+	public AppointmentDTO() {}
+
+	public AppointmentDTO(Long id, LocalDate appointmentDate, DoctorDTO doctor, PatientDTO patient) {
+		super();
+		this.id = id;
+		this.appointmentDate = appointmentDate;
+		this.doctor = doctor;
+		this.patient = patient;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public LocalDate getAppointmentDate() {
+		return appointmentDate;
+	}
+
+	public void setAppointmentDate(LocalDate appointmentDate) {
+		this.appointmentDate = appointmentDate;
+	}
+
+	public DoctorDTO getDoctor() {
+		return doctor;
+	}
+
+	public void setDoctor(DoctorDTO doctor) {
+		this.doctor = doctor;
+	}
+
+	public PatientDTO getPatient() {
+		return patient;
+	}
+
+	public void setPatient(PatientDTO patient) {
+		this.patient = patient;
+	}
+
+}
