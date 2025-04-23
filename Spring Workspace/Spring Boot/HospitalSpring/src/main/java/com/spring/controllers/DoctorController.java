@@ -24,35 +24,40 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PutMapping;
 
 @RestController
-@RequestMapping("/doctors")
+@RequestMapping("/doctor")
 public class DoctorController {
 	
 	@Autowired
 	private DoctorService doctorService;
 	
-	@GetMapping
+	@GetMapping("/findAll")
 	public List<Doctor> getAllDoctors(){
 		return doctorService.getAllDoctors();
 	}
 	
-	@GetMapping("/{id}")
+	@GetMapping("/find/{id}")
 	public Optional<Doctor> getDoctorById(@PathVariable Long id){
 		return doctorService.getDoctorById(id);
 	}
 	
-	@PostMapping
+	@PostMapping("/add")
 	public Doctor addDoctor(@RequestBody Doctor doctor) {
 		return doctorService.addDoctor(doctor);
 		
 	}
 	
-	@PutMapping("/{id}")
+	@PutMapping("/edit/{id}")
 	public Doctor updateDoctor(@PathVariable Long id, @RequestBody Doctor doctor) {
 		return doctorService.updateDoctor(id, doctor);
 	}
 	
-	@DeleteMapping("/{id}")
+	@DeleteMapping("/delete/{id}")
 	public String deleteDoctor(@PathVariable Long id) {
 		return doctorService.deleteDoctor(id);
+	}
+
+	@DeleteMapping("/deleteAll")
+	public String deleteAllDoctor() {
+		return doctorService.deleteAllDoctor();
 	}
 }

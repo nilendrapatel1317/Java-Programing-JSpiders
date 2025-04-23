@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PutMapping;
 
 @RestController
-@RequestMapping("/patients")
+@RequestMapping("/patient")
 public class PatientController {
 
 
@@ -30,13 +30,13 @@ public class PatientController {
 	private PatientService patientService;
 
 	// Fetch All Patient
-	@GetMapping
+	@GetMapping("/findAll")
 	public List<Patient> getAllPatients() {
 		return patientService.getAllPatients();
 	}
 	
 	// Fetch Patient by Id
-	@GetMapping("/{id}")
+	@GetMapping("/find/{id}")
 	public Optional<Patient> getPatientById(@PathVariable Long id) {
 		return patientService.getPatientById(id);
 	}
@@ -60,14 +60,18 @@ public class PatientController {
 	}
 	
 	// Update Patient
-	@PutMapping("/{id}")
+	@PutMapping("/edit/{id}")
 	public Patient updatePatient(@PathVariable Long id, @RequestBody Patient patient) {
 		return patientService.updatePatient(id,patient);
 	}
 	
-	@DeleteMapping("/{id}")
+	@DeleteMapping("/delete/{id}")
 	public String deletePatient(@PathVariable Long id) {
 		return patientService.deletePatient(id);
+	}
+	@DeleteMapping("/deleteAll")
+	public String deleteAllPatient() {
+		return patientService.deleteAllPatient();
 	}
 	
 }

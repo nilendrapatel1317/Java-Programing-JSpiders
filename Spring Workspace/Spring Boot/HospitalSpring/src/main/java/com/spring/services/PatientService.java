@@ -30,4 +30,6 @@ public interface PatientService {
 	// Delete Patient
 	public String deletePatient(Long id);
 
+	public String deleteAllPatient();
+
 }

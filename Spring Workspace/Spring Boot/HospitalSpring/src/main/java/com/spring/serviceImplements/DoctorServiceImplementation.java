@@ -54,6 +54,12 @@ public class DoctorServiceImplementation implements DoctorService{
 			return "Doctor Not Found";
 		}
 	}
+
+	@Override
+	public String deleteAllDoctor() {
+		doctorRepository.deleteAll();
+		return "All Doctors Deleted SUccessfully !!";
+	}
 	
 	
 	

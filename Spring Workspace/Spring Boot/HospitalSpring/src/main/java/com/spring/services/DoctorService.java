@@ -16,4 +16,6 @@ public interface DoctorService {
 	public Doctor updateDoctor(Long id, Doctor doctor);
 
 	public String deleteDoctor(Long id);
+
+	public String deleteAllDoctor();
 }

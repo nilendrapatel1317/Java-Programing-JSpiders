@@ -27,64 +27,93 @@ public class PatientServiceImplementation implements PatientService {
 		}
 	}
 
-	//Find Patient By Id
+	// Find Patient By Id
 	@Override
 	public Optional<Patient> getPatientById(Long id) {
 		try {
 			return patientRepository.findById(id);
 		} catch (Exception e) {
-			System.out.println(e.getMessage());
+			System.out.println("Error message: " + e.getMessage());
 			return null;
 		}
 	}
 
 	@Override
 	public List<Patient> getPatientByAge(int age) {
-		// TODO Auto-generated method stub
-		return patientRepository.findByAge(age);
+		try {
+			return patientRepository.findByAge(age);
+		} catch (Exception e) {
+			System.out.println("Error message: " + e.getMessage());
+			return null;
+		}
 	}
 
 	@Override
 	public List<Patient> getPatientByAge(int age, String name) {
-		// TODO Auto-generated method stub
-		return patientRepository.findByAgeAndName(age,name);
+		try {
+			return patientRepository.findByAgeAndName(age, name);
+		} catch (Exception e) {
+			System.out.println("Error message: " + e.getMessage());
+			return null;
+		}
 	}
-	
-	//Add Patient
+
+	// Add Patient
 	@Override
 	public Patient addPatient(Patient patient) {
 		try {
 			return patientRepository.save(patient);
 		} catch (Exception e) {
-			System.out.println(e.getMessage());
+			System.out.println("Error message: " + e.getMessage());
 			return null;
 		}
 	}
 
-	
-	//Update Patient
+	// Update Patient
 	@Override
 	public Patient updatePatient(Long id, Patient updatedPatient) {
-		Patient existing = patientRepository.findById(id).orElseThrow(() -> new RuntimeException("Patient not found"));
+		try {
+			Patient existing = patientRepository.findById(id)
+					.orElseThrow(() -> new RuntimeException("Patient not found"));
 
-		//Update whatever you want to update 
-		existing.setName(updatedPatient.getName());
-		existing.setAge(updatedPatient.getAge());
-		existing.setGender(updatedPatient.getGender());
+			// Update whatever you want to update
+			existing.setName(updatedPatient.getName());
+			existing.setAge(updatedPatient.getAge());
+			existing.setGender(updatedPatient.getGender());
 
-		return patientRepository.save(existing);
+			return patientRepository.save(existing);
+		} catch (Exception e) {
+			System.out.println("Error message: " + e.getMessage());
+			return null;
+		}
 	}
-
 
 	// Delete Patient
 	@Override
 	public String deletePatient(Long id) {
-	    if (patientRepository.existsById(id)) {
-	        patientRepository.deleteById(id);
-	        return "Patient Deleted";
-	    } else {
-	        return "Patient not found";
-	    }
+		try {
+			if (patientRepository.existsById(id)) {
+				patientRepository.deleteById(id);
+				return "Patient Deleted Successfully !!";
+			} else {
+				return "Patient not found !!";
+			}
+		} catch (Exception e) {
+			System.out.println("Error message: " + e.getMessage());
+			return e.getMessage();
+		}
+	}
+
+	@Override
+	public String deleteAllPatient() {
+		try {
+			patientRepository.deleteAll();
+			;
+			return "All Patients Deleted Successfully !!";
+		} catch (Exception e) {
+			System.out.println("Error message: " + e.getMessage());
+			return e.getMessage();
+		}
 	}
 
 }
