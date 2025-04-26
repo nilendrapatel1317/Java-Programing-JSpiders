@@ -1,5 +1,6 @@
 package com.spring.serviceImplements;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -37,50 +38,67 @@ public class BillServiceImplementation implements BillService {
 
 	// Fetch Bill by ID
 	@Override
-	public Optional<Bill> getBillById(Long id) {
+	public Optional<Bill> getBillById(String id) {
 		return billRepository.findById(id);
 	}
 
 	// Add Bill 
 	@Override
 	public Bill addBill(Bill bill) {
-		try {
-			if(bill.getTotalAmount() >= bill.getPaidAmount()) {
-				// 1. Set Patient Object
-				Patient patient = patientRepository.findById(bill.getPatient().getId())
-						.orElseThrow(() -> new RuntimeException("Patient not found !!"));
-				bill.setPatient(patient);
-				
-				// 2. set remaining amount
-				bill.setRemainingAmount(bill.getTotalAmount() - bill.getPaidAmount());
-				
-				// 3. set status according to paid amount
-				if(bill.getTotalAmount() == bill.getPaidAmount()) {
-					bill.setStatus(true);
-				}
-				else {
-					bill.setStatus(false);
-				}
-				
-				return billRepository.save(bill);
-			}
-			else return null;
-		} catch (Exception e) {
-			System.out.println("Error message: " + e.getMessage());
-			return null;
-		}
+	    try {
+	        // 1. Generate unique ID manually
+	        bill.setId(generateID());
+
+	        // 2. Validation: paidAmount should not exceed totalAmount
+	        if (bill.getTotalAmount() < bill.getPaidAmount()) {
+	            return null;
+	        }
+
+	        // 3. Fetch Patient from DB
+	        String patientId = bill.getPatient().getId();
+	        Patient patient = patientRepository.findById(patientId).orElse(null);
+	        if (patient == null) return null;
+
+	        // 4. Set patient in bill (owning side)
+	        bill.setPatient(patient);
+
+	        // 5. Set remaining amount and status
+	        bill.setRemainingAmount(bill.getTotalAmount() - bill.getPaidAmount());
+	        bill.setStatus(bill.getRemainingAmount() == 0);
+
+	        // 6. Save bill first (avoid attaching unsaved bill to patient directly)
+	        Bill savedBill = billRepository.save(bill);
+
+	        // 7. Attach saved bill to patient side (inverse side), then save patient if needed
+	        List<Bill> list = patient.getBills();
+			list.add(bill);
+			patient.setBills(list);
+
+	        return savedBill;
+	    } catch (Exception e) {
+	        System.out.println("Error message: " + e.getMessage());
+	        return null;
+	    }
 	}
+
+	private String generateID() {
+		String lastIdStr = billRepository.findLastId().orElse("BILL-100");
+		int lastNum = Integer.parseInt(lastIdStr.split("-")[1]);
+		String newId = "BILL-" + (lastNum + 1);
+		return newId;
+	}
+
 
 	// Edit Bill by ID
 	@Override
-	public Bill updateBill(Long id, Bill updateBill) {
+	public Bill updateBill(String id, Bill updateBill) {
 		try {
 			if (billRepository.existsById(id)) {
 				Bill existBill = billRepository.findById(id).orElseThrow(() -> new RuntimeException("Bill not found !!"));
 
-				if (existBill.getRemainingAmount() >= 0 && existBill.getRemainingAmount() >= updateBill.getPaidAmount()) {
-					existBill.setPaidAmount(existBill.getPaidAmount() + updateBill.getPaidAmount());
-					existBill.setRemainingAmount(existBill.getRemainingAmount() - updateBill.getPaidAmount());
+				if (existBill.getRemainingAmount() > 0) {
+					existBill.setPaidAmount(existBill.getPaidAmount() + updateBill.getRemainingAmount());
+					existBill.setRemainingAmount(existBill.getRemainingAmount() - updateBill.getRemainingAmount());
 					if (existBill.getTotalAmount() <= existBill.getPaidAmount()) {
 						existBill.setStatus(true);
 					} else {
@@ -99,21 +117,15 @@ public class BillServiceImplementation implements BillService {
 
 	// Delete Bill by ID
 	@Override
-	public String deleteBillById(Long id) {
-		try {
-			if (billRepository.existsById(id)) {
-				System.out.println(billRepository.existsById(id));
-				billRepository.deleteById(id);
-				return "Bill Deleted Successfully !!";
-			} else {
-				System.out.println(billRepository.existsById(id));
-				return "Bill not deleted !!";
-			}
-		} catch (Exception e) {
-			System.out.println("Error Message: " + e.getMessage());
-			return e.getMessage();
-		}
+	public String deleteBillById(String id) {
+	    Bill bill = billRepository.findById(id).orElse(null);
+	    if (bill != null) {
+	        billRepository.delete(bill);
+	        return "Bill deleted successfully.";
+	    }
+	    return "Bill not found.";
 	}
+
 
 	// Delete All Bills
 	@Override

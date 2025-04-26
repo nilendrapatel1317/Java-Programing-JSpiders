@@ -9,18 +9,19 @@ import com.spring.models.Appointment;
 public interface AppointmentService {
 
 	public List<Appointment> getAllAppointment();
+	
+	Optional<Appointment> getAppointmentById(String id);
 
 	public Appointment addAppointment(Appointment appointment);
 	
 	//For Security, structure, maintainability
 	public AppointmentDTO addAppointmentDTO(Appointment appointment);
 
-	public String deleteAppointment(Long id);
 
-	public Appointment updateAppointment(Long id, Appointment appointment);
+	public Appointment updateAppointment(String id, Appointment appointment);
 
+	public String deleteAppointment(String id);
+	
 	public String deleteAllAppointment();
-
-	public Optional<Appointment> getAppointmentById(Long id);
 
 }

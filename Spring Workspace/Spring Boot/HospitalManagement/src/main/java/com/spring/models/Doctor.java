@@ -12,15 +12,14 @@ import jakarta.persistence.OneToMany;
 @Entity
 public class Doctor {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private String id;
 	
 	private String name;
 	private String specialization;
 	private int experenceYear;
 	
 
-	@OneToMany
+	@OneToMany(mappedBy = "doctor", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Appointment> appointments;
 	
 	public int getExperenceYear() {
@@ -35,10 +34,11 @@ public class Doctor {
 	public void setAppointments(List<Appointment> appointments) {
 		this.appointments = appointments;
 	}
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(Long id) {
+
+	public void setId(String id) {
 		this.id = id;
 	}
 	public String getName() {
@@ -53,6 +53,13 @@ public class Doctor {
 	public void setSpecialization(String specialization) {
 		this.specialization = specialization;
 	}
+	@Override
+	public String toString() {
+		return "Doctor [id=" + id + ", name=" + name + ", specialization=" + specialization + ", experenceYear="
+				+ experenceYear + ", appointments=" + appointments + "]";
+	}
+	
+	
 	
 	
 }

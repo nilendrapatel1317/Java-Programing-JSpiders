@@ -5,27 +5,30 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Bill {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
 
     @ManyToOne
+    @JoinColumn(name = "patient_id")
     private Patient patient;
+
 
     private double totalAmount;
     private double paidAmount;
     private double remainingAmount;
     private boolean status;
     
-	public Long getId() {
+    public String getId() {
 		return id;
 	}
-	public void setId(Long id) {
-		this.id = id;
+
+	public void setId(String newId) {
+		this.id = newId;
 	}
 	public Patient getPatient() {
 		return patient;
@@ -57,5 +60,12 @@ public class Bill {
 	public void setStatus(boolean status) {
 		this.status = status;
 	}
+	@Override
+	public String toString() {
+		return "Bill [id=" + id + ", patientID=" + patient.getId() + ", totalAmount=" + totalAmount + ", paidAmount=" + paidAmount
+				+ ", remainingAmount=" + remainingAmount + ", status=" + status + "]";
+	}
+	
+	
    
 }

@@ -10,8 +10,14 @@
 </head>
 
 <body class="bg-light">
-    <div class="container mt-5">
-        <div class="card shadow mx-auto" style="max-width: 550px;">
+
+<div class="d-flex">
+    <!-- Sidebar -->
+    <div th:replace="~{fragments/header :: navbar}"></div>
+
+    <!-- Main Content -->
+    <div class="flex-grow-1 d-flex justify-content-center align-items-center p-4" style="min-height: 100vh;">
+        <div class="card shadow" style="max-width: 550px; width: 100%;">
             <div class="card-body p-4">
                 <h2 class="text-center mb-4 text-primary fw-bold">Edit Appointment</h2>
 
@@ -58,6 +64,8 @@
             </div>
         </div>
     </div>
+</div>
+
 </body>
 
 </html>

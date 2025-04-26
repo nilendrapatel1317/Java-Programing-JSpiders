@@ -1,24 +1,24 @@
 package com.spring.DTO;
 
 public class PatientDTO {
-	private Long id;
+	private String id;
 	private String name;
 	private String gender;
 
 	public PatientDTO() {
 	}
 
-	public PatientDTO(Long id, String name, String gender) {
+	public PatientDTO(String id, String name, String gender) {
 		this.id = id;
 		this.name = name;
 		this.gender = gender;
 	}
 
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

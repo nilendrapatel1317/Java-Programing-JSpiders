@@ -13,8 +13,14 @@
 </head>
 
 <body class="bg-light">
-    <div class="container mt-5">
-        <div class="card shadow mx-auto" style="max-width: 550px;">
+
+<div class="d-flex">
+    <!-- Sidebar -->
+    <div th:replace="~{fragments/header :: navbar}"></div>
+
+    <!-- Main Content -->
+    <div class="flex-grow-1 d-flex justify-content-center align-items-center p-4" style="min-height: 100vh;">
+        <div class="card shadow" style="max-width: 550px; width: 100%;">
             <div class="card-body p-4">
                 <h2 class="text-center mb-4 text-primary fw-bold">Add Appointment</h2>
 
@@ -56,21 +62,3 @@
                 </form>
             </div>
         </div>
-    </div>
-
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-    <!-- Select2 JS -->
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-
-    <script>
-        $(document).ready(function () {
-            $('.select2').select2({
-                width: '100%'
-            });
-        });
-    </script>
-</body>
-
-</html>

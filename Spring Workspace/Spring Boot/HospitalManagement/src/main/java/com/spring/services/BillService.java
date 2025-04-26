@@ -9,13 +9,13 @@ public interface BillService {
 
 	public List<Bill> getAllBills();
 
-	public Optional<Bill> getBillById(Long id);
+	public Optional<Bill> getBillById(String id);
 
 	public Bill addBill(Bill bill);
 
-	public Bill updateBill(Long id, Bill bill);
-
-	public String deleteBillById(Long id);
+	public Bill updateBill(String id, Bill bill);
+	
+	public String deleteBillById(String id);
 
 	public String deleteAllBill();
 	

@@ -55,7 +55,7 @@ public class AppointmentController {
 	
 	// Open Edit Appointment Form
 	@GetMapping("/edit/{id}")
-	public String showEditForm(@PathVariable Long id, Model model) {
+	public String showEditForm(@PathVariable String id, Model model) {
 
 		Optional<Appointment> appointment = appointmentService.getAppointmentById(id);
 		if (appointment.isPresent()) {
@@ -70,21 +70,21 @@ public class AppointmentController {
 
 	// Submit Edit Appointment
 	@PostMapping("/edit/{id}")
-	public String updateAppointment(@PathVariable Long id, @ModelAttribute Appointment appointment) {
+	public String updateAppointment(@PathVariable String id, @ModelAttribute Appointment appointment) {
 		appointmentService.updateAppointment(id, appointment);
 		return "redirect:/appointment";
 	}
 
 	// Delete Appointment
 	@GetMapping("/delete/{id}")
-	public String deleteAppointment(@PathVariable Long id) {
+	public String deleteAppointment(@PathVariable String id) {
 		appointmentService.deleteAppointment(id);
 		return "redirect:/appointment";
 	}
 	
 	@GetMapping("/find/{id}")
-	public Optional<Appointment> getAppointmentsById(@PathVariable Long id) {
-		return appointmentService.getAppointmentById(id);
+	public Optional<Appointment> getAppointmentsById(@PathVariable String id) {
+		return null;
 	}
 
 

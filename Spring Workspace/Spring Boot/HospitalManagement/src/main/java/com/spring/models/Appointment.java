@@ -7,27 +7,29 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Appointment {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
 
     @ManyToOne
+    @JoinColumn(name = "patient_id")
     private Patient patient;
 
     @ManyToOne
+    @JoinColumn(name = "doctor_id")
     private Doctor doctor;
     
     private LocalDate appointmentDate;
 
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -54,7 +56,14 @@ public class Appointment {
 	public void setAppointmentDate(LocalDate appointmentDate) {
 		this.appointmentDate = appointmentDate;
 	}
+
+	@Override
+	public String toString() {
+		return "Appointment [id=" + id + ", patient=" + patient.getId() + ", doctor=" + doctor.getId() + ", appointmentDate="
+				+ appointmentDate + "]";
+	}
     
+	
     
 }
 

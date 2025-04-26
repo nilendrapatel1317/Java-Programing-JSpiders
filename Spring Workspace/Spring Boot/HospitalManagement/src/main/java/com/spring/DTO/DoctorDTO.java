@@ -1,23 +1,23 @@
 package com.spring.DTO;
 
 public class DoctorDTO {
-	private Long id;
+	private String id;
 	private String name;
 
 	public DoctorDTO() {
 	}
 	
-	public DoctorDTO(Long id, String name) {
+	public DoctorDTO(String id, String name) {
 		super();
 		this.id = id;
 		this.name = name;
 	}
 
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

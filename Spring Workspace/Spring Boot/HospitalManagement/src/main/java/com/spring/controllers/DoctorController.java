@@ -46,7 +46,7 @@ public class DoctorController {
 
 	// Open Edit Doctor Form
 	@GetMapping("/edit/{id}")
-	public String editDoctorForm(@PathVariable Long id, Model model) {
+	public String editDoctorForm(@PathVariable String id, Model model) {
 		Optional<Doctor> doctor = doctorService.getDoctorById(id);
 		if (doctor.isPresent()) {
 			model.addAttribute("doctor", doctor.get());
@@ -58,21 +58,21 @@ public class DoctorController {
 
 	// Submit Edit Doctor Form 
 	@PostMapping("/edit/{id}")
-	public String updateDoctor(@PathVariable Long id, @ModelAttribute Doctor doctor) {
+	public String updateDoctor(@PathVariable String id, @ModelAttribute Doctor doctor) {
 		doctorService.updateDoctor(id, doctor);
 		return "redirect:/doctor";
 	}
 
 	// Delete Doctor by ID
 	@GetMapping("/delete/{id}")
-	public String deleteDoctor(@PathVariable Long id) {
+	public String deleteDoctor(@PathVariable String id) {
 		doctorService.deleteDoctor(id);
 		return "redirect:/doctor";
 	}
 
 	
 	@GetMapping("/find/{id}")
-	public Optional<Doctor> getDoctorById(@PathVariable Long id) {
+	public Optional<Doctor> getDoctorById(@PathVariable String id) {
 		return doctorService.getDoctorById(id);
 	}
 

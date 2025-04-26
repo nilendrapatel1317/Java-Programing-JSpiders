@@ -42,7 +42,7 @@ public class PatientController {
 
     // Open Edit Form
     @GetMapping("/edit/{id}")
-    public String showEditForm(@PathVariable Long id, Model model) {
+    public String showEditForm(@PathVariable String id, Model model) {
         Optional<Patient> optionalPatient = patientService.getPatientById(id);
         if (optionalPatient.isPresent()) {
             model.addAttribute("patient", optionalPatient.get());
@@ -54,14 +54,14 @@ public class PatientController {
 
     // Handle Edit Patient
     @PostMapping("/edit/{id}")
-    public String updatePatient(@PathVariable Long id, @ModelAttribute Patient patient) {
+    public String updatePatient(@PathVariable String id, @ModelAttribute Patient patient) {
         patientService.updatePatient(id, patient);
         return "redirect:/patient";
     }
 
     // Delete Patient
     @GetMapping("/delete/{id}")
-    public String deletePatient(@PathVariable Long id) {
+    public String deletePatient(@PathVariable String id) {
         patientService.deletePatient(id);
         return "redirect:/patient";
     }

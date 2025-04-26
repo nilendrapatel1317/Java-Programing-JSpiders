@@ -2,92 +2,85 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-<meta charset="UTF-8">
-<title>Add Bill</title>
+    <meta charset="UTF-8">
+    <title>Edit Bill</title>
 
-<!-- Bootstrap CSS -->
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
-	rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<!-- Select2 CSS -->
-<link
-	href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css"
-	rel="stylesheet" />
+    <!-- Select2 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 </head>
 
 <body class="bg-light">
-	<div class="container mt-5">
-		<div class="card shadow mx-auto" style="max-width: 550px;">
-			<div class="card-body p-4">
-				<h2 class="text-center mb-4 text-primary fw-bold">Add Bill</h2>
 
-				<form th:action="@{/bill/edit/{id}(id=*{id})}" method="post" th:object="${bill}">
-						<input type="hidden" th:field="*{id}" />
+<div class="d-flex">
+    <!-- Sidebar -->
+    <div th:replace="~{fragments/header :: navbar}"></div>
 
-						<!-- Patient Dropdown (Read-only style but submitted) -->
-						<div class="mb-3">
-							<label class="form-label">Patient</label> <select
-								class="form-select bg-secondary bg-opacity-10 text-dark"
-								th:field="*{patient.id}" disabled>
-								<option th:each="patient : ${patients}" th:value="${patient.id}"
-									th:selected="${patient.id == bill.patient.id}"
-									th:text="${patient.name}"></option>
-							</select> <input type="hidden" th:field="*{patient.id}" />
-						</div>
+    <!-- Main Content -->
+    <div class="flex-grow-1 p-4">
+        <div class="container mt-5" style="max-width: 550px;">
+            <div class="card shadow mx-auto">
+                <div class="card-body p-4">
+                    <h2 class="text-center mb-4 text-primary fw-bold">Edit Bill</h2>
 
-						<!-- Total Amount (Read-only style but submitted) -->
-						<div class="mb-3">
-							<label class="form-label">Total Amount</label> <input
-								type="number"
-								class="form-control bg-secondary bg-opacity-10 text-dark"
-								th:field="*{totalAmount}" disabled> <input type="hidden"
-								th:field="*{totalAmount}" />
-						</div>
+                    <form th:action="@{/bill/edit/{id}(id=*{id})}" method="post" th:object="${bill}">
+                        <input type="hidden" th:field="*{id}" />
 
-						<!-- Paid Amount (Editable) -->
-						<div class="mb-3">
-							<label class="form-label">Paid Amount</label> <input
-								type="number" class="form-control" th:field="*{paidAmount}"
-								placeholder="Enter paid amount" required>
-						</div>
+                        <div class="d-flex flex-wrap justify-content-between mb-2">
+                            <div class="d-flex flex-wrap">
+                                Patient Name: <option class="fw-bold" th:each="patient : ${patients}"
+                                    th:value="${patient.id}" th:if="${patient.id == bill.patient.id}"
+                                    th:text="${patient.name}"></option>
+                            </div>
+                            <div class="d-flex flex-wrap">
+                                Total Amount: <span class="fw-bold" th:text="'Rs ' + *{totalAmount}"></span>
+                            </div>
+                        </div>
 
-						<!-- Remaining Amount (Read-only style but submitted) -->
-						<div class="mb-3 text-danger">
-							<label class="form-label">Remaining Amount</label> <input
-								type="number"
-								class="form-control text-danger bg-secondary bg-opacity-10"
-								th:field="*{remainingAmount}" disabled> <input
-								type="hidden" th:field="*{remainingAmount}" />
-						</div>
+                        <div class="d-flex flex-wrap justify-content-between mb-3">
+                            <div class="d-flex flex-wrap">
+                                Paid Amount: <span class="fw-bold text-success" th:text="'Rs ' + *{paidAmount}"></span>
+                            </div>
+                            <div class="d-flex flex-wrap">
+                                Remaining Amount: <span class="fw-bold text-danger" th:text="'Rs ' + *{remainingAmount}"></span>
+                            </div>
+                        </div>
 
+                        <!-- Paid Amount (Editable) -->
+                        <div class="my-4">
+                            <label class="form-label">Enter Amount <span class="text-danger fw-semibold" style="font-size: 13px;">(remaining amount)</span></label>
+                            <input type="number" class="form-control" th:field="*{remainingAmount}" placeholder="Enter paid amount" required>
+                        </div>
 
-						<!-- Buttons -->
-						<div class="d-flex justify-content-between mt-4">
-							<button type="submit" class="btn btn-primary w-50 me-2">Add
-								Appointment</button>
-							<a href="/bill" class="btn btn-secondary w-50 ms-2">Cancel</a>
-						</div>
+                        <!-- Buttons -->
+                        <div class="d-flex justify-content-between mt-4">
+                            <button type="submit" class="btn btn-primary w-50 me-2">Edit Bill</button>
+                            <a href="/bill" class="btn btn-secondary w-50 ms-2">Cancel</a>
+                        </div>
 
-					</form>
-			</div>
-		</div>
-	</div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-	<!-- jQuery -->
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-	<!-- Select2 JS -->
-	<script
-		src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<!-- Select2 JS -->
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
-	<script>
-		$(document).ready(function() {
-			$('.select2').select2({
-				width : '100%'
-			});
-		});
-	</script>
+<script>
+    $(document).ready(function () {
+        $('.select2').select2({
+            width: '100%'
+        });
+    });
+</script>
+
 </body>
 
 </html>

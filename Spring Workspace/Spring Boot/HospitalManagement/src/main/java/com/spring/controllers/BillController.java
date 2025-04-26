@@ -11,12 +11,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-import com.spring.models.Appointment;
 import com.spring.models.Bill;
 import com.spring.services.BillService;
 import com.spring.services.DoctorService;
@@ -41,14 +37,16 @@ public class BillController {
 		return "bill/bills-list";
 	}
 
+	// open add form
 	@GetMapping("/add")
 	public String openAddBillForm(Model model) {
 		model.addAttribute("bill", new Bill());
+		System.out.println(patientService.getAllPatients());
 		model.addAttribute("patients", patientService.getAllPatients());
 		return "bill/bill-add";
 	}
 
-	// Add Bill
+	// Handle Add Bill
 	@PostMapping("/add")
 	public String addBill(@ModelAttribute Bill bill) {
 		billService.addBill(bill);
@@ -57,13 +55,13 @@ public class BillController {
 
 	// Fetch Bill by ID
 	@GetMapping("/find/{id}")
-	public Optional<Bill> getAllBills(@PathVariable Long id) {
+	public Optional<Bill> getAllBills(@PathVariable String id) {
 		return billService.getBillById(id);
 	}
 
 	// Open Edit Bill Form
 	@GetMapping("/edit/{id}")
-	public String showEditForm(@PathVariable Long id, Model model) {
+	public String showEditForm(@PathVariable String id, Model model) {
 
 		Optional<Bill> bill = billService.getBillById(id);
 		if (bill.isPresent()) {
@@ -78,16 +76,15 @@ public class BillController {
 
 	// Edit Bill by ID
 	@PostMapping("/edit/{id}")
-	public String updateBill(@PathVariable Long id, @ModelAttribute Bill bill) {
+	public String updateBill(@PathVariable String id, @ModelAttribute Bill bill) {
 		billService.updateBill(id, bill);
 		return "redirect:/bill";
 	}
 
 	// Delete Bill
 	@GetMapping("/delete/{id}")
-	public String deleteBill(@PathVariable Long id) {
+	public String deleteBill(@PathVariable String id) {
 		billService.deleteBillById(id);
-		System.out.println("deleted");
 		return "redirect:/bill";
 	}
 

@@ -10,6 +10,7 @@ import com.spring.DTO.AppointmentDTO;
 import com.spring.DTO.DoctorDTO;
 import com.spring.DTO.PatientDTO;
 import com.spring.models.Appointment;
+import com.spring.models.Bill;
 import com.spring.models.Doctor;
 import com.spring.models.Patient;
 import com.spring.repositories.AppointmentRepository;
@@ -34,16 +35,44 @@ public class AppointmentServiceImplementation implements AppointmentService {
 
 	@Override
 	public Appointment addAppointment(Appointment appointment) {
-		Doctor doctor = doctorRepository.findById(appointment.getDoctor().getId())
-				.orElseThrow(() -> new RuntimeException("Doctor not found"));
+		try {
+			// set appointment ID
+			appointment.setId(generateID());
+			
+			// fetch doctor
+			Doctor doctor = doctorRepository.findById(appointment.getDoctor().getId()).orElse(null);
 
-		Patient patient = patientRepository.findById(appointment.getPatient().getId())
-				.orElseThrow(() -> new RuntimeException("Patient not found"));
+			// fetch patient
+			Patient patient = patientRepository.findById(appointment.getPatient().getId()).orElse(null);
 
-		appointment.setDoctor(doctor);
-		appointment.setPatient(patient);
+			// Add doctor and patient into appointment
+			appointment.setDoctor(doctor);
+			appointment.setPatient(patient);
+			
+			// Save Appointment
+			Appointment saveAppointment = appointmentRepository.save(appointment);
+			
+			// Add bill into patient
+			List<Appointment> doctorList = doctor.getAppointments();
+			doctorList.add(appointment);
+			doctor.setAppointments(doctorList);
 
-		return appointmentRepository.save(appointment); // ✅ Data will be saved now
+			// Add bill into patient
+			List<Appointment> patientList = patient.getAppointments();
+			patientList.add(appointment);
+			patient.setAppointments(patientList);
+
+			return saveAppointment;
+		} catch (Exception e) {
+			return null;
+		}
+	}
+	
+	private String generateID() {
+		String lastIdStr = appointmentRepository.findLastId().orElse("APP-100");
+		int lastNum = Integer.parseInt(lastIdStr.split("-")[1]);
+		String newId = "APP-" + (lastNum + 1);
+		return newId;
 	}
 
 	@Override
@@ -82,17 +111,29 @@ public class AppointmentServiceImplementation implements AppointmentService {
 	}
 
 	@Override
-	public Appointment updateAppointment(Long id, Appointment updateAppointment) {
+	public Appointment updateAppointment(String id, Appointment updateAppointment) {
 		Appointment existAppointment = appointmentRepository.findById(id)
 				.orElseThrow(() -> new RuntimeException("Appointment Not Found !!"));
-		
+
 		existAppointment.setAppointmentDate(updateAppointment.getAppointmentDate());
 		return appointmentRepository.save(existAppointment);
 	}
 
 	@Override
-	public String deleteAppointment(Long id) {
+	public String deleteAppointment(String id) {
 		if (appointmentRepository.existsById(id)) {
+			Appointment appointment = appointmentRepository.findById(id).orElse(null);
+			Doctor doctor = doctorRepository.findById(appointment.getDoctor().getId()).orElse(null);
+			Patient patient = patientRepository.findById(appointment.getPatient().getId()).orElse(null);
+
+			// remove appointment from doctor and patient
+			doctor.getAppointments().remove(appointment);
+			patient.getAppointments().remove(appointment);
+
+			// remove doctor and patient from appointment
+			appointment.setDoctor(null);
+			appointment.setPatient(null);
+
 			appointmentRepository.deleteById(id);
 			return "Appointment Deleted Successfully !!";
 		} else
@@ -106,7 +147,7 @@ public class AppointmentServiceImplementation implements AppointmentService {
 	}
 
 	@Override
-	public Optional<Appointment> getAppointmentById(Long id) {
+	public Optional<Appointment> getAppointmentById(String id) {
 		return appointmentRepository.findById(id);
 	}
 

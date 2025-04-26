@@ -16,7 +16,7 @@ public interface PatientService {
 	public List<Patient> getAllPatients() ;
 
 	//Find Patient By Id
-	public Optional<Patient> getPatientById(Long id) ;
+	public Optional<Patient> getPatientById(String id) ;
 	public List<Patient> getPatientByAge(int age) ;
 	public List<Patient> getPatientByAge(int age, String name) ;
 	
@@ -25,11 +25,12 @@ public interface PatientService {
 
 	
 	//Update Patient
-	public Patient updatePatient(Long id, Patient updatedPatient) ;
+	public Patient updatePatient(String id, Patient updatedPatient) ;
 
 	// Delete Patient
-	public String deletePatient(Long id);
+	public String deletePatient(String id);
 
 	public String deleteAllPatient();
+	
 
 }
