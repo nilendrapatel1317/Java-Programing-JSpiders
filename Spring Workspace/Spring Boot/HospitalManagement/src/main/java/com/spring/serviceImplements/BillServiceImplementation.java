@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.spring.models.Bill;
@@ -28,6 +29,11 @@ public class BillServiceImplementation implements BillService {
 	@Override
 	public List<Bill> getAllBills() {
 		return billRepository.findAll();
+	}
+
+	@Override
+	public List<Bill> getAllBillsSortBy(String sortBy) {
+		return billRepository.findAll(Sort.by(sortBy));
 	}
 
 	// Fetch Bill by ID

@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.spring.models.Appointment;
@@ -20,6 +21,11 @@ public class DoctorServiceImplementation implements DoctorService {
 	@Override
 	public List<Doctor> getAllDoctors() {
 		return doctorRepository.findAll();
+	}
+
+	@Override
+	public List<Doctor> getAllDoctorsSortBy(String sortBy) {
+		return doctorRepository.findAll(Sort.by(sortBy));
 	}
 
 	@Override

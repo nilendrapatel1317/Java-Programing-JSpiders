@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.spring.DTO.AppointmentDTO;
@@ -31,6 +32,11 @@ public class AppointmentServiceImplementation implements AppointmentService {
 	@Override
 	public List<Appointment> getAllAppointment() {
 		return appointmentRepository.findAll();
+	}
+
+	@Override
+	public List<Appointment> getAllAppointmentsSortBy(String sortBy) {
+		return appointmentRepository.findAll(Sort.by(sortBy));
 	}
 
 	@Override

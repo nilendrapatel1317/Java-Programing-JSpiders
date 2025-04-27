@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.spring.models.Doctor;
+import com.spring.models.Patient;
 import com.spring.services.DoctorService;
 
 @Controller
@@ -23,10 +25,19 @@ public class DoctorController {
 	@Autowired
 	private DoctorService doctorService;
 
-	// Open All Doctors Page (View List) 
+	// Open All Doctors Page (View List)
 	@GetMapping
-	public String viewAllDoctors(Model model) {
-		List<Doctor> doctors = doctorService.getAllDoctors();
+	public String viewAllDoctors(@RequestParam(name = "sortBy", required = false) String sortBy, Model model) {
+		List<Doctor> doctors;
+
+		if (sortBy == null || sortBy.isEmpty()) {
+			doctors = doctorService.getAllDoctors(); // Default by ID
+			model.addAttribute("sortField", "ID");
+		} else {
+			doctors = doctorService.getAllDoctorsSortBy(sortBy);
+			model.addAttribute("sortField", sortBy);
+		}
+
 		model.addAttribute("doctors", doctors);
 		return "doctor/doctors-list";
 	}
@@ -37,7 +48,7 @@ public class DoctorController {
 		return "doctor/doctor-add";
 	}
 
-	// Submit Add Doctor Form 
+	// Submit Add Doctor Form
 	@PostMapping("/add")
 	public String addDoctor(@ModelAttribute Doctor doctor) {
 		doctorService.addDoctor(doctor);
@@ -56,7 +67,7 @@ public class DoctorController {
 		}
 	}
 
-	// Submit Edit Doctor Form 
+	// Submit Edit Doctor Form
 	@PostMapping("/edit/{id}")
 	public String updateDoctor(@PathVariable String id, @ModelAttribute Doctor doctor) {
 		doctorService.updateDoctor(id, doctor);
@@ -70,7 +81,6 @@ public class DoctorController {
 		return "redirect:/doctor";
 	}
 
-	
 	@GetMapping("/find/{id}")
 	public Optional<Doctor> getDoctorById(@PathVariable String id) {
 		return doctorService.getDoctorById(id);

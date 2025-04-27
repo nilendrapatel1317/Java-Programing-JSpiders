@@ -43,10 +43,36 @@
 		<!-- Main Content -->
 		<div class="flex-grow-1 p-4">
 			<div class="d-flex justify-content-between align-items-center mb-4">
-				<h1 class="text-primary fw-bold">Patients List</h1>
-				<a th:href="@{/patient/add}" class="btn btn-success"> + Add New
-					Patient </a>
+				<h1 class="text-primary fw-bold m-0">Patients List</h1>
+				<div class="d-flex align-items-center gap-3">
+
+					<!-- Sort By Dropdown -->
+					<div class="dropdown">
+						<button
+							class="btn btn-outline-primary dropdown-toggle text-capitalize"
+							type="button" id="sortDropdown" data-bs-toggle="dropdown"
+							aria-expanded="false" th:text="${'Sort By '+sortField +'  '}">Sort
+							By</button>
+						<ul class="dropdown-menu" aria-labelledby="sortDropdown">
+							<li><a class="dropdown-item" th:href="@{/patient}">ID</a></li>
+							<li><a class="dropdown-item"
+								th:href="@{/patient(sortBy='name')}">Name</a></li>
+							<li><a class="dropdown-item"
+								th:href="@{/patient(sortBy='age')}">Age</a></li>
+							<li><a class="dropdown-item"
+								th:href="@{/patient(sortBy='gender')}">Gender</a></li>
+							<li><a class="dropdown-item"
+								th:href="@{/patient(sortBy='phone')}">Phone</a></li>
+						</ul>
+
+					</div>
+					<!-- Add New Patient Button -->
+					<a th:href="@{/patient/add}" class="btn btn-outline-success"> +
+						Add New Patient </a>
+				</div>
+
 			</div>
+
 
 			<div class="table-responsive">
 				<table
@@ -69,12 +95,9 @@
 							<td th:text="${patient.id}"></td>
 
 							<td>
-								<div
-									class="d-flex align-items-center gap-2">
-									<img
-										src="/images/profile.png"
-										alt="Patient Image" class="profile-img"> <span
-										th:text="${patient.name}"></span>
+								<div class="d-flex align-items-center gap-2">
+									<img src="/images/profile.png" alt="Patient Image"
+										class="profile-img"> <span th:text="${patient.name}"></span>
 								</div>
 							</td>
 

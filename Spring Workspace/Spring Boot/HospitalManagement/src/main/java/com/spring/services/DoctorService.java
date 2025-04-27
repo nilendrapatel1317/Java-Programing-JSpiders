@@ -9,6 +9,8 @@ public interface DoctorService {
 
 	public List<Doctor> getAllDoctors();
 
+	public List<Doctor> getAllDoctorsSortBy(String sortBy);
+
 	public Optional<Doctor> getDoctorById(String id);
 
 	public Doctor addDoctor(Doctor doctor);

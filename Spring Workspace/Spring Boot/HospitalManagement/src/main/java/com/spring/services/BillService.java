@@ -9,6 +9,8 @@ public interface BillService {
 
 	public List<Bill> getAllBills();
 
+	public List<Bill> getAllBillsSortBy(String sortBy);
+
 	public Optional<Bill> getBillById(String id);
 
 	public Bill addBill(Bill bill);

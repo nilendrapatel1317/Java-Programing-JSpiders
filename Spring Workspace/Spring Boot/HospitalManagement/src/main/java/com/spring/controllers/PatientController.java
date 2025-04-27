@@ -20,10 +20,19 @@ public class PatientController {
 
     // Open Patient Page (List View)
     @GetMapping
-    public String viewAllPatients(Model model) {
-        List<Patient> patients = patientService.getAllPatients();
+    public String viewAllPatients(@RequestParam(name = "sortBy", required = false) String sortBy, Model model) {
+        List<Patient> patients;
+
+        if (sortBy == null || sortBy.isEmpty()) {
+            patients = patientService.getAllPatients(); // default sorting
+            model.addAttribute("sortField", "ID");
+        } else {
+            patients = patientService.getAllPatientsBySort(sortBy);
+            model.addAttribute("sortField", sortBy);
+        }
+
         model.addAttribute("patients", patients);
-        return "patient/patients-list"; 
+        return "patient/patients-list";
     }
     
 

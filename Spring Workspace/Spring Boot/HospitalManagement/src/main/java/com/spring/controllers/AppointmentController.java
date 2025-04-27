@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.spring.models.Appointment;
+import com.spring.models.Doctor;
 import com.spring.services.AppointmentService;
 import com.spring.services.DoctorService;
 import com.spring.services.PatientService;
@@ -31,11 +33,20 @@ public class AppointmentController {
 
 	// Open All Appointment
 	@GetMapping
-	public String getAllAppointments(Model model) {
-		List<Appointment> appointments = appointmentService.getAllAppointment();
-		model.addAttribute("appointments", appointments);
-		return "appointment/appointments-list";
-	}
+    public String getAllAppointments(@RequestParam(name = "sortBy", required = false) String sortBy, Model model) {
+        List<Appointment> appointments;
+
+        if (sortBy == null || sortBy.isEmpty()) {
+            appointments = appointmentService.getAllAppointment(); // Default by ID
+            model.addAttribute("sortField", "ID");
+        } else {
+            appointments = appointmentService.getAllAppointmentsSortBy(sortBy);
+            model.addAttribute("sortField", sortBy);
+        }
+
+        model.addAttribute("appointments", appointments);
+        return "appointment/appointments-list";
+    }
 
 	// Open Add Appointment Form
 	@GetMapping("/add")

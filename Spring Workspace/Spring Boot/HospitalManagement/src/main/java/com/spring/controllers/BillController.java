@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import com.spring.models.Appointment;
 import com.spring.models.Bill;
 import com.spring.services.BillService;
 import com.spring.services.DoctorService;
@@ -31,11 +33,20 @@ public class BillController {
 
 	// Fetch All Bills
 	@GetMapping
-	public String getAllBills(Model model) {
-		List<Bill> bills = billService.getAllBills();
-		model.addAttribute("bills", bills);
-		return "bill/bills-list";
-	}
+    public String getAllBills(@RequestParam(name = "sortBy", required = false) String sortBy, Model model) {
+        List<Bill> bills;
+        
+        if (sortBy == null || sortBy.isEmpty()) {
+            bills = billService.getAllBills(); // Default: ID
+            model.addAttribute("sortField", "id");
+        } else {
+            bills = billService.getAllBillsSortBy(sortBy);
+            model.addAttribute("sortField", sortBy);
+        }
+
+        model.addAttribute("bills", bills);
+        return "bill/bills-list";
+    }
 
 	// open add form
 	@GetMapping("/add")

@@ -14,6 +14,7 @@ public interface PatientService {
 
 	// Find all Patients
 	public List<Patient> getAllPatients() ;
+	public List<Patient> getAllPatientsBySort(String sortBy) ;
 
 	//Find Patient By Id
 	public Optional<Patient> getPatientById(String id) ;

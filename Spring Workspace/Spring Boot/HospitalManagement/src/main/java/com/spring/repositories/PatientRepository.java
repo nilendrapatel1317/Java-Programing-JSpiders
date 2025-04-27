@@ -20,4 +20,6 @@ public interface PatientRepository extends JpaRepository<Patient, String> {
 	@Query(value = "SELECT id FROM patient ORDER BY id DESC LIMIT 1", nativeQuery = true)
     Optional<String> findLastId();
 
+
+
 }

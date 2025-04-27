@@ -3,6 +3,7 @@ package com.spring.serviceImplements;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.spring.models.Appointment;
@@ -29,6 +30,11 @@ public class PatientServiceImplementation implements PatientService {
 	@Override
 	public List<Patient> getAllPatients() {
 		return patientRepository.findAll();
+	}
+
+	@Override
+	public List<Patient> getAllPatientsBySort(String sortBy) {
+		return patientRepository.findAll(Sort.by(sortBy));
 	}
 
 	@Override

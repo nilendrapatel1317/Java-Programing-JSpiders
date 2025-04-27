@@ -9,6 +9,8 @@ import com.spring.models.Appointment;
 public interface AppointmentService {
 
 	public List<Appointment> getAllAppointment();
+
+	public List<Appointment> getAllAppointmentsSortBy(String sortBy);
 	
 	Optional<Appointment> getAppointmentById(String id);
 
