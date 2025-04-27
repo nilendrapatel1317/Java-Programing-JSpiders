@@ -11,8 +11,8 @@
 
 <style>
     .profile-img {
-        width: 40px;
-        height: 40px;
+        width: 30px;
+        height: 30px;
         border-radius: 50%;
         object-fit: cover;
     }
@@ -64,8 +64,8 @@
                             <td th:text="${doctor.id}"></td>
 
                             <td>
-                                <div class="d-flex align-items-center justify-content-center gap-2">
-                                    <img src="https://img.freepik.com/premium-vector/silver-membership-icon-default-avatar-profile-icon-membership-icon-social-media-user-image-vector-illustration_561158-4195.jpg?w=826" 
+                                <div class="d-flex align-items-center gap-2">
+                                    <img src="/images/profile.png" 
                                          alt="Doctor Photo" class="profile-img">
                                     <span th:text="'Dr. ' + ${doctor.name}"></span>
                                 </div>

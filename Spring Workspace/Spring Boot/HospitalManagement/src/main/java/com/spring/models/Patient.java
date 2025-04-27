@@ -20,6 +20,7 @@ public class Patient {
 	private String id;
 
 	private String name;
+	private String image;
 	private String gender;
 	private int age;
 	private String address;
@@ -104,12 +105,20 @@ public class Patient {
 	public void setAppointments(List<Appointment> appointments) {
 		this.appointments = appointments;
 	}
+	
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
 
 	@Override
 	public String toString() {
-		return "Patient [id=" + id + ", name=" + name + ", gender=" + gender + ", age=" + age + ", address=" + address
-				+ ", phone=" + phone + ", admissionDate=" + admissionDate + ", bill=" + bill + ", appointments="
-				+ appointments + "]";
+		return "Patient [id=" + id + ", name=" + name + ", image=" + image + ", gender=" + gender + ", age=" + age
+				+ ", address=" + address + ", phone=" + phone + ", admissionDate=" + admissionDate + ", bill=" + bill
+				+ ", appointments=" + appointments + "]";
 	}
 	
 	@PrePersist

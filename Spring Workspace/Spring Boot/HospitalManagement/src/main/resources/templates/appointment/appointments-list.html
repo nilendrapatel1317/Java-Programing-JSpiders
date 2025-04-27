@@ -9,8 +9,8 @@
 
 <style>
     .profile-img {
-        width: 35px;
-        height: 35px;
+        width: 30px;
+        height: 30px;
         border-radius: 50%;
         object-fit: cover;
     }
@@ -59,7 +59,7 @@
                         
                         <td>
                             <div class="d-flex align-items-center gap-2">
-                                <img src="https://img.freepik.com/premium-vector/silver-membership-icon-default-avatar-profile-icon-membership-icon-social-media-user-image-vector-illustration_561158-4195.jpg?w=826"
+                                <img src="/images/profile.png"
                                      alt="Patient Image" class="profile-img">
                                 <span th:text="${appointment.patient.name}"></span>
                             </div>
@@ -67,9 +67,9 @@
                         
                         <td>
                             <div class="d-flex align-items-center gap-2">
-                                <img src="https://img.freepik.com/premium-vector/silver-membership-icon-default-avatar-profile-icon-membership-icon-social-media-user-image-vector-illustration_561158-4195.jpg?w=826"
+                                <img src="/images/profile.png"
                                      alt="Doctor Image" class="profile-img">
-                                <span th:text="${appointment.doctor.name}"></span>
+                                <span th:text="'Dr. ' + ${appointment.doctor.name}"></span>
                             </div>
                         </td>
                         

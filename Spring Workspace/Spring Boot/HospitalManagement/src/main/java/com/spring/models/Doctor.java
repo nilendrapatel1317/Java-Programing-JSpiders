@@ -15,15 +15,16 @@ import jakarta.persistence.PrePersist;
 public class Doctor {
 	@Id
 	private String id;
-	
+
 	private String name;
+	private String image;
 	private String specialization;
 	private int experience;
 	private long phone;
-	
+
 	@OneToMany(mappedBy = "doctor", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Appointment> appointments;
-	
+
 	private LocalDate joinDate;
 
 	public String getId() {
@@ -74,26 +75,32 @@ public class Doctor {
 		this.appointments = appointments;
 	}
 
-	@Override
-	public String toString() {
-		return "Doctor [id=" + id + ", name=" + name + ", specialization=" + specialization + ", experence=" + experience
-				+ ", phone=" + phone + ", appointments=" + appointments + ", joinDate=" + joinDate + "]";
+	public String getImage() {
+		return image;
 	}
-	
-	
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
 	public LocalDate getJoinDate() {
 		return joinDate;
 	}
-
+	
 	public void setJoinDate(LocalDate joinDate) {
 		this.joinDate = joinDate;
+	}
+
+	@Override
+	public String toString() {
+		return "Doctor [id=" + id + ", name=" + name + ", image=" + image + ", specialization=" + specialization
+				+ ", experience=" + experience + ", phone=" + phone + ", appointments=" + appointments + ", joinDate="
+				+ joinDate + "]";
 	}
 
 	@PrePersist
 	public void prePersist() {
 		this.joinDate = LocalDate.now();
 	}
-	
-	
-	
+
 }

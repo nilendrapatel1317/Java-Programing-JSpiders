@@ -13,8 +13,8 @@
 
 <style>
 .profile-img {
-	width: 40px;
-	height: 40px;
+	width: 30px;
+	height: 30px;
 	border-radius: 50%;
 	object-fit: cover;
 }
@@ -60,7 +60,7 @@
 							<th>Address</th>
 							<th>Contact</th>
 							<th>Bill Status</th>
-							<th>Appointments Pending</th>
+							<th>Appointments Status</th>
 							<th>Actions</th>
 						</tr>
 					</thead>
@@ -70,9 +70,9 @@
 
 							<td>
 								<div
-									class="d-flex align-items-center justify-content-center gap-2">
+									class="d-flex align-items-center gap-2">
 									<img
-										src="https://img.freepik.com/premium-vector/silver-membership-icon-default-avatar-profile-icon-membership-icon-social-media-user-image-vector-illustration_561158-4195.jpg?w=826"
+										src="/images/profile.png"
 										alt="Patient Image" class="profile-img"> <span
 										th:text="${patient.name}"></span>
 								</div>
@@ -91,7 +91,7 @@
 							</span></td>
 
 							<td><span
-								th:text="${patient.appointments != null and patient.appointments.?[status == false].size() > 0 ? 'Yes' : 'No'}"
+								th:text="${patient.appointments != null and patient.appointments.?[status == false].size() > 0 ? 'Pending' : 'Completed'}"
 								th:classappend="${patient.appointments != null and patient.appointments.?[status == false].size() > 0} ? 'text-danger fw-bold' : 'text-success fw-bold'">
 							</span></td>
 
