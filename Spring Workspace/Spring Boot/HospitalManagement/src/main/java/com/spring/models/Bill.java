@@ -1,5 +1,7 @@
 package com.spring.models;
 
+import java.time.LocalDate;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -7,28 +9,29 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.PrePersist;
 
 @Entity
 public class Bill {
     @Id
     private String id;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "patient_id")
     private Patient patient;
-
 
     private double totalAmount;
     private double paidAmount;
     private double remainingAmount;
     private boolean status;
+    private LocalDate billDate;
     
-    public String getId() {
+	public String getId() {
 		return id;
 	}
-
-	public void setId(String newId) {
-		this.id = newId;
+	public void setId(String id) {
+		this.id = id;
 	}
 	public Patient getPatient() {
 		return patient;
@@ -60,12 +63,21 @@ public class Bill {
 	public void setStatus(boolean status) {
 		this.status = status;
 	}
+	public LocalDate getBillDate() {
+		return billDate;
+	}
+	public void setBillDate(LocalDate billDate) {
+		this.billDate = billDate;
+	}
 	@Override
 	public String toString() {
-		return "Bill [id=" + id + ", patientID=" + patient.getId() + ", totalAmount=" + totalAmount + ", paidAmount=" + paidAmount
-				+ ", remainingAmount=" + remainingAmount + ", status=" + status + "]";
+		return "Bill [id=" + id + ", patient=" + patient.getId() + ", totalAmount=" + totalAmount + ", paidAmount=" + paidAmount
+				+ ", remainingAmount=" + remainingAmount + ", status=" + status + ", billDate=" + billDate + "]";
 	}
-	
-	
-   
+    
+	@PrePersist
+	public void prePersist() {
+		this.billDate = LocalDate.now();
+	}
+    
 }

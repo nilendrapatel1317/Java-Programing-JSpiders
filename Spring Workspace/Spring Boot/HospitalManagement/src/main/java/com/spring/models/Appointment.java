@@ -24,6 +24,15 @@ public class Appointment {
     private Doctor doctor;
     
     private LocalDate appointmentDate;
+    private boolean status;
+
+	public boolean getStatus() {
+		return status;
+	}
+
+	public void setStatus(boolean status) {
+		this.status = status;
+	}
 
 	public String getId() {
 		return id;
@@ -60,7 +69,7 @@ public class Appointment {
 	@Override
 	public String toString() {
 		return "Appointment [id=" + id + ", patient=" + patient.getId() + ", doctor=" + doctor.getId() + ", appointmentDate="
-				+ appointmentDate + "]";
+				+ appointmentDate + ", status=" + status + "]";
 	}
     
 	

@@ -54,24 +54,45 @@ public class AppointmentController {
 	}
 	
 	// Open Edit Appointment Form
-	@GetMapping("/edit/{id}")
-	public String showEditForm(@PathVariable String id, Model model) {
+	@GetMapping("/edit-date/{id}")
+	public String showEditFormForDate(@PathVariable String id, Model model) {
 
 		Optional<Appointment> appointment = appointmentService.getAppointmentById(id);
 		if (appointment.isPresent()) {
 			model.addAttribute("appointment", appointment.get()); // not Optional
     		model.addAttribute("doctors", doctorService.getAllDoctors());
     		model.addAttribute("patients", patientService.getAllPatients());
-            return "appointment/appointment-edit"; 
+            return "appointment/appointment-date-edit"; 
         } else {
             return "redirect:/appointment";
         }
 	}
+	// Open Edit Appointment Form
+	@GetMapping("/edit-status/{id}")
+	public String showEditFormForStatus(@PathVariable String id, Model model) {
+		
+		Optional<Appointment> appointment = appointmentService.getAppointmentById(id);
+		if (appointment.isPresent()) {
+			model.addAttribute("appointment", appointment.get()); // not Optional
+			model.addAttribute("doctors", doctorService.getAllDoctors());
+			model.addAttribute("patients", patientService.getAllPatients());
+			return "appointment/appointment-status-edit"; 
+		} else {
+			return "redirect:/appointment";
+		}
+	}
 
 	// Submit Edit Appointment
-	@PostMapping("/edit/{id}")
-	public String updateAppointment(@PathVariable String id, @ModelAttribute Appointment appointment) {
-		appointmentService.updateAppointment(id, appointment);
+	@PostMapping("/edit-date/{id}")
+	public String updateAppointmentDate(@PathVariable String id, @ModelAttribute Appointment appointment) {
+		appointmentService.updateAppointmentDate(id, appointment);
+		return "redirect:/appointment";
+	}
+
+	// Submit Edit Appointment
+	@PostMapping("/edit-status/{id}")
+	public String updateAppointmentStatus(@PathVariable String id, @ModelAttribute Appointment appointment) {
+		appointmentService.updateAppointmentStatus(id, appointment);
 		return "redirect:/appointment";
 	}
 

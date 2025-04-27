@@ -6,13 +6,14 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.spring.models.Appointment;
 import com.spring.models.Doctor;
 import com.spring.repositories.DoctorRepository;
 import com.spring.services.DoctorService;
 
 @Service
-public class DoctorServiceImplementation implements DoctorService{
-	
+public class DoctorServiceImplementation implements DoctorService {
+
 	@Autowired
 	private DoctorRepository doctorRepository;
 
@@ -23,7 +24,7 @@ public class DoctorServiceImplementation implements DoctorService{
 
 	@Override
 	public Optional<Doctor> getDoctorById(String id) {
-		
+
 		return doctorRepository.findById(id);
 	}
 
@@ -32,7 +33,7 @@ public class DoctorServiceImplementation implements DoctorService{
 		doctor.setId(generateID());
 		return doctorRepository.save(doctor);
 	}
-	
+
 	private String generateID() {
 		String lastIdStr = doctorRepository.findLastId().orElse("DOC-100");
 		int lastNum = Integer.parseInt(lastIdStr.split("-")[1]);
@@ -42,23 +43,33 @@ public class DoctorServiceImplementation implements DoctorService{
 
 	@Override
 	public Doctor updateDoctor(String id, Doctor updateDoctor) {
+		// fetch old data
 		Doctor exitsDoctor = doctorRepository.findById(id).orElseThrow(() -> new RuntimeException("Doctor not found"));
-		
+
+		// Update required data
 		exitsDoctor.setName(updateDoctor.getName());
-		
-		System.out.println(exitsDoctor.getName());
-		System.out.println(updateDoctor.getName());
+		exitsDoctor.setSpecialization(updateDoctor.getSpecialization());
+		exitsDoctor.setExperience(updateDoctor.getExperience());
+		exitsDoctor.setPhone(updateDoctor.getPhone());
 
 		return doctorRepository.save(exitsDoctor);
 	}
 
 	@Override
 	public String deleteDoctor(String id) {
-		if(doctorRepository.existsById(id)) {
+		if (doctorRepository.existsById(id)) {
+			Doctor doctor = doctorRepository.findById(id).orElse(null);
+			
+			// Check if there any appointment is pending or not
+			List<Appointment> appointments = doctor.getAppointments();
+			for (Appointment appointment : appointments) {
+				if (!appointment.getStatus()) {
+					return "Cannot delete doctor. There are pending Appointment.";
+				}
+			}
 			doctorRepository.deleteById(id);
 			return "Doctor Delete SUccessfully !!";
-		}
-		else {
+		} else {
 			return "Doctor Not Found";
 		}
 	}
@@ -68,9 +79,5 @@ public class DoctorServiceImplementation implements DoctorService{
 		doctorRepository.deleteAll();
 		return "All Doctors Deleted SUccessfully !!";
 	}
-	
-	
-	
-	
 
 }

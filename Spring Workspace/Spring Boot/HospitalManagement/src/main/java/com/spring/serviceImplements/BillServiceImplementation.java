@@ -18,17 +18,11 @@ import com.spring.services.BillService;
 @Service
 public class BillServiceImplementation implements BillService {
 
-	private final DoctorRepository doctorRepository;
-
 	@Autowired
 	private BillRepository billRepository;
 
 	@Autowired
 	private PatientRepository patientRepository;
-
-	BillServiceImplementation(DoctorRepository doctorRepository) {
-		this.doctorRepository = doctorRepository;
-	}
 
 	// Fetch All Bills
 	@Override
@@ -42,43 +36,73 @@ public class BillServiceImplementation implements BillService {
 		return billRepository.findById(id);
 	}
 
-	// Add Bill 
+	// Add Bill
 	@Override
-	public Bill addBill(Bill bill) {
-	    try {
-	        // 1. Generate unique ID manually
-	        bill.setId(generateID());
+	public Bill addBill(Bill newBill) {
+		try {
+			System.out.println("===================================================================");
+			System.out.println("===================================================================");
+			String patientId = newBill.getPatient().getId();
+			Patient patient = patientRepository.findById(patientId).orElse(null);
+			if (patient != null) {
+				System.out.println(patient);
+				Bill oldBill = patient.getBill();
+				if (oldBill != null) {
+					System.out.println("Bill Present");
+					double totalAmount = oldBill.getTotalAmount() + newBill.getTotalAmount();
+					double paidAmount = oldBill.getPaidAmount() + newBill.getPaidAmount();
+					double remainingAmount = totalAmount - paidAmount;
+					
+					if(remainingAmount>0) {
+						oldBill.setStatus(false);
+					}
+					else {
+						oldBill.setStatus(true);
+					}
 
-	        // 2. Validation: paidAmount should not exceed totalAmount
-	        if (bill.getTotalAmount() < bill.getPaidAmount()) {
-	            return null;
-	        }
+					oldBill.setTotalAmount(totalAmount);
+					oldBill.setPaidAmount(paidAmount);
+					oldBill.setRemainingAmount(remainingAmount);
 
-	        // 3. Fetch Patient from DB
-	        String patientId = bill.getPatient().getId();
-	        Patient patient = patientRepository.findById(patientId).orElse(null);
-	        if (patient == null) return null;
+					billRepository.save(oldBill);
+					return oldBill;
+				} else {
+//	        		 1. Generate unique ID manually
+					newBill.setId(generateID());
 
-	        // 4. Set patient in bill (owning side)
-	        bill.setPatient(patient);
+					// 2. Validation: paidAmount should not exceed totalAmount
+					if (newBill.getTotalAmount() < newBill.getPaidAmount()) {
+						return null;
+					}
 
-	        // 5. Set remaining amount and status
-	        bill.setRemainingAmount(bill.getTotalAmount() - bill.getPaidAmount());
-	        bill.setStatus(bill.getRemainingAmount() == 0);
+					// 3. Fetch Patient from DB
+					String patient_Id = newBill.getPatient().getId();
+					Patient patient2 = patientRepository.findById(patient_Id).orElse(null);
+					if (patient2 == null)
+						return null;
 
-	        // 6. Save bill first (avoid attaching unsaved bill to patient directly)
-	        Bill savedBill = billRepository.save(bill);
+					// 4. Set patient in bill (owning side)
+					newBill.setPatient(patient2);
 
-	        // 7. Attach saved bill to patient side (inverse side), then save patient if needed
-	        List<Bill> list = patient.getBills();
-			list.add(bill);
-			patient.setBills(list);
+					// 5. Set remaining amount and status
+					newBill.setRemainingAmount(newBill.getTotalAmount() - newBill.getPaidAmount());
+					newBill.setStatus(newBill.getRemainingAmount() == 0);
 
-	        return savedBill;
-	    } catch (Exception e) {
-	        System.out.println("Error message: " + e.getMessage());
-	        return null;
-	    }
+					// 6. Save bill first (avoid attaching unsaved bill to patient directly)
+					Bill savedBill = billRepository.save(newBill);
+
+					// 7. Attach saved bill to patient side
+					patient2.setBill(savedBill);
+
+					return savedBill;
+				}
+			} else {
+				return null;
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			return null;
+		}
 	}
 
 	private String generateID() {
@@ -88,13 +112,13 @@ public class BillServiceImplementation implements BillService {
 		return newId;
 	}
 
-
 	// Edit Bill by ID
 	@Override
 	public Bill updateBill(String id, Bill updateBill) {
 		try {
 			if (billRepository.existsById(id)) {
-				Bill existBill = billRepository.findById(id).orElseThrow(() -> new RuntimeException("Bill not found !!"));
+				Bill existBill = billRepository.findById(id)
+						.orElseThrow(() -> new RuntimeException("Bill not found !!"));
 
 				if (existBill.getRemainingAmount() > 0) {
 					existBill.setPaidAmount(existBill.getPaidAmount() + updateBill.getRemainingAmount());
@@ -118,14 +142,23 @@ public class BillServiceImplementation implements BillService {
 	// Delete Bill by ID
 	@Override
 	public String deleteBillById(String id) {
-	    Bill bill = billRepository.findById(id).orElse(null);
-	    if (bill != null) {
-	        billRepository.delete(bill);
-	        return "Bill deleted successfully.";
-	    }
-	    return "Bill not found.";
-	}
+		System.out.println("==========================================");
+		try {
 
+			Bill bill = billRepository.findById(id).orElse(null);
+			System.out.println(bill.getPatient().getBill());
+			if (bill != null) {
+				Patient patient = bill.getPatient();
+				patient.setBill(null);
+				billRepository.delete(bill);
+				return "Bill deleted successfully.";
+			}
+			return "Bill not found.";
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			return e.getMessage();
+		}
+	}
 
 	// Delete All Bills
 	@Override

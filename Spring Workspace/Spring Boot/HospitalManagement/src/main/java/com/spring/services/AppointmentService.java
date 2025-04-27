@@ -18,7 +18,8 @@ public interface AppointmentService {
 	public AppointmentDTO addAppointmentDTO(Appointment appointment);
 
 
-	public Appointment updateAppointment(String id, Appointment appointment);
+	public Appointment updateAppointmentDate(String id, Appointment appointment);
+	public Appointment updateAppointmentStatus(String id, Appointment appointment);
 
 	public String deleteAppointment(String id);
 	

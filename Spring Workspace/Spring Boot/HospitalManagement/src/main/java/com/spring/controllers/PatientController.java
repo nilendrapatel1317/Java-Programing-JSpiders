@@ -23,7 +23,7 @@ public class PatientController {
     public String viewAllPatients(Model model) {
         List<Patient> patients = patientService.getAllPatients();
         model.addAttribute("patients", patients);
-        return "patient/patients-list"; // Thymeleaf template name: patients.html
+        return "patient/patients-list"; 
     }
     
 

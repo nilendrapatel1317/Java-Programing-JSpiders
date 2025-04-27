@@ -48,6 +48,7 @@ public class AppointmentServiceImplementation implements AppointmentService {
 			// Add doctor and patient into appointment
 			appointment.setDoctor(doctor);
 			appointment.setPatient(patient);
+//			appointment.setStatus(false);
 			
 			// Save Appointment
 			Appointment saveAppointment = appointmentRepository.save(appointment);
@@ -111,11 +112,22 @@ public class AppointmentServiceImplementation implements AppointmentService {
 	}
 
 	@Override
-	public Appointment updateAppointment(String id, Appointment updateAppointment) {
-		Appointment existAppointment = appointmentRepository.findById(id)
-				.orElseThrow(() -> new RuntimeException("Appointment Not Found !!"));
+	public Appointment updateAppointmentDate(String id, Appointment updateAppointment) {
+		Appointment existAppointment = appointmentRepository.findById(id).orElse(null);
 
+		// Update Appointment Date
 		existAppointment.setAppointmentDate(updateAppointment.getAppointmentDate());
+		
+		return appointmentRepository.save(existAppointment);
+	}
+
+	@Override
+	public Appointment updateAppointmentStatus(String id, Appointment updateAppointment) {
+		Appointment existAppointment = appointmentRepository.findById(id).orElse(null);
+		
+		// Update Appointment Date
+		existAppointment.setStatus(true);
+		
 		return appointmentRepository.save(existAppointment);
 	}
 
