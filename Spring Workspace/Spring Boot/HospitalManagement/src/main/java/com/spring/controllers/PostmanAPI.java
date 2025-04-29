@@ -12,6 +12,7 @@ import com.spring.models.Bill;
 import com.spring.models.Patient;
 import com.spring.services.BillService;
 import com.spring.services.PatientService;
+import com.spring.structures.ResponseStructure;
 
 @RestController
 public class PostmanAPI {
@@ -21,10 +22,24 @@ public class PostmanAPI {
     @Autowired
     private BillService billService;
 
+//    @GetMapping("/patients")
+//    public List<Patient> viewAllPatients() {
+//    	return patientService.getAllPatients(); 
+//    }
+    
     @GetMapping("/patients")
-    public List<Patient> viewAllPatients() {
-    	return patientService.getAllPatients(); 
+    public ResponseStructure<List<Patient>> viewAllPatients() {
+        List<Patient> patients = patientService.getAllPatients();
+        if (patients != null && !patients.isEmpty()) {
+            return new ResponseStructure<>("success", 200, patients);
+        } else {
+            return new ResponseStructure<>("failed", 404, patients);
+        }
     }
+
+    
+    
+    
 
     @GetMapping("/patients/{age}")
     public List<Patient> viewAllPatientsbyAge(@PathVariable int age) {

@@ -2,6 +2,9 @@ package com.spring.models;
 
 import java.time.LocalDate;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -19,6 +22,7 @@ public class Bill {
 
     @OneToOne
     @JoinColumn(name = "patient_id")
+    @JsonBackReference
     private Patient patient;
 
     private double totalAmount;

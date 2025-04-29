@@ -109,8 +109,14 @@
 								<td th:text="${doctor.phone}"></td>
 
 								<td><span
-									th:text="${doctor.appointments != null and doctor.appointments.?[status == false].size() > 0 ? 'Yes' : 'No'}"
-									th:classappend="${doctor.appointments != null and doctor.appointments.?[status == false].size() > 0} ? 'text-danger fw-bold' : 'text-success fw-bold'">
+									th:text="
+								      ${doctor.appointments == null or #lists.isEmpty(doctor.appointments)} ? 'No Appointment' :
+								      (${#lists.size(doctor.appointments.?[status == false]) > 0} ? 'Yes' : 'No')
+								    "
+									th:classappend="
+								      ${doctor.appointments == null or #lists.isEmpty(doctor.appointments)} ? 'text-secondary fw-bold' :
+								      (${#lists.size(doctor.appointments.?[status == false]) > 0} ? 'text-success fw-bold' : 'text-danger fw-bold')
+								    ">
 								</span></td>
 
 								<td>

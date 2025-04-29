@@ -86,7 +86,7 @@
 							<th>Address</th>
 							<th>Contact</th>
 							<th>Bill Status</th>
-							<th>Appointments Status</th>
+							<th>Appointments Pending</th>
 							<th>Actions</th>
 						</tr>
 					</thead>
@@ -109,27 +109,48 @@
 
 
 							<td><span
-								th:text="${patient.bill != null && patient.bill.status ? 'Paid' : 'Not Paid'}"
-								th:classappend="${patient.bill != null && patient.bill.status} ? 'text-success fw-bold' : 'text-danger fw-bold'">
+								th:text="
+							      ${patient.bill == null} ? 'No Bill' :
+							      (${patient.bill.status} ? 'Paid' : 'Not Paid')
+							    "
+								th:classappend="
+							      ${patient.bill == null} ? 'text-secondary fw-bold' :
+							      (${patient.bill.status} ? 'text-success fw-bold' : 'text-danger fw-bold')
+							    ">
 							</span></td>
 
-							<td><span
-								th:text="${patient.appointments != null and patient.appointments.?[status == false].size() > 0 ? 'Pending' : 'Completed'}"
-								th:classappend="${patient.appointments != null and patient.appointments.?[status == false].size() > 0} ? 'text-danger fw-bold' : 'text-success fw-bold'">
-							</span></td>
+
+
+							<td>
+							  <span
+							    th:text="
+							      ${patient.appointments == null or #lists.isEmpty(patient.appointments)} ? 'No Appointment' :
+							      (${#lists.size(patient.appointments.?[status == false]) > 0} ? 'Yes' : 'No')
+							    "
+							    th:classappend="
+							      ${patient.appointments == null or #lists.isEmpty(patient.appointments)} ? 'text-secondary fw-bold' :
+							      (${#lists.size(patient.appointments.?[status == false]) > 0} ? 'text-success fw-bold' : 'text-danger fw-bold')
+							    ">
+							  </span>
+							</td>
+
+
+
+
 
 							<td>
 								<div class="d-flex justify-content-center gap-2">
 									<a th:href="@{'/patient/edit/' + ${patient.id}}"
 										class="btn btn-sm btn-warning btn-circle"> <i
 										class="bi bi-pencil"></i>
-									</a> <a th:href="@{'/patient/delete/' + ${patient.id}}"
+									</a><a th:href="@{'/patient/delete/' + ${patient.id}}"
 										class="btn btn-sm rounded-circle"
-										th:classappend="${#bools.isFalse(patient.bill.status) or patient.appointments.?[!status].size() > 0} ? 'disabled btn-secondary' : 'btn-danger'"
-										th:attr="disabled=${#bools.isFalse(patient.bill.status) or patient.appointments.?[!status].size() > 0} ? 'disabled' : null"
+										th:classappend="${(patient.bill != null and #bools.isFalse(patient.bill.status)) or (patient.appointments != null and patient.appointments.?[!status].size() > 0)} ? 'disabled btn-secondary' : 'btn-danger'"
+										th:attr="disabled=${(patient.bill != null and #bools.isFalse(patient.bill.status)) or (patient.appointments != null and patient.appointments.?[!status].size() > 0)} ? 'disabled' : null"
 										onclick="return confirm('Are you sure you want to delete this patient?')">
 										<i class="bi bi-trash"></i>
 									</a>
+
 								</div>
 							</td>
 

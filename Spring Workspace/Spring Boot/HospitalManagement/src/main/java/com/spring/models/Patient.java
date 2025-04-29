@@ -29,6 +29,7 @@ public class Patient {
 	private LocalDate admissionDate;
 
 	@OneToOne(mappedBy = "patient", cascade = CascadeType.ALL, orphanRemoval = true)
+	@JsonManagedReference
 	private Bill bill;
 
 	@OneToMany(mappedBy = "patient", cascade = CascadeType.ALL, orphanRemoval = true)

@@ -1,0 +1,58 @@
+package com.spring.controllers;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+
+import com.spring.models.Patient;
+import com.spring.services.PatientService;
+import com.spring.structures.ResponseStructure;
+
+@RestController
+@RequestMapping("/api")
+@CrossOrigin(origins = "http://localhost:3000")
+public class PostmanAPI {
+
+	@Autowired
+	private PatientService patientService;
+
+	@GetMapping("/patients")
+	public ResponseEntity<ResponseStructure<List<Patient>>> viewAllPatients() {
+		boolean flag = true;
+		List<Patient> patients = null;
+		if (flag) {
+			patients = patientService.getAllPatients();
+
+		}
+
+		ResponseStructure<List<Patient>> response = new ResponseStructure<>();
+		
+		if (patients != null && !patients.isEmpty()) {
+			response.setStatusCode(HttpStatus.OK.value());
+			response.setMsg("Patients fetched successfully");
+			response.setData(patients);
+			return new ResponseEntity<>(response, HttpStatus.OK);
+		} else {
+			response.setStatusCode(HttpStatus.NOT_FOUND.value());
+			response.setMsg("No patients found");
+			response.setData(null);
+			return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
+		}
+	}
+
+	@PostMapping("/add")
+	public ResponseStructure<Patient> addPatient(@RequestBody Patient patient) {
+		Patient patient1 = patientService.addPatient(patient);
+		if (patient1 != null) {
+			return new ResponseStructure<>("success", 200, patient1);
+		} else {
+			return new ResponseStructure<>("failed", 404, patient1);
+		}
+	}
+}
