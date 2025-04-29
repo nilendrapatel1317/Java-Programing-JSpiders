@@ -47,8 +47,22 @@
 				<div class="d-flex justify-content-between align-items-center mb-4">
 					<h1 class="text-primary fw-bold">Doctors List</h1>
 
-					<div class="d-flex align-items-center gap-3">
+					<form action="/doctor" method="post"
+						class="w-50 d-flex gap-2 justify-content-center align-items-center">
+						<!-- Phone -->
+						<div class=" w-50 border-black">
+							<input type="text"
+								class="form-control text-uppercase border-primary" id="id"
+								name="id" placeholder="Enter id">
+						</div>
 
+						<!-- Buttons -->
+						<div class="d-flex justify-content-between ">
+							<button type="submit" class="btn btn-outline-primary me-2">Search</button>
+						</div>
+					</form>
+
+					<div class="d-flex align-items-center gap-3">
 						<!-- Sort By Dropdown -->
 						<div class="dropdown">
 							<button
@@ -91,7 +105,7 @@
 						</thead>
 						<tbody>
 							<tr th:each="doctor : ${doctors}">
-								<td th:text="${doctor.id}"></td>
+								<td th:text="${doctor.id}" class="text-uppercase"></td>
 
 								<td>
 									<div class="d-flex align-items-center gap-2">

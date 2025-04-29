@@ -1,5 +1,6 @@
 package com.spring.serviceImplements;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -84,6 +85,16 @@ public class DoctorServiceImplementation implements DoctorService {
 	public String deleteAllDoctor() {
 		doctorRepository.deleteAll();
 		return "All Doctors Deleted SUccessfully !!";
+	}
+
+	@Override
+	public List<Doctor> getDoctorById(Doctor doctor) {
+		Doctor doctor2 = doctorRepository.findById(doctor.getId()).orElse(null);
+		List<Doctor> listOfDoctors = new ArrayList<>();
+		if(doctor2 != null) {
+			listOfDoctors.add(doctor2);
+		}
+		return listOfDoctors;
 	}
 
 }

@@ -13,6 +13,8 @@ public interface BillService {
 
 	public Optional<Bill> getBillById(String id);
 
+	public List<Bill> getBillById(Bill bill);
+
 	public Bill addBill(Bill bill);
 
 	public Bill updateBill(String id, Bill bill);
@@ -20,5 +22,6 @@ public interface BillService {
 	public String deleteBillById(String id);
 
 	public String deleteAllBill();
+
 	
 }

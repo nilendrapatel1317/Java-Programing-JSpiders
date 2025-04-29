@@ -12,7 +12,6 @@ import com.spring.models.Patient;
 import com.spring.services.PatientService;
 
 @Controller
-@RequestMapping("/patient")
 public class PatientController {
 
     @Autowired
@@ -20,19 +19,8 @@ public class PatientController {
 
     // Open Patient Page (List View)
     @GetMapping
-    public String viewAllPatients(@RequestParam(name = "sortBy", required = false) String sortBy, Model model) {
-        List<Patient> patients;
-
-        if (sortBy == null || sortBy.isEmpty()) {
-            patients = patientService.getAllPatients(); // default sorting
-            model.addAttribute("sortField", "ID");
-        } else {
-            patients = patientService.getAllPatientsBySort(sortBy);
-            model.addAttribute("sortField", sortBy);
-        }
-
-        model.addAttribute("patients", patients);
-        return "patient/patients-list";
+    public String viewAllPatients() {
+        return "index";
     }
     
 

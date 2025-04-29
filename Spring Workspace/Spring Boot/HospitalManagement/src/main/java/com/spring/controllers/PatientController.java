@@ -34,6 +34,22 @@ public class PatientController {
         model.addAttribute("patients", patients);
         return "patient/patients-list";
     }
+
+    @PostMapping
+    public String findById(@ModelAttribute Patient patient, Model model) {
+    	
+    	List<Patient> patients;
+    	
+    	if(patient.getId().trim() != "") {
+    		patients = patientService.getPatientById(patient);    	
+    		model.addAttribute("patients", patients);
+    		model.addAttribute("sortField", "ID");
+    		return "patient/patients-list";
+    	}
+    	else {
+    		return "redirect:/patient";
+		}
+    }
     
 
     // Open Add Patient Form

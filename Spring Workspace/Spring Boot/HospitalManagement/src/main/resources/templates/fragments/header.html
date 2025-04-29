@@ -9,9 +9,11 @@
 	<div th:fragment="navbar">
 		<nav class="d-flex flex-column bg-dark text-white p-3 vh-100"
 			style="width: 200px;">
-			<h2 class="mb-5"><a class="nav-link text-white"
-					th:href="@{/}">🏥 HMS</a></h2>
-			<ul class="nav flex-column mt-1 gap-2">
+			<h2 class="mb-5">
+				<a class="nav-link text-white" th:href="@{/}"><img
+					src="/images/logo.png" alt="Patient Image" class="logo-img"></a>
+			</h2>
+			<ul class="nav flex-column gap-2">
 				<li class="nav-item mb-2 d-flex align-items-center"><i
 					class="bi bi-person-lines-fill"></i> <a class="nav-link text-white"
 					th:href="@{/patient}">Patient</a></li>

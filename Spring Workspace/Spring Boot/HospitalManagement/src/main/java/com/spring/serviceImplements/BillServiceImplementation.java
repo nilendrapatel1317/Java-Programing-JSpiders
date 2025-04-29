@@ -178,4 +178,15 @@ public class BillServiceImplementation implements BillService {
 		}
 	}
 
+	@Override
+	public List<Bill> getBillById(Bill bill) {
+		Bill bill2 = billRepository.findById(bill.getId()).orElse(null);
+		List<Bill> list = new ArrayList<>();
+		if(bill2 != null) {
+			list.add(bill2);
+		}
+			
+		return list;
+	}
+
 }

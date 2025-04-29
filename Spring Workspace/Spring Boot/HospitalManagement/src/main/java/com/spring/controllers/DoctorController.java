@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -41,6 +42,22 @@ public class DoctorController {
 		model.addAttribute("doctors", doctors);
 		return "doctor/doctors-list";
 	}
+
+	@PostMapping
+	public String viewDoctorByID(@ModelAttribute Doctor doctor, Model model) {
+		List<Doctor> doctors;
+		if (doctor.getId().trim() != "") {
+			doctors = doctorService.getDoctorById(doctor); // Default by ID
+			model.addAttribute("doctors", doctors);
+			model.addAttribute("sortField", "ID");
+			return "doctor/doctors-list";
+		} else {
+			return "redirect:/doctor";
+		}
+		
+	}
+	
+	
 
 	// Open Add Doctor Form
 	@GetMapping("/add")

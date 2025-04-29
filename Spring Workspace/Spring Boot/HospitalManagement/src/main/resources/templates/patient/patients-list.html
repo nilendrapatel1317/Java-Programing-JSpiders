@@ -44,8 +44,23 @@
 		<div class="flex-grow-1 p-4">
 			<div class="d-flex justify-content-between align-items-center mb-4">
 				<h1 class="text-primary fw-bold m-0">Patients List</h1>
-				<div class="d-flex align-items-center gap-3">
+				
+				<form action="/patient" method="post"
+					class="w-50 d-flex gap-2 justify-content-center align-items-center">
+					<!-- Phone -->
+					<div class=" w-50 border-black">
+						<input type="text"
+							class="form-control text-uppercase border-primary" id="id"
+							name="id" placeholder="Enter id">
+					</div>
 
+					<!-- Buttons -->
+					<div class="d-flex justify-content-between ">
+						<button type="submit" class="btn btn-outline-primary me-2">Search</button>
+					</div>
+				</form>
+				
+				<div class="d-flex align-items-center gap-3">
 					<!-- Sort By Dropdown -->
 					<div class="dropdown">
 						<button
@@ -92,19 +107,18 @@
 					</thead>
 					<tbody>
 						<tr th:each="patient : ${patients}">
-							<td th:text="${patient.id}"></td>
+							<td th:text="${patient.id}" class="text-uppercase"></td>
 
 							<td>
-								<div class="d-flex align-items-center gap-2">
+								<div class="d-flex align-items-center text-capitalize gap-2">
 									<img src="/images/profile.png" alt="Patient Image"
 										class="profile-img"> <span th:text="${patient.name}"></span>
 								</div>
 							</td>
 
 							<td th:text="${patient.age}"></td>
-							<td th:text="${patient.gender}"
-								style="text-transform: capitalize;"></td>
-							<td th:text="${patient.address}"></td>
+							<td th:text="${patient.gender}" class="text-capitalize"></td>
+							<td th:text="${patient.address}" class="text-capitalize"></td>
 							<td th:text="${patient.phone}"></td>
 
 
@@ -121,18 +135,16 @@
 
 
 
-							<td>
-							  <span
-							    th:text="
+							<td><span
+								th:text="
 							      ${patient.appointments == null or #lists.isEmpty(patient.appointments)} ? 'No Appointment' :
 							      (${#lists.size(patient.appointments.?[status == false]) > 0} ? 'Yes' : 'No')
 							    "
-							    th:classappend="
+								th:classappend="
 							      ${patient.appointments == null or #lists.isEmpty(patient.appointments)} ? 'text-secondary fw-bold' :
-							      (${#lists.size(patient.appointments.?[status == false]) > 0} ? 'text-success fw-bold' : 'text-danger fw-bold')
+							      (${#lists.size(patient.appointments.?[status == false]) > 0} ? 'text-danger fw-bold' : 'text-success fw-bold')
 							    ">
-							  </span>
-							</td>
+							</span></td>
 
 
 

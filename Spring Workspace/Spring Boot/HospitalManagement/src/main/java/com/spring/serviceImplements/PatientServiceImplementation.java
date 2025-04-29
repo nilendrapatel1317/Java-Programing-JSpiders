@@ -1,5 +1,6 @@
 package com.spring.serviceImplements;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -123,6 +124,17 @@ public class PatientServiceImplementation implements PatientService {
 	public String deleteAllPatient() {
 		patientRepository.deleteAll();
 		return "All patients deleted successfully.";
+	}
+
+	@Override
+	public List<Patient> getPatientById(Patient patient) {
+		
+		Patient patient1 = patientRepository.findById(patient.getId()).orElse(null);
+		List<Patient> list = new ArrayList<>();
+		if(patient1 != null) {
+			list.add(patient1);
+		}
+		return list;
 	}
 
 }

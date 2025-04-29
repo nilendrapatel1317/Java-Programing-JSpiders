@@ -1,5 +1,6 @@
 package com.spring.serviceImplements;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -37,6 +38,24 @@ public class AppointmentServiceImplementation implements AppointmentService {
 	@Override
 	public List<Appointment> getAllAppointmentsSortBy(String sortBy) {
 		return appointmentRepository.findAll(Sort.by(sortBy));
+	}
+	
+	
+
+	@Override
+	public List<Appointment> getAppById(Appointment appointment) {
+		Appointment appointment2 = appointmentRepository.findById(appointment.getId()).orElse(null);
+		List<Appointment> list = new ArrayList<>();
+		if(appointment2 != null) {
+			list.add(appointment2);
+		}
+		return list;
+	}
+
+	@Override
+	public Optional<Appointment> getAppointmentById(String id) {
+		// TODO Auto-generated method stub
+		return Optional.empty();
 	}
 
 	@Override
@@ -162,11 +181,6 @@ public class AppointmentServiceImplementation implements AppointmentService {
 	public String deleteAllAppointment() {
 		appointmentRepository.deleteAll();
 		return "All Appointment Deleted Successfully !!";
-	}
-
-	@Override
-	public Optional<Appointment> getAppointmentById(String id) {
-		return appointmentRepository.findById(id);
 	}
 
 }

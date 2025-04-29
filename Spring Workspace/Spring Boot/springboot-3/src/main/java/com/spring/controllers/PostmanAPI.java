@@ -1,6 +1,7 @@
 package com.spring.controllers;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,7 @@ import com.spring.models.Patient;
 import com.spring.services.PatientService;
 import com.spring.structures.ResponseStructure;
 
-@RestController
+@Controller
 @RequestMapping("/api")
 @CrossOrigin(origins = "http://localhost:3000")
 public class PostmanAPI {
@@ -55,4 +56,13 @@ public class PostmanAPI {
 			return new ResponseStructure<>("failed", 404, patient1);
 		}
 	}
+	
+	@PostMapping("/delete")
+	public ResponseEntity<String> deletePatient(@RequestBody Map<String, String> payload) {
+	    String id = payload.get("id");
+	    patientService.deletePatient(id);
+	    return ResponseEntity.ok("Patient deleted");
+	}
+
+	
 }

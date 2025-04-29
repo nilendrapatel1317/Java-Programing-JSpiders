@@ -47,6 +47,20 @@ public class AppointmentController {
         model.addAttribute("appointments", appointments);
         return "appointment/appointments-list";
     }
+	@PostMapping
+	public String viewAppointmentById(@ModelAttribute Appointment appointment, Model model) {
+		List<Appointment> appointments;
+		
+		if (appointment.getId().trim() != "") {
+			appointments = appointmentService.getAppById(appointment); // Default by ID
+			model.addAttribute("appointments", appointments);
+			model.addAttribute("sortField", "ID");
+			return "appointment/appointments-list";
+		} else {
+			return "redirect:/appointment";
+		}
+		
+	}
 
 	// Open Add Appointment Form
 	@GetMapping("/add")

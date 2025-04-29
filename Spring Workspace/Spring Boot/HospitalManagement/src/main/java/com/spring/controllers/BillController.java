@@ -47,6 +47,20 @@ public class BillController {
         model.addAttribute("bills", bills);
         return "bill/bills-list";
     }
+	@PostMapping
+	public String getBillById(@ModelAttribute Bill bill, Model model) {
+		List<Bill> bills;
+		
+		if (bill.getId().trim() != "") {
+			bills = billService.getBillById(bill);
+			model.addAttribute("sortField", "id");
+			model.addAttribute("bills", bills);
+			return "bill/bills-list";
+		} else {
+			return "redirect:/bill";
+		}
+		
+	}
 
 	// open add form
 	@GetMapping("/add")
