@@ -53,8 +53,8 @@ public class StudentServiceImplementation implements StudentService {
 
 	@Override
 	public boolean deleteAllStudents() {
-		// TODO Auto-generated method stub
-		return false;
+		studentRepository.deleteAll();
+		return true;
 	}
 
 }

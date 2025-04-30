@@ -1,11 +1,16 @@
 package com.spring.serviceImplements;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import com.spring.DAO.PatientDAO;
+import com.spring.DTO.PatientDTO;
+import com.spring.exception.ResourceNotFoundException;
+import com.spring.mapping.Mapping;
 import com.spring.models.Patient;
 import com.spring.repositories.PatientRepository;
 import com.spring.services.PatientService;
@@ -17,13 +22,20 @@ public class PatientServiceImplementation implements PatientService {
 	private PatientRepository patientRepository;
 
 	@Override
-	public List<Patient> getAllPatients() {
-		return patientRepository.findAll();
+	public List<PatientDAO> getAllPatients() {
+		List<Patient> patients = patientRepository.findAll();
+		List<PatientDAO> patientDAOs = new ArrayList<>();
+		for (Patient patient : patients) {
+			patientDAOs.add(Mapping.convertPatientToDAO(patient));
+		}
+		return patientDAOs;
 	}
 	@Override
-	public Patient addPatient(Patient patient) {
-		patient.setId(generateID());
-		return patientRepository.save(patient);
+	public PatientDAO addPatient(PatientDTO patientDTO) {
+		Patient patient = Mapping.convertDTOtoPatient(patientDTO);
+		Patient savePatient = patientRepository.save(patient);
+		Mapping.convertPatientToDAO(savePatient);
+		return Mapping.convertPatientToDAO(savePatient);
 	}
 
 	@Override
@@ -32,8 +44,15 @@ public class PatientServiceImplementation implements PatientService {
 	}
 
 	@Override
-	public Optional<Patient> getPatientById(String id) {
-		return patientRepository.findById(id);
+	public PatientDAO getPatientById(String id) {
+		Patient patient;
+		if (!patientRepository.existsById(id)) {
+		    throw new ResourceNotFoundException("Student with ID " + id + " not found");
+		}
+		else {
+			patient = patientRepository.findById(id).orElse(null);
+		}
+		return Mapping.convertPatientToDAO(patient);
 	}
 
 	@Override

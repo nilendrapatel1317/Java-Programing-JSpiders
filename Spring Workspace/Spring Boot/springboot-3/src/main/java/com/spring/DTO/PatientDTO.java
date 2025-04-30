@@ -1,11 +1,6 @@
-package com.spring.models;
+package com.spring.DTO;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-
-@Entity
-public class Patient {
-	@Id
+public class PatientDTO {
 	private String id;
 
 	private String name;
@@ -13,11 +8,9 @@ public class Patient {
 	private String gender;
 	private int age;
 	
-	public Patient() {
-	}
+	
 
-	public Patient(String id, String name, String gender, int age) {
-		super();
+	public PatientDTO(String id, String name, String gender, int age) {
 		this.id = id;
 		this.name = name;
 		this.gender = gender;

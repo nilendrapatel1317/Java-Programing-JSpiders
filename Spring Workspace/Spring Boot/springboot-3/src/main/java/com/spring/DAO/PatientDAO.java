@@ -1,27 +1,16 @@
-package com.spring.models;
+package com.spring.DAO;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-
-@Entity
-public class Patient {
-	@Id
+public class PatientDAO {
 	private String id;
 
 	private String name;
 
 	private String gender;
-	private int age;
-	
-	public Patient() {
-	}
 
-	public Patient(String id, String name, String gender, int age) {
-		super();
+	public PatientDAO(String id, String name, String gender) {
 		this.id = id;
 		this.name = name;
 		this.gender = gender;
-		this.age = age;
 	}
 
 	public String getId() {
@@ -46,13 +35,5 @@ public class Patient {
 
 	public void setGender(String gender) {
 		this.gender = gender;
-	}
-
-	public int getAge() {
-		return age;
-	}
-
-	public void setAge(int age) {
-		this.age = age;
 	}
 }

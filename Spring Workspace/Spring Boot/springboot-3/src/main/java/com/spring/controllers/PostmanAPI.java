@@ -11,29 +11,26 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import com.spring.DAO.PatientDAO;
+import com.spring.DTO.PatientDTO;
 import com.spring.models.Patient;
 import com.spring.services.PatientService;
 import com.spring.structures.ResponseStructure;
 
-@Controller
-@RequestMapping("/api")
-@CrossOrigin(origins = "http://localhost:3000")
+@RestController
+@RequestMapping("/patients")
+
 public class PostmanAPI {
 
 	@Autowired
 	private PatientService patientService;
 
-	@GetMapping("/patients")
-	public ResponseEntity<ResponseStructure<List<Patient>>> viewAllPatients() {
-		boolean flag = true;
-		List<Patient> patients = null;
-		if (flag) {
-			patients = patientService.getAllPatients();
+	@GetMapping
+	public ResponseEntity<ResponseStructure<List<PatientDAO>>> viewAllPatients() {
+		List<PatientDAO> patients = patientService.getAllPatients();
 
-		}
+		ResponseStructure<List<PatientDAO>> response = new ResponseStructure<>();
 
-		ResponseStructure<List<Patient>> response = new ResponseStructure<>();
-		
 		if (patients != null && !patients.isEmpty()) {
 			response.setStatusCode(HttpStatus.OK.value());
 			response.setMsg("Patients fetched successfully");
@@ -48,21 +45,25 @@ public class PostmanAPI {
 	}
 
 	@PostMapping("/add")
-	public ResponseStructure<Patient> addPatient(@RequestBody Patient patient) {
-		Patient patient1 = patientService.addPatient(patient);
+	public ResponseStructure<PatientDAO> addPatient(@RequestBody PatientDTO patientDTO) {
+		PatientDAO patient1 = patientService.addPatient(patientDTO);
 		if (patient1 != null) {
 			return new ResponseStructure<>("success", 200, patient1);
 		} else {
 			return new ResponseStructure<>("failed", 404, patient1);
 		}
 	}
-	
+
 	@PostMapping("/delete")
 	public ResponseEntity<String> deletePatient(@RequestBody Map<String, String> payload) {
-	    String id = payload.get("id");
-	    patientService.deletePatient(id);
-	    return ResponseEntity.ok("Patient deleted");
+		String id = payload.get("id");
+		patientService.deletePatient(id);
+		return ResponseEntity.ok("Patient deleted");
+	}
+	
+	@GetMapping("/{id}")
+	public PatientDAO findById(@PathVariable String id) {
+		return patientService.getPatientById(id);
 	}
 
-	
 }
